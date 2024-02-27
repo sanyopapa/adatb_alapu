@@ -1,0 +1,14 @@
+Megvalósítható elemek:
+1. Városok, állomások, vonatok kezelése
+2. Menetrend
+3. Vasútkereső (csatlakozások figyelembevételével) // Kérdéses(Ötlet: csak egyenes járatok)
+4. Menetjegy, pótjegy vásárlása // Kérdéses
+5. Éves kimutatás készítése // igen
+6. Jegy- és bérletkategóriák (diák, éves bérlet, havi bérlet, …), törzsutaskártya, kedvezmények 
+7. Statisztika készítése a jegyárusításból // Nem diagrammal
+8. Vasútkereső idő és ár szerint // Összeköthető a vasútkeresővel
+9. Online jegyrendelés // Csak annyit hogy mennyibe kerül
+10. Akciós ajánlatok, csoportos kedvezmények, városnéző utak 
+11. Kalauzok, jegypénztárosok beosztása // Ezt nem
+12. Alkalmazotti bérek, szabadságok kiszámítása // Ezt nem
+13. Vonatkereső
