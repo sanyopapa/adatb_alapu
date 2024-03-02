@@ -9,6 +9,20 @@ Megvalósítható elemek:
 8. Vasútkereső idő és ár szerint // Összeköthető a vasútkeresővel
 9. Online jegyrendelés // Csak annyit hogy mennyibe kerül
 10. Akciós ajánlatok, csoportos kedvezmények, városnéző utak 
-11. Kalauzok, jegypénztárosok beosztása // Ezt nem
-12. Alkalmazotti bérek, szabadságok kiszámítása // Ezt nem
-13. Vonatkereső
+11. Szerelvénykereső 
+
+
+Adatbben tárolni: 
+- Állomás: Város, Neve
+- Járat: Honnan, Hova, Vonatszám, Mikor indul?, Menetidő, Vonattípus
+- Felhasználó: Név, Email, Életkor, Kedvezmény típusa, igazolványszám, profilkép
+- Jegy: Típus, Ár, Feltétel
+- Hír: Cím, Szöveg, Dátum, id
+- Mozdony: Gyártási év, Meghajtás, Teljesítmény, Név
+- Szerelvény: Gyártási év, Név, Meghajtás, Kapacitás, Kerékpárhelyek száma, Osztály
+
+
+Képernyőtervek: Készen vannak
+
+
+Pontozás: Csapatszintű
