@@ -16,7 +16,7 @@ Adatbben tárolni:
 - Állomás: Város, Neve
 - Járat: Honnan, Hova, Vonatszám, Mikor indul?, Menetidő, Vonattípus
 - Felhasználó: Név, Email, Életkor, Kedvezmény típusa, igazolványszám, profilkép
-- Jegy: Típus, Ár, Feltétel
+- Jegy: Típus, Ár, Feltétel, Időtartam
 - Hír: Cím, Szöveg, Dátum, id
 - Mozdony: Gyártási év, Meghajtás, Teljesítmény, Név
 - Szerelvény: Gyártási év, Név, Meghajtás, Kapacitás, Kerékpárhelyek száma, Osztály
