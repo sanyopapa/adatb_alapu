@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-03-04T13:47:02.595Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="M_vJbmTIH1hf92QQh34j" version="22.1.2" type="device">
+<mxfile host="Electron" modified="2024-03-03T08:39:30.250Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="TSlOspnoZfu0a8_zgHe3" version="22.0.3" type="device">
   <diagram name="1 oldal" id="36wSKTNMPmUcTjD_YmkS">
-    <mxGraphModel dx="1607" dy="496" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2245" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -28,16 +28,16 @@
         <mxCell id="YrC1Zh7UfG_3kBupLFQ--6" value="Jarat" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="480" y="150" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="YrC1Zh7UfG_3kBupLFQ--7" value="Honnan" style="ellipse;whiteSpace=wrap;html=1;fontStyle=0" parent="1" vertex="1">
+        <mxCell id="YrC1Zh7UfG_3kBupLFQ--7" value="Honnan" style="ellipse;whiteSpace=wrap;html=1;fontStyle=4" parent="1" vertex="1">
           <mxGeometry x="560" y="35" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="YrC1Zh7UfG_3kBupLFQ--8" value="Hova" style="ellipse;whiteSpace=wrap;html=1;fontStyle=0" parent="1" vertex="1">
+        <mxCell id="YrC1Zh7UfG_3kBupLFQ--8" value="Hova" style="ellipse;whiteSpace=wrap;html=1;fontStyle=4" parent="1" vertex="1">
           <mxGeometry x="670" y="70" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="YrC1Zh7UfG_3kBupLFQ--9" value="Vonatszam" style="ellipse;whiteSpace=wrap;html=1;fontStyle=4" parent="1" vertex="1">
+        <mxCell id="YrC1Zh7UfG_3kBupLFQ--9" value="Vonatszam" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="670" y="130" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="YrC1Zh7UfG_3kBupLFQ--10" value="Indulasi_ido" style="ellipse;whiteSpace=wrap;html=1;fontStyle=0" parent="1" vertex="1">
+        <mxCell id="YrC1Zh7UfG_3kBupLFQ--10" value="Indulasi_ido" style="ellipse;whiteSpace=wrap;html=1;fontStyle=4" parent="1" vertex="1">
           <mxGeometry x="670" y="250" width="90" height="50" as="geometry" />
         </mxCell>
         <mxCell id="YrC1Zh7UfG_3kBupLFQ--11" value="Menetido" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
