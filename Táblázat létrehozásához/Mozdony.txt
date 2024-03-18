@@ -1,0 +1,39 @@
+MNev: Szili
+Meghajtas: Villany
+Teljesitmeny: 2200 
+Gyartasi_ev: 1963
+
+MNev: Gigant
+Meghajtas: Villany
+Teljesitmeny: 3600
+Gyartasi_ev: 1974
+
+MNev: Taurus
+Meghajtas: Villany
+Teljesitmeny: 6400
+Gyartasi_ev: 2002
+
+MNev: TRAXX
+Meghajtas: Villany
+Teljesitmeny: 5600 
+Gyartasi_ev: 2010
+
+MNev: Púpos
+Meghajtas: Dízel
+Teljesitmeny: 736
+Gyartasi_ev: 1963
+
+MNev: Csörgő
+Meghajtas: Dízel
+Teljesitmeny: 1324
+Gyartasi_ev: 1972
+
+MNev: Szergej
+Meghajtas: Dízel 
+Teljesitmeny: 1472
+Gyartasi_ev: 1965
+
+MNev: Dacia
+Meghajtas: Dízel
+Teljesitmeny: 700
+Gyartasi_ev: 1974

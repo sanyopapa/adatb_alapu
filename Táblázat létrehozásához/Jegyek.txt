@@ -1,0 +1,299 @@
+Tipus: Teljesárú országbérlet
+Ar: 18900
+Idotartam: 30 nap
+Feltetel: -
+
+Tipus: Kedvezményes országbérlet
+Ar: 1890
+Idotartam: 30 nap
+Feltetel: -
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Bács-Kiskun vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Baranya vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Békés vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Borsod-Abaúj-Zemplén vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Csongrád-Csanád vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Fejér vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Győr-Moson-Sopron vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Hajdú-Bihar vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Heves vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Jász-Nagykun-Szolnok vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Komárom-Esztergom vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Nógrád vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Pest vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Somogy vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Szabolcs-Szatmár-Bereg vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Tolna vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Vas vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Veszprém vármegye
+
+Tipus: Teljesárú vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Zala vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Bács-Kiskun vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Baranya vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Békés vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Borsod-Abaúj-Zemplén vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Csongrád-Csanád vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Fejér vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Győr-Moson-Sopron vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Hajdú-Bihar vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Heves vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Jász-Nagykun-Szolnok vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Komárom-Esztergom vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Nógrád vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Pest vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Somogy vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Szabolcs-Szatmár-Bereg vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Tolna vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Vas vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Veszprém vármegye
+
+Tipus: Kedvezményes vármegyebérlet
+Ar: 9450
+Idotartam: 30 nap
+Feltetel: Zala vármegye
+
+Tipus: Magyarország24 jegy
+Ar: 4990
+Idotartam: 1 nap
+Feltetel: -
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Bács-Kiskun vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Baranya vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Békés vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Borsod-Abaúj-Zemplén vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Csongrád-Csanád vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Fejér vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Győr-Moson-Sopron vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Hajdú-Bihar vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Heves vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Jász-Nagykun-Szolnok vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Komárom-Esztergom vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Nógrád vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Pest vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Somogy vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Szabolcs-Szatmár-Bereg vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Tolna vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Vas vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Veszprém vármegye
+
+Tipus: Teljesárú Vármegye24 napijegy
+Ar: 990
+Idotartam: 1 nap
+Feltetel: Zala vármegye

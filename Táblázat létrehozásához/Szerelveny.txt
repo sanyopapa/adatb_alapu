@@ -1,0 +1,104 @@
+SzNev: Bzmot
+Meghajtas: Dízel
+Kapacitas: 44
+Osztaly: 2
+Gyartasi_ev: 1977
+Kerekparhelyek_szama: 0
+
+SzNev: Bzx
+Meghajtas:
+Kapacitas: 50
+Osztaly: 2
+Gyartasi_ev: 1977
+Kerekparhelyek_szama: 0
+
+SzNev: Bzmot
+Meghajtas: Dízel
+Kapacitas: 44
+Osztaly: 2
+Gyartasi_ev: 1977
+Kerekparhelyek_szama: 0
+
+SzNev: Uzsgyi
+Meghajtas: Dízel
+Kapacitas: 132
+Osztaly: 2
+Gyartasi_ev: 2002
+Kerekparhelyek_szama: 2
+
+SzNev: Desiro
+Meghajtas: Dízel
+Kapacitas: 110
+Osztaly: 12
+Gyartasi_ev: 2003
+Kerekparhelyek_szama: 4
+
+SzNev: Hernyó
+Meghajtas: Villany
+Kapacitas: 344
+Osztaly: 2
+Gyartasi_ev: 1988
+Kerekparhelyek_szama: 4
+
+SzNev: Samu
+Meghajtas: Villany
+Kapacitas: 246
+Osztaly: 12
+Gyartasi_ev: 1994
+Kerekparhelyek_szama: 0
+
+SzNev: FLIRT
+Meghajtas: Villany
+Kapacitas: 200
+Osztaly: 2
+Gyartasi_ev: 2006
+Kerekparhelyek_szama: 4
+
+SzNev: KISS
+Meghajtas: Villany
+Kapacitas: 600
+Osztaly: 2
+Gyartasi_ev: 2020
+Kerekparhelyek_szama: 0
+
+SzNev: Bd
+Meghajtas: 
+Kapacitas: 80
+Osztaly: 2
+Gyartasi_ev: 1971
+Kerekparhelyek_szama: 3
+
+SzNev: Bhv
+Meghajtas: 
+Kapacitas: 79
+Osztaly: 2
+Gyartasi_ev: 1998
+Kerekparhelyek_szama: 0
+
+SzNev: Byee
+Meghajtas:
+Kapacitas: 80
+Osztaly: 2
+Gyartasi_ev: 2006
+Kerekparhelyek_szama: 0
+
+SzNev: Bpee
+Meghajtas: 
+Kapacitas: 72
+Osztaly: 2
+Gyartasi_ev: 1977
+Kerekparhelyek_szama: 0
+
+SzNev: ARmz
+Meghajtas: 
+Kapacitas: 44
+Osztaly: 10
+Gyartasi_ev: 2020
+Kerekparhelyek_szama: 0
+
+SzNev: BDt
+Meghajtas: 
+Kapacitas: 60
+Osztaly: 2
+Gyartasi_ev: 2006
+Kerekparhelyek_szama: 6
