@@ -1,0 +1,412 @@
+Vonatszam: 719
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 4:30
+Menetido: 2:34
+
+Vonatszam: 709
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 5:46
+Menetido: 2:23
+
+Vonatszam: 707
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 6:44
+Menetido: 2:25
+
+Vonatszam: 717
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 7:44
+Menetido: 2:25
+
+Vonatszam: 727
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 8:44
+Menetido: 2:25
+
+Vonatszam: 737
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 9:44
+Menetido: 2:25
+
+Vonatszam: 705
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 10:44
+Menetido: 2:25
+
+Vonatszam: 715
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 11:44
+Menetido: 2:25
+
+Vonatszam: 725
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 12:44
+Menetido: 2:25
+
+Vonatszam: 735
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 13:44
+Menetido: 2:25
+
+Vonatszam: 703
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 14:44
+Menetido: 2:25
+
+Vonatszam: 713
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 15:44
+Menetido: 2:25
+
+Vonatszam: 723
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 16:44
+Menetido: 2:25
+
+Vonatszam: 733
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 17:44
+Menetido: 2:25
+
+Vonatszam: 701
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 18:44
+Menetido: 2:25
+
+Vonatszam: 711
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 19:44
+Menetido: 2:25
+
+Vonatszam: 721
+Honnan: Szeged
+Hova: Budapest-Nyugati
+Vonattipus: InterCity
+Indulasi_ido: 20:44
+Menetido: 2:25
+
+Vonatszam: 720
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 4:30
+Menetido: 2:46
+
+Vonatszam: 700
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 5:50
+Menetido: 2:26
+
+Vonatszam: 702
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 6:50
+Menetido: 2:26
+
+Vonatszam: 712
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 7:50
+Menetido: 2:26
+
+Vonatszam: 722
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 8:50
+Menetido: 2:26
+
+Vonatszam: 732
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 9:50
+Menetido: 2:26
+
+Vonatszam: 704
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 10:50
+Menetido: 2:26
+
+Vonatszam: 714
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 11:50
+Menetido: 2:26
+
+Vonatszam: 724
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 12:50
+Menetido: 2:26
+
+Vonatszam: 734
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 13:50
+Menetido: 2:26
+
+Vonatszam: 706
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 14:50
+Menetido: 2:26
+
+Vonatszam: 716
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 15:50
+Menetido: 2:26
+
+Vonatszam: 726
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 16:50
+Menetido: 2:26
+
+Vonatszam: 736
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 17:50
+Menetido: 2:26
+
+Vonatszam: 708
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 18:50
+Menetido: 2:26
+
+Vonatszam: 718
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 19:50
+Menetido: 2:26
+
+Vonatszam: 728
+Honnan: Budapest-Nyugati
+Hova: Szeged
+Vonattipus: InterCity
+Indulasi_ido: 20:50
+Menetido: 2:26
+
+Vonatszam: 7800
+Honnan: Külsőhalas mh.
+Hova: Kecskemét
+Vonattipus: InterRegio
+Indulasi_ido: 5:28
+Menetido: 1:09
+
+Vonatszam: 7802
+Honnan: Külsőhalas mh.
+Hova: Kecskemét
+Vonattipus: InterRegio
+Indulasi_ido: 7:28
+Menetido: 1:09
+
+Vonatszam: 7892
+Honnan: Külsőhalas mh.
+Hova: Kecskemét
+Vonattipus: InterRegio
+Indulasi_ido: 9:28
+Menetido: 1:09
+
+Vonatszam: 7804
+Honnan: Külsőhalas mh.
+Hova: Kecskemét
+Vonattipus: InterRegio
+Indulasi_ido: 11:28
+Menetido: 1:09
+
+Vonatszam: 7894
+Honnan: Külsőhalas mh.
+Hova: Kecskemét
+Vonattipus: InterRegio
+Indulasi_ido: 13:28
+Menetido: 1:09
+
+Vonatszam: 7806
+Honnan: Külsőhalas mh.
+Hova: Kecskemét
+Vonattipus: InterRegio
+Indulasi_ido: 15:28
+Menetido: 1:09
+
+Vonatszam: 7896
+Honnan: Külsőhalas mh.
+Hova: Kecskemét
+Vonattipus: InterRegio
+Indulasi_ido: 17:28
+Menetido: 1:09
+
+Vonatszam: 7808
+Honnan: Külsőhalas mh.
+Hova: Kecskemét
+Vonattipus: InterRegio
+Indulasi_ido: 19:28
+Menetido: 1:09
+
+Vonatszam: 7809
+Honnan: Kecskemét
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 5:10
+Menetido: 1:17
+
+Vonatszam: 7807
+Honnan: Kecskemét
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 7:21
+Menetido: 1:06
+
+Vonatszam: 7897
+Honnan: Kecskemét
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 9:21
+Menetido: 1:06
+
+Vonatszam: 7805
+Honnan: Kecskemét
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 11:21
+Menetido: 1:06
+
+Vonatszam: 7895
+Honnan: Kecskemét
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 13:21
+Menetido: 1:06
+
+Vonatszam: 7803
+Honnan: Kecskemét
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 15:21
+Menetido: 1:06
+
+Vonatszam: 7893
+Honnan: Kecskemét
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 17:21
+Menetido: 1:06
+
+Vonatszam: 7801
+Honnan: Kecskemét
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 19:21
+Menetido: 1:06
+
+Vonatszam: 7829
+Honnan: Kiskunfélegyháza
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 4:24
+Menetido: 0:45
+
+Vonatszam: 7817
+Honnan: Kiskunfélegyháza
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 6:33
+Menetido: 0:45
+
+Vonatszam: 7813
+Honnan: Kiskunfélegyháza
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 14:33
+Menetido: 0:45
+
+Vonatszam: 7823
+Honnan: Kiskunfélegyháza
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 16:33
+Menetido: 0:45
+
+Vonatszam: 7811
+Honnan: Kiskunfélegyháza
+Hova: Külsőhalas mh.
+Vonattipus: InterRegio
+Indulasi_ido: 18:33
+Menetido: 0:45
+
+Vonatszam: 7810
+Honnan: Külsőhalas mh.
+Hova: Kiskunfélegyháza
+Vonattipus: InterRegio
+Indulasi_ido: 4:28
+Menetido: 0:43
+
+Vonatszam: 7820
+Honnan: Külsőhalas mh.
+Hova: Kiskunfélegyháza
+Vonattipus: InterRegio
+Indulasi_ido: 6:37
+Menetido: 0:43
+
+Vonatszam: 7814
+Honnan: Külsőhalas mh.
+Hova: Kiskunfélegyháza
+Vonattipus: InterRegio
+Indulasi_ido: 14:37
+Menetido: 0:43
+
+Vonatszam: 7816
+Honnan: Külsőhalas mh.
+Hova: Kiskunfélegyháza
+Vonattipus: InterRegio
+Indulasi_ido: 16:37
+Menetido: 0:43

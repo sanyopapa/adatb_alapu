@@ -1,0 +1,18 @@
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `text` varchar(750) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `text`, `date`) VALUES
+(1, 'Baleset Pusztaszabolcs és Ercsi között', 'Tájékoztatjuk tisztelt utasainkat, hogy egy tehervonat Pusztaszabolcs és Ercsi között mohamedán lett, mikor a szerelvény leborult a sínekről Kelet felé. Emiatt a bal vágány nem járható, késésekre kell számítani.', '2023-11-03'),
+(2, 'Extra vonat érkezik', 'Tájékoztatjuk tisztelt utasainkat, hogy a Londonból Brüsszelbe tartó vonat fékhiba miatt hamarosan érkezik a második vágányra. Kérjük a vágány mellett vigyázzanak!', '2022-01-31'),
+(3, 'Közlemény váltóhiba miatt', 'Tájékoztatjuk tisztelt utasainkat, hogy a Budapest-Nyugati pályaudvarról 17:23 perckor elindult Nyírség InterCity vonat váltóhiba miatt nem érinti Szolnok, Püspökladány, Hajdúszoboszló, Debrecen és Nyíregyháza állomásokat. Utasaink Nagykőrös, Kecskemét, Kiskunfélegyháza, Kistelek, Szatymaz és Szeged állomásokon szállhatnak le.', '2022-10-06'),
+(4, 'Külsőhalas felé késések', 'Tájékoztatjuk tisztelt utasainkat, hogy a Külsőhalasról 17:28-kor elindult InterRégió vonat 60 percet késik, mert az utasok lassan tolják. A vonat utasai részére visszatérítést nem vállalunk.', '2022-09-01'),
+(5, 'Somogyszob és Nagyatád között pótlóbusz', 'Tájékoztatjuk tisztelt utasainkat, hogy a holnapi napon minden vonat helyett Somogyszob és Nagyatád között pótlóbusz közlekedik.', '2023-07-30'),
+(6, 'WC-s incidens eredménye', 'Tájékoztatjuk tisztelt utasainkat, hogy a Szolnok állomáson történt WC-s incidenssel kapcsolatban megállapítottuk, hogy Nem Azahriah a hibás.', '2022-05-20');
