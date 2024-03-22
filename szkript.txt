@@ -1,0 +1,433 @@
+DROP TABLE Vasarol;
+DROP TABLE Felhasznalo;
+DROP TABLE Kozlekedik;
+DROP TABLE Allomas;
+DROP TABLE Jarat;
+DROP TABLE Jegy;
+DROP TABLE Hir;
+DROP TABLE Szerelveny;
+CREATE TABLE Allomas (
+    Nev VARCHAR(255) PRIMARY KEY,
+    Varos VARCHAR(255)
+);
+CREATE TABLE Jarat (
+    Vonatszam INT PRIMARY KEY,
+    Honnan VARCHAR(255),
+    Hova VARCHAR(255),
+    Indulasi_ido TIMESTAMP,
+    Menetido TIMESTAMP,
+    Vonattipus VARCHAR(255)
+);
+CREATE TABLE Kozlekedik (
+    AllomasNev VARCHAR(255),
+    Vonatszam INTEGER,
+    Erkezes TIMESTAMP, 
+    Indulas TIMESTAMP,
+    FOREIGN KEY (AllomasNev) REFERENCES Allomas(Nev),
+    FOREIGN KEY (Vonatszam) REFERENCES Jarat(Vonatszam)
+);
+CREATE TABLE Felhasznalo (
+    Email VARCHAR(255) PRIMARY KEY,
+    Nev VARCHAR(255),
+    Eletkor INT,
+    Kedvezmenytipus VARCHAR(255),
+    Igazolvanyszam VARCHAR(255),
+    Profilkep BLOB,
+    Vonatszam INT,
+    FOREIGN KEY (Vonatszam) REFERENCES Jarat(Vonatszam)
+);
+CREATE TABLE Jegy (
+    Tipus VARCHAR(255) PRIMARY KEY,
+    Ar INT,
+    Feltetel CLOB,
+    Idotartam INT
+);
+CREATE TABLE Vasarol (
+    Email VARCHAR(255),
+    Tipus VARCHAR(255),
+    FOREIGN KEY (Email) REFERENCES Felhasznalo(Email),
+    FOREIGN KEY (Tipus) REFERENCES Jegy(Tipus)
+);
+CREATE TABLE Hir (
+    HirId INT PRIMARY KEY,
+    Cim VARCHAR(255),
+    Szoveg CLOB,
+    Datum DATE
+);
+CREATE TABLE Szerelveny (
+    SzNev VARCHAR(255) PRIMARY KEY,
+    Gyartasi_ev INT,
+    Meghajtas VARCHAR(255),
+    Kapacitas INT,
+    Kerekparhelyek_szama INT,
+    Osztaly INT 
+);
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Bzmot', 1977, 'Dízel', 44, 0, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Bzx', 1977, NULL, 50, 0, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Uzsgyi', 2002, 'Dízel', 132, 2, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Desiro', 2003, 'Dízel', 110, 4, 12);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Hernyó', 1988, 'Villany', 344, 4, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Samu', 1994, 'Villany', 246, 0, 12);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('FLIRT', 2006, 'Villany', 200, 4, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('KISS', 2020, 'Villany', 600, 0, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Bd', 1971, NULL, 80, 3, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Bhv', 1998, NULL, 79, 0, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Byee', NULL, NULL, 80, 0, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Bpee', 1977, NULL, 72, 0, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('ARmz', 2020, NULL, 44, 0, 10);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('BDt', 2006, NULL, 60, 6, 2);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly) 
+VALUES ('Szili', 1963, 'Villany', NULL, NULL, NULL);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
+VALUES ('Gigant', 1974, 'Villany', NULL, NULL, NULL);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly) 
+VALUES ('Taurus', 2002, 'Villany', NULL, NULL, NULL);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly) 
+VALUES ('TRAXX', 2010, 'Villany', NULL, NULL, NULL);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly) 
+VALUES ('Púpos', 1963, 'Dízel', NULL, NULL, NULL);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly) 
+VALUES ('Csörgő', 1972, 'Dízel', NULL, NULL, NULL);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly) 
+VALUES ('Szergej', 1965, 'Dízel', NULL, NULL, NULL);
+
+INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly) 
+VALUES ('Dacia', 1974, 'Dízel', NULL, NULL, NULL);
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (719, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 04:30:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:34:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (709, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 05:46:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:23:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (707, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 06:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (717, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 07:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (727, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 08:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (737, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 09:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (705, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 10:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (715, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 11:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (725, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 12:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (735, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 13:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (703, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 14:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (713, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 15:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (723, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 16:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (733, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 17:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (701, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 18:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (711, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 19:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (721, 'Szeged', 'Budapest-Nyugati', TO_DATE('2022-01-01 20:44:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (720, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 04:30:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:46:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (700, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 05:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (702, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 06:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (712, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 07:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (722, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 08:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (732, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 09:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (704, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 10:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (714, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 11:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (724, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 12:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (734, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 13:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (706, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 14:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (716, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 15:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (726, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 16:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (736, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 17:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (708, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 18:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (718, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 19:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jarat (Vonatszam, Honnan, Hova, Indulasi_ido, Menetido, Vonattipus)
+VALUES (728, 'Budapest-Nyugati', 'Szeged', TO_DATE('2022-01-01 20:50:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-01-01 02:26:00', 'YYYY-MM-DD HH24:MI:SS'), 'InterCity');
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú országbérlet', 18900, '-', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes országbérlet', 1890, '-', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Bács-Kiskun vármegye', 9450, 'Bács-Kiskun vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Baranya vármegye', 9450, 'Baranya vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Békés vármegye', 9450, 'Békés vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Borsod-Abaúj-Zemplén vármegye', 9450, 'Borsod-Abaúj-Zemplén vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Csongrád-Csanád vármegye', 9450, 'Csongrád-Csanád vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Fejér vármegye', 9450, 'Fejér vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Győr-Moson-Sopron vármegye', 9450, 'Győr-Moson-Sopron vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Hajdú-Bihar vármegye', 9450, 'Hajdú-Bihar vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Heves vármegye', 9450, 'Heves vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Jász-Nagykun-Szolnok vármegye', 9450, 'Jász-Nagykun-Szolnok vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Komárom-Esztergom vármegye', 9450, 'Komárom-Esztergom vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Nógrád vármegye', 9450, 'Nógrád vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Pest vármegye', 9450, 'Pest vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Somogy vármegye', 9450, 'Somogy vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Szabolcs-Szatmár-Bereg vármegye', 9450, 'Szabolcs-Szatmár-Bereg vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Tolna vármegye', 9450, 'Tolna vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Vas vármegye', 9450, 'Vas vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Veszprém vármegye', 9450, 'Veszprém vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú vármegyebérlet - Zala vármegye', 9450, 'Zala vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Bács-Kiskun vármegye', 945, 'Bács-Kiskun vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Baranya vármegye', 945, 'Baranya vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Békés vármegye', 945, 'Békés vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Borsod-Abaúj-Zemplén vármegye', 945, 'Borsod-Abaúj-Zemplén vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Csongrád-Csanád vármegye', 945, 'Csongrád-Csanád vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Fejér vármegye', 945, 'Fejér vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Győr-Moson-Sopron vármegye', 945, 'Győr-Moson-Sopron vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Hajdú-Bihar vármegye', 945, 'Hajdú-Bihar vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Heves vármegye', 945, 'Heves vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Jász-Nagykun-Szolnok vármegye', 945, 'Jász-Nagykun-Szolnok vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Komárom-Esztergom vármegye', 945, 'Komárom-Esztergom vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Nógrád vármegye', 945, 'Nógrád vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Pest vármegye', 945, 'Pest vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Somogy vármegye', 945, 'Somogy vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Szabolcs-Szatmár-Bereg vármegye', 945, 'Szabolcs-Szatmár-Bereg vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Tolna vármegye', 945, 'Tolna vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Vas vármegye', 945, 'Vas vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Veszprém vármegye', 945, 'Veszprém vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Kedvezményes vármegyebérlet - Zala vármegye', 945, 'Zala vármegye', 30);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Magyarország24 jegy', 4990, '-', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Bács-Kiskun vármegye', 990, 'Bács-Kiskun vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Baranya vármegye', 990, 'Baranya vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Békés vármegye', 990, 'Békés vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Borsod-Abaúj-Zemplén vármegye', 990, 'Borsod-Abaúj-Zemplén vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Csongrád-Csanád vármegye', 990, 'Csongrád-Csanád vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Fejér vármegye', 990, 'Fejér vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Győr-Moson-Sopron vármegye', 990, 'Győr-Moson-Sopron vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Hajdú-Bihar vármegye', 990, 'Hajdú-Bihar vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Heves vármegye', 990, 'Heves vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Jász-Nagykun-Szolnok vármegye', 990, 'Jász-Nagykun-Szolnok vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Komárom-Esztergom vármegye', 990, 'Komárom-Esztergom vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Nógrád vármegye', 990, 'Nógrád vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Pest vármegye', 990, 'Pest vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Somogy vármegye', 990, 'Somogy vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Szabolcs-Szatmár-Bereg vármegye', 990, 'Szabolcs-Szatmár-Bereg vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Tolna vármegye', 990, 'Tolna vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Vas vármegye', 990, 'Vas vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Veszprém vármegye', 990, 'Veszprém vármegye', 1);
+
+INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam)
+VALUES ('Teljesárú Vármegye24 napijegy - Zala vármegye', 990, 'Zala vármegye', 1);
+
+INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
+(1, 'Baleset Pusztaszabolcs és Ercsi között', 'Tájékoztatjuk tisztelt utasainkat, hogy egy tehervonat Pusztaszabolcs és Ercsi között mohamedán lett, mikor a szerelvény leborult a sínekről Kelet felé. Emiatt a bal vágány nem járható, késésekre kell számítani.', TO_DATE('2023-11-03', 'YYYY-MM-DD'));
+
+INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
+(2, 'Extra vonat érkezik', 'Tájékoztatjuk tisztelt utasainkat, hogy a Londonból Brüsszelbe tartó vonat fékhiba miatt hamarosan érkezik a második vágányra. Kérjük a vágány mellett vigyázzanak!', TO_DATE('2022-01-31', 'YYYY-MM-DD'));
+
+INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
+(3, 'Közlemény váltóhiba miatt', 'Tájékoztatjuk tisztelt utasainkat, hogy a Budapest-Nyugati pályaudvarról 17:23 perckor elindult Nyírség InterCity vonat váltóhiba miatt nem érinti Szolnok, Püspökladány, Hajdúszoboszló, Debrecen és Nyíregyháza állomásokat. Utasaink Nagykőrös, Kecskemét, Kiskunfélegyháza, Kistelek, Szatymaz és Szeged állomásokon szállhatnak le.', TO_DATE('2022-10-06', 'YYYY-MM-DD'));
+
+INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
+(4, 'Külsőhalas felé késések', 'Tájékoztatjuk tisztelt utasainkat, hogy a Külsőhalasról 17:28-kor elindult InterRégió vonat 60 percet késik, mert az utasok lassan tolják. A vonat utasai részére visszatérítést nem vállalunk.', TO_DATE('2022-09-01', 'YYYY-MM-DD'));
+
+INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
+(5, 'Somogyszob és Nagyatád között pótlóbusz', 'Tájékoztatjuk tisztelt utasainkat, hogy a holnapi napon minden vonat helyett Somogyszob és Nagyatád között pótlóbusz közlekedik.', TO_DATE('2023-07-30', 'YYYY-MM-DD'));
+
+INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
+(6, 'WC-s incidens eredménye', 'Tájékoztatjuk tisztelt utasainkat, hogy a Szolnok állomáson történt WC-s incidenssel kapcsolatban megállapítottuk, hogy Nem Azahriah a hibás.', TO_DATE('2022-05-20', 'YYYY-MM-DD'));
+
+INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
+(7, 'Tarháló fantom újra lecsapott', 'Tájékoztatjuk tisztelt utasainkat, hogy újra lecsapott a tarháló fantom. Az alany 180 cm, alakja egy teleszart búvárruhára hasonlít. Az ország bármelyik vonatán előfordulhat. Főleg kiskorú utasoktól kér adományokat START-burgerre. Megkérjük Önöket, hogy SEMMIKÉPPEN NE ADJANAK NEKI PÉNZT! Javasolják neki, hogy menjen el dolgozni!', TO_DATE('2024-03-22', 'YYYY-MM-DD'));
+
