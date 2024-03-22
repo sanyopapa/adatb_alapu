@@ -1,0 +1,2 @@
+- Doksi korrigálása (CSABÁT MEGKÉRDEZNI)
+-  Auto increment Hir táblához (https://stackoverflow.com/questions/10990347/how-to-set-auto-increment-column-with-sql-developer)
