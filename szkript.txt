@@ -23,8 +23,8 @@ CREATE TABLE Kozlekedik (
     Vonatszam INTEGER,
     Erkezes TIMESTAMP, 
     Indulas TIMESTAMP,
-    FOREIGN KEY (AllomasNev) REFERENCES Allomas(Nev),
-    FOREIGN KEY (Vonatszam) REFERENCES Jarat(Vonatszam)
+    FOREIGN KEY (AllomasNev) REFERENCES Allomas(Nev) ON DELETE CASCADE,
+    FOREIGN KEY (Vonatszam) REFERENCES Jarat(Vonatszam) ON DELETE CASCADE
 );
 CREATE TABLE Felhasznalo (
     Email VARCHAR(255) PRIMARY KEY,
@@ -34,7 +34,7 @@ CREATE TABLE Felhasznalo (
     Igazolvanyszam VARCHAR(255),
     Profilkep BLOB,
     Vonatszam INT,
-    FOREIGN KEY (Vonatszam) REFERENCES Jarat(Vonatszam)
+    FOREIGN KEY (Vonatszam) REFERENCES Jarat(Vonatszam) ON DELETE CASCADE
 );
 CREATE TABLE Jegy (
     Tipus VARCHAR(255) PRIMARY KEY,
@@ -45,8 +45,8 @@ CREATE TABLE Jegy (
 CREATE TABLE Vasarol (
     Email VARCHAR(255),
     Tipus VARCHAR(255),
-    FOREIGN KEY (Email) REFERENCES Felhasznalo(Email),
-    FOREIGN KEY (Tipus) REFERENCES Jegy(Tipus)
+    FOREIGN KEY (Email) REFERENCES Felhasznalo(Email) ON DELETE CASCADE,
+    FOREIGN KEY (Tipus) REFERENCES Jegy(Tipus) ON DELETE CASCADE
 );
 CREATE TABLE Hir (
     HirId INT PRIMARY KEY,
@@ -431,3 +431,77 @@ INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
 INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
 (7, 'Tarháló fantom újra lecsapott', 'Tájékoztatjuk tisztelt utasainkat, hogy újra lecsapott a tarháló fantom. Az alany 180 cm, alakja egy teleszart búvárruhára hasonlít. Az ország bármelyik vonatán előfordulhat. Főleg kiskorú utasoktól kér adományokat START-burgerre. Megkérjük Önöket, hogy SEMMIKÉPPEN NE ADJANAK NEKI PÉNZT! Javasolják neki, hogy menjen el dolgozni!', TO_DATE('2024-03-22', 'YYYY-MM-DD'));
 
+INSERT INTO Allomas (Nev, Varos) VALUES ('Szeged', 'Szeged');
+
+INSERT INTO Allomas (Nev, Varos) VALUES ('Szatymaz', 'Szatymaz');
+INSERT INTO Allomas (Nev, Varos) VALUES ('Kistelek', 'Kistelek');
+INSERT INTO Allomas (Nev, Varos) VALUES ('Kiskunfélegyháza', 'Kiskunfélegyháza');
+INSERT INTO Allomas (Nev, Varos) VALUES ('Kecskemét', 'Kecskemét');
+INSERT INTO Allomas (Nev, Varos) VALUES ('Nagykőrös', 'Nagykőrös');
+INSERT INTO Allomas (Nev, Varos) VALUES ('Cegléd', 'Cegléd');
+INSERT INTO Allomas (Nev, Varos) VALUES ('Ferihegy', 'Budapest');
+INSERT INTO Allomas (Nev, Varos) VALUES ('Kőbánya-Kispest', 'Budapest');
+INSERT INTO Allomas (Nev, Varos) VALUES ('Zugló', 'Budapest');
+INSERT INTO Allomas (Nev, Varos) VALUES ('Budapest-Nyugati', 'Budapest');
+
+
+INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
+VALUES ('user1@example.com', 'Kovács Anna', 30, 'Diák', 'AB123456', NULL, NULL);
+
+INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
+VALUES ('user2@example.com', 'Nagy Péter', 25, 'Nyugdíjas', 'CD789012', NULL, NULL);
+
+INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
+VALUES ('user3@example.com', 'Kiss Júlia', 40, 'Felnőtt', 'EF345678', NULL, NULL);
+
+INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
+VALUES ('user4@example.com', 'Tóth Gábor', 28, 'Diák', 'GH901234', NULL, NULL);
+
+INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
+VALUES ('user5@example.com', 'Szabó Éva', 35, 'Felnőtt', 'IJ567890', NULL, NULL);
+
+INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
+VALUES ('kis@kukac.com', 'Szabó Dénes', 30, 'Felnőtt', 'IK696969', NULL, NULL);
+
+INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
+VALUES ('kuka@malac.com', 'Kan Ferenc', 30, 'Felnőtt', 'OP212121', NULL, NULL);
+
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 719, NULL, TO_DATE('04:30:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 709, NULL, TO_DATE('05:46:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 707, NULL, TO_DATE('06:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 717, NULL, TO_DATE('07:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 727, NULL, TO_DATE('08:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 737, NULL, TO_DATE('09:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 705, NULL, TO_DATE('10:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 715, NULL, TO_DATE('11:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 725, NULL, TO_DATE('12:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 735, NULL, TO_DATE('13:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 703, NULL, TO_DATE('14:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 713, NULL, TO_DATE('15:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 723, NULL, TO_DATE('16:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 733, NULL, TO_DATE('17:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 701, NULL, TO_DATE('18:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 711, NULL, TO_DATE('19:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 721, NULL, TO_DATE('20:44:00', 'HH24:MI:SS'));
+
+
+INSERT INTO Vasarol (Email, Tipus)
+VALUES ('user1@example.com', 'Teljesárú országbérlet');
+
+INSERT INTO Vasarol (Email, Tipus)
+VALUES ('user2@example.com', 'Magyarország24 jegy');
+
+INSERT INTO Vasarol (Email, Tipus)
+VALUES ('user3@example.com', 'Teljesárú országbérlet');
+
+INSERT INTO Vasarol (Email, Tipus)
+VALUES ('user4@example.com', 'Kedvezményes országbérlet');
+
+INSERT INTO Vasarol (Email, Tipus)
+VALUES ('user5@example.com', 'Magyarország24 jegy');
+
+INSERT INTO Vasarol (Email, Tipus)
+VALUES ('kis@kukac.com', 'Teljesárú országbérlet');
+
+INSERT INTO Vasarol (Email, Tipus)
+VALUES ('kuka@malac.com', 'Kedvezményes országbérlet');
