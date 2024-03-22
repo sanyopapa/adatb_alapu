@@ -12,20 +12,13 @@ Osztaly: 2
 Gyartasi_ev: 1977
 Kerekparhelyek_szama: 0
 
-SzNev: Bzmot
-Meghajtas: Dízel
-Kapacitas: 44
-Osztaly: 2
-Gyartasi_ev: 1977
-Kerekparhelyek_szama: 0
-
 SzNev: Uzsgyi
 Meghajtas: Dízel
 Kapacitas: 132
 Osztaly: 2
 Gyartasi_ev: 2002
 Kerekparhelyek_szama: 2
-
+ 
 SzNev: Desiro
 Meghajtas: Dízel
 Kapacitas: 110
