@@ -1,3 +1,5 @@
+-- Táblák törlése, ha véletlenül lennének (hibát elv. nem okoznak)
+
 DROP TABLE Vasarol;
 DROP TABLE Felhasznalo;
 DROP TABLE Kozlekedik;
@@ -6,6 +8,9 @@ DROP TABLE Jarat;
 DROP TABLE Jegy;
 DROP TABLE Hir;
 DROP TABLE Szerelveny;
+
+-- Táblák létrehozása
+
 CREATE TABLE Allomas (
     Nev VARCHAR(255) PRIMARY KEY,
     Varos VARCHAR(255)
@@ -62,6 +67,9 @@ CREATE TABLE Szerelveny (
     Kerekparhelyek_szama INT,
     Osztaly INT 
 );
+
+-- Táblák feltöltése adatokkal 
+
 INSERT INTO Szerelveny (SzNev, Gyartasi_ev, Meghajtas, Kapacitas, Kerekparhelyek_szama, Osztaly)
 VALUES ('Bzmot', 1977, 'Dízel', 44, 0, 2);
 
@@ -432,7 +440,6 @@ INSERT INTO Hir (HirId, Cim, Szoveg, Datum) VALUES
 (7, 'Tarháló fantom újra lecsapott', 'Tájékoztatjuk tisztelt utasainkat, hogy újra lecsapott a tarháló fantom. Az alany 180 cm, alakja egy teleszart búvárruhára hasonlít. Az ország bármelyik vonatán előfordulhat. Főleg kiskorú utasoktól kér adományokat START-burgerre. Megkérjük Önöket, hogy SEMMIKÉPPEN NE ADJANAK NEKI PÉNZT! Javasolják neki, hogy menjen el dolgozni!', TO_DATE('2024-03-22', 'YYYY-MM-DD'));
 
 INSERT INTO Allomas (Nev, Varos) VALUES ('Szeged', 'Szeged');
-
 INSERT INTO Allomas (Nev, Varos) VALUES ('Szatymaz', 'Szatymaz');
 INSERT INTO Allomas (Nev, Varos) VALUES ('Kistelek', 'Kistelek');
 INSERT INTO Allomas (Nev, Varos) VALUES ('Kiskunfélegyháza', 'Kiskunfélegyháza');
