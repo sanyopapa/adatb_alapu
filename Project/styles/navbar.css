@@ -1,0 +1,44 @@
+* {
+  font-family: Helvetica;
+  color:#b0a08f;
+}
+
+
+.navbar * {
+  font-weight: bold;
+}
+
+.navbar {
+    background-color: #1a0033;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 10%;
+    z-index: 1;
+    }
+    
+    .navbar-gomb:hover{
+      transform: scale(1.2);
+      box-shadow: 0px 5px 0px 0px #feddbe;
+    }
+    
+    .navbar-gomb{
+      background-color: #1a0033;
+      display: inline;
+      padding: 20px 16px;
+      text-align: center;
+      font-size: 16px;
+      transition-duration: 100ms;
+      margin-right: 1%;
+      border: none;
+    }
+    
+    .navbar a {
+      text-decoration: none;
+    }
+
+    .active-navbar-button{
+      box-shadow: 0px 5px 0px 0px #ffb26b;
+      background-color: #1a0033;
+    }

@@ -1,0 +1,47 @@
+@keyframes FadeInUp {
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.index_pic{
+    animation: FadeInUp 1s ease forwards;
+}
+
+@keyframes rainbow_animation {
+    0%, 100%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 100% 0;
+    }
+}
+
+#footer_link{
+    background: linear-gradient(to right, #2020ff, #00e1ff , #00ff00, #bb005d, #3131ff);
+    background-clip: text;
+    animation: rainbow_animation 2s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+
+.torzs a:hover {
+    background: linear-gradient(to right, #2020ff, #00e1ff , #00ff00, #bb005d, #3131ff);
+    background-clip: text;
+    animation: rainbow_animation 2s ease-in-out infinite;
+    background-size: 400% 100%;
+  }
+.torzs {
+  transform: scale(0.94);
+  animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+@keyframes scale {
+  100% {
+    transform: scale(1);
+  }
+}

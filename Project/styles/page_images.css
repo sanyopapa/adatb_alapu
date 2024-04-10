@@ -1,0 +1,53 @@
+.profile_pic {
+    min-height: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 2;
+  }
+
+  .index_pic {
+    width: clamp(100px, 400px ,40vw);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 15%;
+    animation: FadeInUp;
+    background-color: transparent;
+  }
+  
+  .image{
+    background-color: transparent;
+  }
+
+  .torzs img {
+    max-width: 75%;
+    align-content: center;
+    border-radius: 3%;
+    border: solid 10px #151c5e;
+    box-shadow: 5px 5px 5px 2px #2c315f;
+  }
+
+  .logo_img{
+    width: clamp(100px, 350px ,40vw);
+    border-radius: 100%;
+    border: solid 10px #31005f;
+  }
+
+  .img_float_left{
+    display: table-cell;
+    width: 100%;
+    float:left;
+  }
+
+  .img_float_right{
+    display: table-cell;
+    width: 100%;
+    float:right;
+  }
+
+  .body_image_to_center{
+    display: table-cell;
+    width: 100%;
+  }
