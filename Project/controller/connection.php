@@ -3,7 +3,7 @@
 <?php
 	$dbhost = "localhost";
 	$dbuser = "SYSTEM";
-	$dbpass = "Goldenapple1"; //Íde kell a jelszó
+	$dbpass = ""; //Íde kell a jelszó
 	$dbname = "csaladfa_db";
 	$tns = "
 (DESCRIPTION =
@@ -13,7 +13,8 @@
     (CONNECT_DATA =
       (SID = xe)
     )
-  )"; 
+  )"; //Lehet az IP címet át kell írni. Ha gond lenne, jelezz! (Brúnó)
+ 
 
 
 	if(!$con =oci_connect($dbuser, $dbpass, $tns,'UTF8'))
