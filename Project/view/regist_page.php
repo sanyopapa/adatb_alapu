@@ -39,15 +39,15 @@
 		<link rel="stylesheet" href="style/form_style.css">
 		-->
 		<link rel="stylesheet" href="../styles/style.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="styles/page_images.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="styles/page_content.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="styles/navbar.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="styles/dropdown.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="styles/animation.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="styles/media_size.css?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="styles/footer.css?v=<?php echo time(); ?>">
-  <link rel="icon" href="img/150_tablogo.png?v=<?php echo time(); ?>">
-  <link rel="stylesheet" href="styles/form.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../styles/page_images.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../styles/page_content.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../styles/navbar.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../styles/dropdown.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../styles/animation.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../styles/media_size.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../styles/footer.css?v=<?php echo time(); ?>">
+  <link rel="icon" href="../img/150_tablogo.png?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="../styles/form.css?v=<?php echo time(); ?>">
 	<body>
 	
 		<header>
