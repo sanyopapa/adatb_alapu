@@ -1,0 +1,17 @@
+#footer {
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+}
+
+    #footer_link{
+        text-decoration: none;
+    }
+
+    .footer-p{
+        background-color: black;
+        text-decoration: none;
+    }

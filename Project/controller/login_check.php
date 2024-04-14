@@ -28,10 +28,9 @@
 				$pwd_db = $row['JELSZO'];
 
 				if(password_verify($pwd, $pwd_db)){
-					$_SESSION["id"] = $row['FELHASZNALONEV'];
-					$_SESSION["user_name"] = $user_name;
+					$_SESSION["user_name"] = $row['FELHASZNALONEV'];
 					$_SESSION["pwd"] = $pwd;
-					$_SESSION["akt_csaladnev"] = "";
+					$_SESSION["admin"] = $row['ADMIN'];
 					header("Location: ../view/myprofile.php");
 					oci_close($con);
 					die;

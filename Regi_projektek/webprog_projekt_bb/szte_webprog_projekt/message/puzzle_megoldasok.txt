@@ -1,0 +1,32 @@
+puzzle megoldások
+
+message_page
+	// 1
+	// 2
+	// 3
+	
+	// partner check :
+		// 4
+		// 5
+	
+	// show messages :
+		// 6
+		// 7
+		// 8
+		// Anything else:
+			// 9
+
+select_chat_partner
+	// 10
+	-> // 11
+	   // 12
+
+message_functions
+	store_messages_in_array
+		// 13
+	get_messages
+		// 14
+		// 15
+	save_messages
+		// 16
+
