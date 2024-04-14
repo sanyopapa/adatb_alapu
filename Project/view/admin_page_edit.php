@@ -7,6 +7,7 @@ $name = $_POST['name'];
     
         $user_name_error = "";
         $pwd_error = "";
+        $pwd_2_error = "";
         if(isset($_SESSION["message"])){
             $keys = array_keys($_SESSION["message"]);
             for($i=0; $i < count($_SESSION["message"]); $i++) {
@@ -16,6 +17,9 @@ $name = $_POST['name'];
                 }
                 if ($keys[$i] == 'pwd') {
                     $pwd_error .= $_SESSION["message"][$keys[$i]] . ' ';
+                }
+                if ($keys[$i] == 'pwd_2') {
+                    $pwd_2_error .= $_SESSION["message"][$keys[$i]] . ' ';
                 }
             }
             
@@ -118,9 +122,10 @@ $name = $_POST['name'];
             
             
             echo '<label for="pwd">Új jelszó:</label>';
-            echo '<input type="password" id="pwd" name="pwd"><br><br>';
-            
-            
+            echo '<input type="password" id="new_pwd" name="new_pwd"><br><br>
+            <label for="new_pwd_2">Új jelszó újra:</label>
+                <input type="password" id="new_pwd_2" name="new_pwd_2" required>
+                <br>';
             echo '<label for="mode">Moderátor-e</label>
             <input type="checkbox" id="mode-2" name="moderator" value="0"/><br>';
             echo '<input type="reset" name="btn-reset" value="Törlés">

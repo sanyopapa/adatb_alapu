@@ -5,7 +5,8 @@
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         $user_name = $_POST['user-name'];
-        $pwd=$_POST['pwd'];
+        $new_pwd=$_POST['new_pwd'];
+        $new_pwd_2=$_POST['new_pwd_2'];
         
 
         $problems = array();
@@ -16,7 +17,12 @@
         if(strlen($pwd)<6 and strlen($pwd)>0){
             $problems['pwd'] = 'Az új jelszónak 6 karakter hosszúnak kell lennie.';
         }
-
+        if($pwd==$new_pwd){
+			$problems['pwd'] = 'A két jelszó nem egyezhet meg!';
+		}
+		if($new_pwd != $new_pwd_2){
+			$problems['pwd_2'] = 'A két jelszó nem egyezik meg';
+		}
         $query = "select * from fiokok where felhasznalonev = :user_name";
         $stid = oci_parse($con, $query);
         oci_bind_by_name($stid, ':user_name', $user_name);
