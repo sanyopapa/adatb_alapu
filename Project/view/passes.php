@@ -101,8 +101,8 @@
                         ?>
                         
                         
-                        <label for="email">Email-cím:</label>
-                        <input type="text" id="email" name="email" required>
+                        <label for="kezdet">Érvényesség kezdete (Ha nem adsz meg semmit, a mai dátum lesz):</label>
+                        <input type="date" id="kezdet" name="kezdet" >
                         <br>
                         
                         <input class="submit-button" type="submit" name="btn-submit"  value="Megvétel">

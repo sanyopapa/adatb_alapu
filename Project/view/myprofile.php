@@ -37,144 +37,48 @@
         	echo '
         	<div class="text1">
             <h1><br></h1>
-			<h1>Üdv újra, '.$_SESSION["user_name"].'</h1>
+			<h1>Üdv újra, '.$_SESSION["name"].'</h1>
 			<h1><br></h1>
         	</div>
 			<main class="torzs">';
 			}
-			?>
-		<?php
-		/*echo '<div class="form_2">';
-			if(isset($_SESSION["user_name"])){
-				echo '<form id="form-login" class="login-link" action="csaladfa_creator.php" method="POST">
-				<label for="">Ezzel a gombbal létrehozhatsz egy családfát.</label><br><br>
-				<input type="text" id="user-name" name="csalad_neve" size="25" placeholder="Ide írd be a család nevét!"><br><br>
-				<input type="submit" name="btn-create-csaladfa"  value="Létrehozás">
-				</form><br><br>';
-				include("connection.php");
-				$query = "SELECT nev from csaladfa_sum where letrehozo = ".'"'.$_SESSION["user_name"].'" order by nev';
-				$query_result = mysqli_query($con, $query);
-				if (mysqli_num_rows($query_result)==0) {
-					echo '<p>Jelenleg nincs létrehozott családod!</p>';
-				}
-				else {
-					$csaladnev=$_SESSION["akt_csaladnev"];
-					if (empty($csaladnev)) {
-						echo '<p>Nem választottál ki egy családot sem!</p><br>';
-					}
-					else 
-					{
-						echo '
-						<p>A kiválasztott család: '.$csaladnev.'</p><br>';
-					}
-					echo '<table>
-					<thead>
-						<tr>
-							<th class="table_header">Családjaid neve:</th>
-							<th class="table_header">Kiválasztás</th>
-						</tr>
-					</thead>
-					<tbody>';
-					while ($row = mysqli_fetch_row($query_result)) {
-					echo '<tr>
-							<th class="table_odd">'.$row[0].'</th>
-							<th class="table_odd">
-								<form id="form-login" class="login-link" action="kivalaszt_csalad.php" method="POST">
-								<input type="hidden" name="csaladnev" value='.$row[0].'>
-								<input type="submit" value="Kiválasztás">
-								</form>
-							</th>
-						</tr>';
-				  }
-				  echo '</tbody> </table><br>';
-				  
-				if (!empty($csaladnev)) {
-				$tabla_neve=$_SESSION["akt_csaladnev"].'_'.$_SESSION["user_name"].'_szemelyek';
-				  $query="SELECT id, nev from ".$tabla_neve;
-				  $query_result = mysqli_query($con, $query);
-				  
-				  if (mysqli_num_rows($query_result)==0) {
-					echo '<p>Jelenleg nincs egy tagja sem a családnak!</p><br>';
-					}
-					else {
-						echo '<table>
-						<thead>
-							<tr>
-								<th class="table_header">'.$csaladnev.' család tagjai:</th>
-								<th class="table_header">Családtag törlése</th>
-							</tr>
-						</thead>
-						<tbody>';
-						while ($row = mysqli_fetch_row($query_result)) {
-							echo '<tr>
-								<th class="table_odd">'.$row[1].'</th>
-								
-								<th class="table_odd">
-									<form id="form-login" class="login-link" action="csaladtag_torlese.php" method="POST">
+			
+			
+			
+			// Connect to the Oracle database
+			include("../controller/connection.php");
+
+			
+
+			// Prepare the SQL query
+			$query = "SELECT id, Tipus, Kezdet FROM Vasarol WHERE email = '" . $_SESSION['user_name'] . "' ORDER BY Kezdet DESC";
+
+			// Execute the query
+			$statement = oci_parse($con, $query);
+			oci_execute($statement);
+
+			// Fetch the results and display the buttons
+			while ($row = oci_fetch_assoc($statement)) {
+				$id = $row['ID'];
+				$tipus = $row['TIPUS'];
+				$kezs = $row['KEZDET'];
+				echo '<form action="../controller/jegy_torol.php" method="POST">';
+				echo '<input type="hidden" name="tipus" value="' . $id . '">
+				<label>'.$tipus.'</label>
+				<label><br>'.$kezs.'</label><br>';
+				echo '<input type="submit" name="submit" value="Törlés">';
+				echo '</form>';
+			}
+			/*
+			<form id="form-login" class="login-link" action="csaladtag_torlese.php" method="POST">
 									<input type="hidden" name="szemelynev_id" value="'.$row[0].'">
 									<input type="hidden" name="szemelynev" value="'.$row[1].'">
-									<input type="submit" value="Törlés">
-									</form>
-								</th>
-							</tr>';
-					}
-					
-					echo '</tbody></table><br>';
-					}
-        			
-					$tabla_neve_e=$_SESSION["akt_csaladnev"].'_'.$_SESSION["user_name"].'_esemenyek';
-					$query="SELECT e.id, p1.nev AS egyik_szemely_neve, p2.nev AS masik_szemely_neve, e.hazassag_datum, e.valas_datum
-					FROM $tabla_neve_e AS e
-					JOIN $tabla_neve AS p1 ON e.szemelyid = p1.id
-					JOIN $tabla_neve AS p2 ON erintett_id = p2.id";
-					$query_result = mysqli_query($con, $query);
-					if (mysqli_num_rows($query_result)==0) {
-						echo '<p>Jelenleg nincs egy eseménye sem a kért családnak</p>';
-					}
-					else {
-						echo '
-						<table>
-						<thead>
-							<tr>
-							<th class="table_header" colspan="5">'.$_SESSION["akt_csaladnev"].' család életeseményei:</th>
-							</tr>
-							<tr>
-								<th class="table_header">Egyik érintett neve</th>
-								<th class="table_header">Másik érintett neve</th>
-								<th class="table_header">Házasság dátuma</th>
-								<th class="table_header">Válás dátuma</th>
-								<th class="table_header">Esemény törlése</th>
-							</tr>
-						</thead>
-						<tbody>';
-						while ($rows = mysqli_fetch_row($query_result)) {
-							echo '<tr>
-								<th class="table_odd">'.$rows[1].'</th>
-								<th class="table_odd">'.$rows[2].'</th>
-								<th class="table_odd">'.$rows[3].'</th>';
-								if ($rows[4]=="0000-00-00") {
-									echo '<th class="table_odd">Még boldog házasok</th>';
-								}
-								else {
-									echo '<th class="table_odd">'.$rows[4].'</th>';
+									<input type="submit" value="Törlés">			
+			*/
+			// Close the connection
+			oci_close($con);
+			
 
-								}
-								echo '<th class="table_odd">
-									<form id="form-login" class="login-link" action="esemeny_torlese.php" method="POST">
-									<input type="hidden" name="esemeny_id" value="'.$rows[0].'">
-									<input type="submit" value="Törlés">
-									</form>
-								</th>
-							</tr>';
-						}
-						echo '</tbody>';
-					}
-					echo '</table><br>';
-						
-					
-				}
-				
-			} */
 			if(isset($_SESSION["user_name"])){
 			
 			echo '<form id="form-login" class="login-link" action="../controller/delete_user.php" method="POST">

@@ -23,30 +23,23 @@
 <body>  
   <nav class="navbar">
     <button class="navbar-gomb inactive-navbar-button" onclick="location.href= 'fooldal.php'">Főoldal</button>
-    <!--
-    <button class="navbar-gomb" onclick="location.href= 'about.php'">Rólunk</button>
-    <div class="dropgomb">
-      <button class="navbar-gomb">Vonatok</button>
-      <div class="dropdown">
-        <a class="inactive_dropdown" href="samu.php">Samu</a>
-        <a class="inactive_dropdown" href="pupos.php">Púpos</a>           
-      </div>
-    </div> -->
+    
     <button class="navbar-gomb" onclick="location.href= 'contact.php'">Névjegy</button>
     <?php
       if(isset($_SESSION["user_name"])){
         echo '
-      
+        <button class="navbar-gomb" onclick="location.href='."'myprofile.php'".'">Profil</button>
       <div class="dropgomb">
       <button class="navbar-gomb">Funkciók</button>
       <div class="dropdown">
-        <a class="inactive_dropdown" href="myprofile.php">Rögzített adatok</a>
-        <a class="inactive_dropdown" href="szemely_letrehoz.php">Személy hozzáadása</a>
-        <a class="inactive_dropdown" href="szemely_modosit.php">Személy módosítása</a>
-        <a class="inactive_dropdown" href="esemeny_letrehoz.php">Esemény hozzáadása</a>
-        <a class="inactive_dropdown" href="esemeny_modosit.php">Esemény módosítása</a>
-        <a class="inactive_dropdown" href="tasks.php">Feladatokra vonatkozó megoldás</a>
+        <a class="inactive_dropdown" href="ticket.php">Jegyvásárlás</a>
+        <a class="inactive_dropdown" href="passes.php">Bérletvásárlás</a>
         <a class="inactive_dropdown" href="refresh_pwd_page.php">Jelszó módosítása</a>
+        ';
+        if ($_SESSION["admin"] == 1) {
+          echo '<a class="inactive_dropdown" href="profilesearch.php">Admin funkciók</a>';
+        }
+        echo '
       </div>
     </div>
     <button class="navbar-gomb" onclick="location.href='."'../controller/logout.php'".'">Kijelentkezés</button>';
@@ -55,8 +48,7 @@
         echo '<button class="navbar-gomb" onclick="location.href= '."'login_page.php'".'">Bejelentkezés</button>';
       }
     ?>
-    <button class="navbar-gomb" onclick="location.href= 'ticket.php'">Jegyek</button>
-    <button class="navbar-gomb" onclick="location.href= 'passes.php'">Bérletek</button>
+    
     <div>
       <img class="profile_pic" src="../img/150_white_logo.png" alt="Fenti logó">
     </div>

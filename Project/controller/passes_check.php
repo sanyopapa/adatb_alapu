@@ -2,45 +2,43 @@
 	if(!isset($_SESSION)){session_start();}
 	include("../controller/connection.php");
 	if($_SERVER['REQUEST_METHOD'] == "POST"){
-		$passes_type = $_POST['passes-type'];
-		$email = $_POST['email'];
+		$ticket_type = $_POST['ticket-type'];
+		$email = $_SESSION['user_name'];
 
 		$problems = array();
 
-		if(empty($email) or $email==0 or is_numeric($email)){
-			$problems['email'] = 'Felhasználó nevet kötelező megadni!';
+		$date = $_POST['kezdet'];
+
+		// Convert the date string to a DateTime object
+		$selectedDate = DateTime::createFromFormat('Y-m-d', $date);
+
+		// Get the current date
+		$currentDate = new DateTime();
+		if ($selectedDate==null) {
+			$selectedDate = $currentDate;
 		}
-
-
-		$query = "SELECT * FROM Felhasznalo WHERE email = '$email'";
-		$query_result = oci_parse($con, $query);
-	
-		$exc=oci_execute($query_result);
-		
-		
-		if(($exc && oci_fetch($query_result))){
-			
-		} else{
-			$problems['email'] = 'Még nincs ilyen Email-cím regisztrálva!';
-		
+		// Compare the selected date with the current date
+		if ($selectedDate < $currentDate) {
+			$problems['date'] = "A kiválasztott dátum régebbi, mint a mai nap!";
 		}
-
-
-		if (count($problems)>0) {
-            foreach ($problems as $error) {
-                echo "<div'>$error</div>";
-            }
-		}
-
 
 		if(count($problems)==0){
+			// Count the number of rows in the Vasarol table
+			$countQuery = "SELECT COUNT(*) FROM Vasarol";
+			$countStmt = oci_parse($con, $countQuery);
+			oci_execute($countStmt);
+			$row = oci_fetch_array($countStmt);
+			$rowCount = $row[0];
 
-			// Insert data into Vasarlo table
-			$insertQuery = "INSERT INTO Vasarol (Email, Tipus) VALUES (:email, :passes_type)";
+			// Use the rowCount variable as needed
+			// Insert data into Vasarol table
+			$insertQuery = "INSERT INTO Vasarol (id, Email, Tipus, Kezdet) VALUES (:id, :email, :ticket_type, TO_DATE(:selected_date, 'YYYY-MM-DD'))";
 			$stmt = oci_parse($con, $insertQuery);
+			oci_bind_by_name($stmt, ":id", $rowCount);
 			oci_bind_by_name($stmt, ":email", $email);
-			oci_bind_by_name($stmt, ":passes_type", $passes_type);
-			$sikeres=oci_execute($stmt);	
+			oci_bind_by_name($stmt, ":ticket_type", $ticket_type);
+			oci_bind_by_name($stmt, ":selected_date", $selectedDate->format('Y-m-d'));
+			$sikeres = oci_execute($stmt);
 
 			if($sikeres){
 				// Data inserted successfully
@@ -59,12 +57,16 @@
 		}else
 		{
 			$_SESSION["message"] = $problems;
-			header('location: ../view/passes.php');
+            while ($e = current($problems)) {
+                $key = key($problems);
+                $_SESSION["message"][$key] = $e;
+                next($problems);
+                echo $key . " " . $e . "<br>";
 			oci_close($con);
 			die;
 		}
 	}
-	else{
+	} else{
 		
 		oci_close($con);
 		die;

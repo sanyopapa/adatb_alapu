@@ -29,6 +29,7 @@
 
 				if(password_verify($pwd, $pwd_db)){
 					$_SESSION["user_name"] = $row['EMAIL'];
+					$_SESSION["name"] = $row['NEV'];
 					$_SESSION["pwd"] = $pwd;
 					$_SESSION["admin"] = $row['ADMIN'];
 					header("Location: ../view/myprofile.php");
