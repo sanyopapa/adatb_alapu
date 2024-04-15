@@ -102,19 +102,19 @@
 						
 
 						<label for="nev">Név:</label>
-						<input type="text" id="nev" name="nev" required>
+						<input type="text" id="nev" name="nev">
 						<br>
 
 						<label for="eletkor">Életkor:</label>
-						<input type="number" id="eletkor" name="eletkor" required>
+						<input type="number" id="eletkor" name="eletkor" >
 						<br>
 
 						<label for="kedvezmenytipus">Kedvezménytípus:</label>
-						<input type="text" id="kedvezmenytipus" name="kedvezmenytipus" required>
+						<input type="text" id="kedvezmenytipus" name="kedvezmenytipus" >
 						<br>
 
 						<label for="igazolvanyszam">Igazolványszám:</label>
-						<input type="text" id="igazolvanyszam" name="igazolvanyszam" required>
+						<input type="text" id="igazolvanyszam" name="igazolvanyszam" >
 						<br>
 						<input class="submit-button" type="submit" name="btn-submit"  value="Regisztráció">
 						<a class="login-link" href='login_page.php'>Bejelentkezés</a>
