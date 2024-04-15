@@ -82,7 +82,7 @@ $name = $_POST['name'];
     <tbody>';
     
         echo '<tr>
-        <th class="table_odd">Fellhasználónév:</th>
+        <th class="table_odd">Email:</th>
         <th class="table_odd">'.$name.'</th>
         </tr>';
         echo '<tr>
@@ -125,7 +125,22 @@ $name = $_POST['name'];
             echo '<input type="password" id="new_pwd" name="new_pwd"><br><br>
             <label for="new_pwd_2">Új jelszó újra:</label>
                 <input type="password" id="new_pwd_2" name="new_pwd_2" required>
-                <br>';
+                <br>
+                <label for="nev">Név:</label>
+						<input type="text" id="nev" name="nev">
+						<br>
+
+						<label for="eletkor">Életkor:</label>
+						<input type="number" id="eletkor" name="eletkor" >
+						<br>
+
+						<label for="kedvezmenytipus">Kedvezménytípus:</label>
+						<input type="text" id="kedvezmenytipus" name="kedvezmenytipus" >
+						<br>
+
+						<label for="igazolvanyszam">Igazolványszám:</label>
+						<input type="text" id="igazolvanyszam" name="igazolvanyszam" >
+						<br>';
             echo '<label for="mode">Moderátor-e</label>
             <input type="checkbox" id="mode-2" name="moderator" value="0"/><br>';
             echo '<input type="reset" name="btn-reset" value="Törlés">

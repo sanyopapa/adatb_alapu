@@ -10,7 +10,7 @@
 		for($i=0; $i < count($_SESSION["message"]); $i++) {
 			
 			if ($keys[$i] == 'user_name') {
-				$user_name_error .= $_SESSION["message"][$keys[$i]] . ' ';
+				$email_error .= $_SESSION["message"][$keys[$i]] . ' ';
 			}
 			if ($keys[$i] == 'pwd') {
 				$pwd_error .= $_SESSION["message"][$keys[$i]] . ' ';
@@ -63,18 +63,18 @@
 				<form id="form-login" action="../controller/regist_check.php" method="POST">
 					<fieldset class="form_2">
 						<legend>Regisztráció</legend>
-						
+
 						<?php 
-							if(strlen($user_name_error)>0){
+							if(strlen($email_error)>0){
 								echo '<div class="warning">';
-								echo $user_name_error;
+								echo $email_error;
 								echo "</div>";
 							} 
 						?>
-						<label for="user-name">Felhasználónév:</label>
-						<input type="text" id="user-name" name="user-name" size="25" required>
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" required>
 						<br>
-						
+
 						<?php 
 							if(strlen($pwd_error)>0){
 								echo '<div class="warning">';
@@ -82,11 +82,11 @@
 								echo "</div>";
 							} 
 						?>
-						
+
 						<label for="pwd">Jelszó:</label>
 						<input type="password" id="pwd" name="pwd" required>
 						<br>
-						
+
 						<?php 
 							if(strlen($pwd_2_error)>0){
 								echo '<div class="warning">';
@@ -94,9 +94,27 @@
 								echo "</div>";
 							} 
 						?>
-						
+
 						<label for="pwd-2">Jelszó újra:</label>
 						<input type="password" id="pwd-2" name="pwd-2" required>
+						<br>
+
+						
+
+						<label for="nev">Név:</label>
+						<input type="text" id="nev" name="nev">
+						<br>
+
+						<label for="eletkor">Életkor:</label>
+						<input type="number" id="eletkor" name="eletkor" >
+						<br>
+
+						<label for="kedvezmenytipus">Kedvezménytípus:</label>
+						<input type="text" id="kedvezmenytipus" name="kedvezmenytipus" >
+						<br>
+
+						<label for="igazolvanyszam">Igazolványszám:</label>
+						<input type="text" id="igazolvanyszam" name="igazolvanyszam" >
 						<br>
 						<input class="submit-button" type="submit" name="btn-submit"  value="Regisztráció">
 						<a class="login-link" href='login_page.php'>Bejelentkezés</a>

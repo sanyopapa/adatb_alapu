@@ -33,13 +33,15 @@ CREATE TABLE Kozlekedik (
 );
 CREATE TABLE Felhasznalo (
     Email VARCHAR(255) PRIMARY KEY,
+    Jelszo VARCHAR(255),
     Nev VARCHAR(255),
     Eletkor INT,
     Kedvezmenytipus VARCHAR(255),
     Igazolvanyszam VARCHAR(255),
     Profilkep BLOB,
-    Vonatszam INT,
-    FOREIGN KEY (Vonatszam) REFERENCES Jarat(Vonatszam) ON DELETE CASCADE
+    Admin NUMBER(0,1)
+    
+    
 );
 CREATE TABLE Jegy (
     Tipus VARCHAR(255) PRIMARY KEY,
@@ -452,26 +454,14 @@ INSERT INTO Allomas (Nev, Varos) VALUES ('Zugló', 'Budapest');
 INSERT INTO Allomas (Nev, Varos) VALUES ('Budapest-Nyugati', 'Budapest');
 
 
-INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
-VALUES ('user1@example.com', 'Kovács Anna', 30, 'Diák', 'AB123456', NULL, NULL);
+INSERT INTO Felhasznalo (Email, Jelszo, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Admin) VALUES ('user1@example.com', NULL, 'Kovács Anna', 30, 'Diák', 'AB123456', NULL, 0);
+INSERT INTO Felhasznalo (Email, Jelszo, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Admin) VALUES ('user2@example.com', NULL, 'Nagy Péter', 25, 'Nyugdíjas', 'CD789012', NULL, 0);
+INSERT INTO Felhasznalo (Email, Jelszo, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Admin) VALUES ('user3@example.com', NULL, 'Kiss Júlia', 40, 'Felnőtt', 'EF345678', NULL, 0);
+INSERT INTO Felhasznalo (Email, Jelszo, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Admin) VALUES ('user4@example.com', NULL, 'Tóth Gábor', 28, 'Diák', 'GH901234', NULL, 0);
+INSERT INTO Felhasznalo (Email, Jelszo, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Admin) VALUES ('user5@example.com', NULL, 'Szabó Éva', 35, 'Felnőtt', 'IJ567890', NULL, 0);
+INSERT INTO Felhasznalo (Email, Jelszo, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Admin) VALUES ('kis@kukac.com', NULL, 'Szabó Dénes', 30, 'Felnőtt', 'IK696969', NULL, 0);
+INSERT INTO Felhasznalo (Email, Jelszo, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Admin) VALUES ('kuka@malac.com', NULL, 'Kan Ferenc', 30, 'Felnőtt', 'OP212121', NULL, 0);
 
-INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
-VALUES ('user2@example.com', 'Nagy Péter', 25, 'Nyugdíjas', 'CD789012', NULL, NULL);
-
-INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
-VALUES ('user3@example.com', 'Kiss Júlia', 40, 'Felnőtt', 'EF345678', NULL, NULL);
-
-INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
-VALUES ('user4@example.com', 'Tóth Gábor', 28, 'Diák', 'GH901234', NULL, NULL);
-
-INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
-VALUES ('user5@example.com', 'Szabó Éva', 35, 'Felnőtt', 'IJ567890', NULL, NULL);
-
-INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
-VALUES ('kis@kukac.com', 'Szabó Dénes', 30, 'Felnőtt', 'IK696969', NULL, NULL);
-
-INSERT INTO Felhasznalo (Email, Nev, Eletkor, Kedvezmenytipus, Igazolvanyszam, Profilkep, Vonatszam)
-VALUES ('kuka@malac.com', 'Kan Ferenc', 30, 'Felnőtt', 'OP212121', NULL, NULL);
 
 INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 719, NULL, TO_DATE('04:30:00', 'HH24:MI:SS'));
 INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 709, NULL, TO_DATE('05:46:00', 'HH24:MI:SS'));
