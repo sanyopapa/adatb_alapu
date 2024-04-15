@@ -71,11 +71,11 @@
                 <input type="password" id="pwd" name="pwd" required>
                 <br>
                 <?php 
-                    if(strlen($pwd_error)>0){
+                   /*  if(strlen($pwd_error)>0){
                         echo '<div class="warning">';
                         echo $pwd_error;
                         echo "</div>";
-                    } 
+                    }  */
                 ?>
                 
                 <label for="new_pwd">Jelszó:</label>
