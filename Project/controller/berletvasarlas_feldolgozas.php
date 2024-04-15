@@ -3,26 +3,26 @@
     include 'connection.php';
 
     // Adatok összegyűjtése
-    $name = $_POST['name'];
-    $condition = $_POST['condition'];
     $type = $_POST['type'];
-    $varmegye = $_POST['varmegye'];
+    $condition = $_POST['condition'];
 
-   
-    $ar = 1000; 
+
+    $ar = ($type == 'Teljesarú') ? 1000 : 500; 
     $idotartam = 30; 
 
-    // SQL parancs előkészítése
-    $stid = oci_parse($conn, 'INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam) VALUES (:type, :ar, :condition, :idotartam)');
+    if ($type == 'Kedvezményes' || $type == 'Teljesarú') {
+        // SQL parancs előkészítése
+        $stid = oci_parse($conn, 'INSERT INTO Jegy (Tipus, Ar, Feltetel, Idotartam) VALUES (:type, :ar, :condition, :idotartam)');
 
-    // Paraméterek hozzáadása
-    oci_bind_by_name($stid, ':type', $type);
-    oci_bind_by_name($stid, ':ar', $ar);
-    oci_bind_by_name($stid, ':condition', $condition);
-    oci_bind_by_name($stid, ':idotartam', $idotartam);
+        // Paraméterek hozzáadása
+        oci_bind_by_name($stid, ':type', $type);
+        oci_bind_by_name($stid, ':ar', $ar);
+        oci_bind_by_name($stid, ':condition', $condition);
+        oci_bind_by_name($stid, ':idotartam', $idotartam);
 
-    // SQL parancs végrehajtása
-    oci_execute($stid);
+        // SQL parancs végrehajtása
+        oci_execute($stid);
+    }
 
     // Kapcsolat bezárása
     oci_close($conn);
