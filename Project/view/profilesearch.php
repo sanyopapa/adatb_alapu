@@ -36,14 +36,15 @@
       </div>
     </header>';
     
-    $query = "SELECT felhasznalonev FROM fiokok WHERE felhasznalonev != '" . $_SESSION['user_name'] . "' ORDER BY felhasznalonev";
+    $query = "SELECT email FROM felhasznalo WHERE email != '" . $_SESSION['user_name'] . "' ORDER BY email";
     include("../controller/connection.php");
     $query_result = oci_parse($con, $query);
     oci_execute($query_result);
     echo '<main class="profiles_div">';
+   
     while ($row = oci_fetch_row($query_result)) {
         echo '<form method="POST" action="admin_page_edit.php">
-        <label for="name">Felhasználók:</label><br>
+        <label for="name"></label><br>
         <input type="hidden" name="name" value='.$row[0].'>
         <input type="submit" value='.$row[0].'>
             </form>';
