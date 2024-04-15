@@ -1,3 +1,24 @@
+<?php
+    if(!isset($_SESSION)){session_start();}
+    $date_error="";
+    $same_error="";
+    $foglalt="";
+    if(isset($_SESSION["message"])){
+        $keys = array_keys($_SESSION["message"]);
+        for($i=0; $i < count($_SESSION["message"]); $i++) {
+            
+            if ($keys[$i] == 'same') {
+                $same_error .= $_SESSION["message"][$keys[$i]] . ' ';
+            }
+            if ($keys[$i] == 'date') {
+                $date_error .= $_SESSION["message"][$keys[$i]] . ' ';
+            }
+            if ($keys[$i] == 'foglalt') {
+                $foglalt .= $_SESSION["message"][$keys[$i]] . ' ';
+            }
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>

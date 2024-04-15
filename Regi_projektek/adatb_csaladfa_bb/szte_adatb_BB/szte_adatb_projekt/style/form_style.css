@@ -1,0 +1,58 @@
+.anti-collapse{
+	display: inline-block;
+}
+
+input[type=text],
+input[type=password],
+input[type=email] { 
+	margin-bottom: 10px;
+	width: 230px;
+	height: 1.5rem;
+	border-radius: 5px;
+	color: #31005f
+}
+
+select { 
+	margin-bottom: 10px;
+	width: 230px;
+	height: 1.5rem;
+	border-radius: 5px;
+}
+fieldset {
+	padding: 10px;
+	width: 430px;
+}
+
+label {
+	display: inline-block;
+	width: 150px;
+}
+.empty{
+	text-align: center;
+	width: 450px !important ; 
+}
+
+input[type="reset"], input[type="submit"] {
+	background-color: #31005f;
+	color: #b0a08f;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	outline: none;
+	font-size: 16px;
+	width: 150px;
+	height: 40px;
+	margin-left: 0;
+}
+select {
+	padding-left: 0.6rem;
+}
+legend{
+	font-size: 1.5rem;
+	color: #617d86;
+	padding: 0 0.5rem;
+}
+.warning{
+	color:red; 
+	padding-left: 160px;
+}
