@@ -16,7 +16,7 @@
   }
   
   .dropdown a:hover {
-    background-color: #2424A8;
+    background-color: #141c5e;
   }
   
   .dropgomb:hover .dropdown {
@@ -32,5 +32,5 @@
   }
 
   .inactive_dropdown {
-    background-color: #31005f;
+    background-color: #023020;
   }

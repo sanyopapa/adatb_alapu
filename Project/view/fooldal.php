@@ -28,7 +28,7 @@
             <img class="index_pic" src="../img/index_main.png" alt="Profilkep">
         </div>
         <div class="text1 ">
-            <h1>Családfa kutató szoftver sok szeretettel</h1>
+            <h1>MÁV - Mindig átmegyünk valamin.</h1>
         </div>
       </header>
       <footer id="footer" class="unselectable">

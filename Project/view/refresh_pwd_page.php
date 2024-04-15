@@ -93,7 +93,7 @@
                 <label for="new_pwd_2">Jelszó újra:</label>
                 <input type="password" id="new_pwd_2" name="new_pwd_2" required>
                 <br>
-                <input type="reset" name="btn-reset" value="Törlés">
+                <input type="reset" name="btn-reset" value="Törlés"><br>
                 <input type="submit" name="btn-submit"  value="Küldés">
             </fieldset>
         </form>

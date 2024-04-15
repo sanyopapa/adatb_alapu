@@ -32,7 +32,7 @@
   .logo_img{
     width: clamp(100px, 350px ,40vw);
     border-radius: 100%;
-    border: solid 10px #31005f;
+    border: solid 10px #023020;
   }
 
   .img_float_left{

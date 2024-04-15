@@ -9,7 +9,7 @@
 }
 
 .navbar {
-    background-color: #1a0033;
+    background-color: #011f14;
     position: sticky;
     width: 100%;
     top: 0;
@@ -24,7 +24,7 @@
     }
     
     .navbar-gomb{
-      background-color: #1a0033;
+      background-color: #011f14;
       display: inline;
       padding: 20px 16px;
       text-align: center;
@@ -40,5 +40,5 @@
 
     .active-navbar-button{
       box-shadow: 0px 5px 0px 0px #ffb26b;
-      background-color: #1a0033;
+      background-color: #011f14;
     }

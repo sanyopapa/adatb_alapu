@@ -37,7 +37,7 @@
     </header>
     <main class="torzs table_div">
     <main class="torzs">
-       <p>Ezt a projektet az <strong>R150 csoport</strong> készítette az SZTE Adatbázisok tárgy gyakorlatának teljesítése céljából.</p>
+       <p>Ezt a projektet az <strong>R150 csoport</strong> készítette az SZTE <i>Adatbázis alapú rendszerek</i> tárgy gyakorlatának teljesítése céljából.</p>
     </main>
         <table>
             <thead>

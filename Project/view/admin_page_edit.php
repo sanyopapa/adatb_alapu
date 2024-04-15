@@ -63,7 +63,7 @@ $name = $_POST['name'];
     
     
     echo '<main class="torzs table_div">';
-    $query = "SELECT felhasznalonev from fiokok where felhasznalonev = :name";
+    $query = "SELECT email from felhasznalo where email = :name";
     
     include("../controller/connection.php");
     $stmt = oci_parse($con, $query);
@@ -87,7 +87,7 @@ $name = $_POST['name'];
         </tr>';
         echo '<tr>
             <th class="table_odd">Jogosultsági szint:</th>';
-        $query = "SELECT admin from fiokok where felhasznalonev = :id";
+        $query = "SELECT admin from felhasznalo where email = :id";
         $stmt = oci_parse($con, $query);
         oci_bind_by_name($stmt, ":id", $name);
         oci_execute($stmt);
@@ -102,7 +102,7 @@ $name = $_POST['name'];
        
     if ($_SESSION["admin"] == 1 ) { //Az admin felület
         $_SESSION["masid"] = $name;
-        echo '<form id="form-login" action="../controller/admin_check.php" method="POST">
+        echo '<br><form id="form-login" action="../controller/admin_check.php" method="POST">
         <fieldset class="form_2">
             <legend>'.$name.' adatainak módosítása</legend>';
                 
@@ -143,7 +143,7 @@ $name = $_POST['name'];
 						<br>';
             echo '<label for="mode">Moderátor-e</label>
             <input type="checkbox" id="mode-2" name="moderator" value="0"/><br>';
-            echo '<input type="reset" name="btn-reset" value="Törlés">
+            echo '<input type="reset" name="btn-reset" value="Törlés"><br>
             <input type="submit" name="btn-submit"  value="Küldés">
             
             
