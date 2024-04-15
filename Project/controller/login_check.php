@@ -18,7 +18,7 @@
 
 		if(count($problems)==0){
 
-			$query = "SELECT * from fiokok where Felhasznalonev = :user_name";
+			$query = "SELECT * from felhasznalo where email = :user_name";
 			$stmt = oci_parse($con, $query);
 			oci_bind_by_name($stmt, ":user_name", $user_name);
 			oci_execute($stmt);

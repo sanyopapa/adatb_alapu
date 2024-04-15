@@ -62,7 +62,7 @@
 								echo "</div>";
 							} 
 						?>
-						<label for="user-name">Felhasználónév:</label>
+						<label for="user-name">E-mail:</label>
 						<input type="text" id="user-name" name="user-name" size="25" required>
 						<br>
 						
