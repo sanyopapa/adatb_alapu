@@ -38,7 +38,6 @@ CREATE TABLE Felhasznalo (
     Kedvezmenytipus VARCHAR(255),
     Igazolvanyszam VARCHAR(255),
     Profilkep BLOB,
-    Vonatszam INT,
     FOREIGN KEY (Vonatszam) REFERENCES Jarat(Vonatszam) ON DELETE CASCADE
 );
 CREATE TABLE Jegy (
