@@ -2,7 +2,7 @@
 	if(!isset($_SESSION)){session_start();}
 	include("../controller/connection.php");
 	if($_SERVER['REQUEST_METHOD'] == "POST"){
-		$ticket_type = $_POST['passes-type'];
+		$ticket_type = $_POST['passesgit-type'];
 		$email = $_SESSION['user_name'];
 
 		$problems = array();
