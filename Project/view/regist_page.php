@@ -2,7 +2,7 @@
 	if(!isset($_SESSION)){session_start();}
 	
 	
-	$user_name_error = "";
+	$email_error = "";
 	$pwd_error = "";
 	$pwd_2_error = "";
 	if(isset($_SESSION["message"])){
