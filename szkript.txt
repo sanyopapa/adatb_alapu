@@ -484,6 +484,41 @@ INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged
 INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 701, NULL, TO_DATE('18:44:00', 'HH24:MI:SS'));
 INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 711, NULL, TO_DATE('19:44:00', 'HH24:MI:SS'));
 INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Szeged', 721, NULL, TO_DATE('20:44:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 719, TO_DATE('04:54:00', 'HH24:MI:SS'), TO_DATE('04:55:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 709, TO_DATE('06:10:00', 'HH24:MI:SS'), TO_DATE('06:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 707, TO_DATE('07:10:00', 'HH24:MI:SS'), TO_DATE('07:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 717, TO_DATE('08:10:00', 'HH24:MI:SS'), TO_DATE('08:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 727, TO_DATE('09:10:00', 'HH24:MI:SS'), TO_DATE('09:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 737, TO_DATE('10:10:00', 'HH24:MI:SS'), TO_DATE('10:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 705, TO_DATE('11:10:00', 'HH24:MI:SS'), TO_DATE('11:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 715, TO_DATE('12:10:00', 'HH24:MI:SS'), TO_DATE('12:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 725, TO_DATE('13:10:00', 'HH24:MI:SS'), TO_DATE('13:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 735, TO_DATE('14:10:00', 'HH24:MI:SS'), TO_DATE('14:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 703, TO_DATE('15:10:00', 'HH24:MI:SS'), TO_DATE('15:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 713, TO_DATE('16:10:00', 'HH24:MI:SS'), TO_DATE('16:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 723, TO_DATE('17:10:00', 'HH24:MI:SS'), TO_DATE('17:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 733, TO_DATE('18:10:00', 'HH24:MI:SS'), TO_DATE('18:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 701, TO_DATE('19:10:00', 'HH24:MI:SS'), TO_DATE('19:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 711, TO_DATE('20:10:00', 'HH24:MI:SS'), TO_DATE('20:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kistelek', 721, TO_DATE('21:10:00', 'HH24:MI:SS'), TO_DATE('21:11:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 719, TO_DATE('05:17:00', 'HH24:MI:SS'), TO_DATE('05:18:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 709, TO_DATE('06:30:00', 'HH24:MI:SS'), TO_DATE('06:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 707, TO_DATE('07:30:00', 'HH24:MI:SS'), TO_DATE('07:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 717, TO_DATE('08:30:00', 'HH24:MI:SS'), TO_DATE('08:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 727, TO_DATE('09:30:00', 'HH24:MI:SS'), TO_DATE('09:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 737, TO_DATE('10:30:00', 'HH24:MI:SS'), TO_DATE('10:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 705, TO_DATE('11:30:00', 'HH24:MI:SS'), TO_DATE('11:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 715, TO_DATE('12:30:00', 'HH24:MI:SS'), TO_DATE('12:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 725, TO_DATE('13:30:00', 'HH24:MI:SS'), TO_DATE('13:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 735, TO_DATE('14:30:00', 'HH24:MI:SS'), TO_DATE('14:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 703, TO_DATE('15:30:00', 'HH24:MI:SS'), TO_DATE('15:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 713, TO_DATE('16:30:00', 'HH24:MI:SS'), TO_DATE('16:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 723, TO_DATE('17:30:00', 'HH24:MI:SS'), TO_DATE('17:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 733, TO_DATE('18:30:00', 'HH24:MI:SS'), TO_DATE('18:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 701, TO_DATE('19:30:00', 'HH24:MI:SS'), TO_DATE('19:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 711, TO_DATE('20:30:00', 'HH24:MI:SS'), TO_DATE('20:31:00', 'HH24:MI:SS'));
+INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas) VALUES ('Kiskunfélegyháza', 721, TO_DATE('21:30:00', 'HH24:MI:SS'), TO_DATE('21:31:00', 'HH24:MI:SS'));
+
 INSERT INTO Kozlekedik (AllomasNev, Vonatszam, Erkezes, Indulas)
 VALUES ('Szeged', 719, NULL, TO_TIMESTAMP('2022-01-01 04:30:00', 'YYYY-MM-DD HH24:MI:SS'));
 
