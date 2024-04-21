@@ -22,7 +22,7 @@
 		if($pwd != $pwd_2){
 			$problems['pwd_2'] = 'A jelszavak nem egyeznek!';
 		}
-		$query = "select * from fiokok where Felhasznalonev = '$user_name' and rownum <= 1";
+		$query = "select * from felhasznalo where email = '$email' and rownum <= 1";
 		$query_result = oci_parse($con, $query);
 		oci_execute($query_result);
 		if($query_result && oci_fetch($query_result)){
