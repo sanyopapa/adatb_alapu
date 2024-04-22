@@ -91,12 +91,15 @@
 				while ($row = oci_fetch_assoc($stmt)) {
 					$id = $row['ID'];
 					$tipus = $row['TIPUS'];
+					$date = DateTime::createFromFormat('d-M-y', $row['KEZDET']);
+					$formatted_date = date_format($date, 'Y. F j.');
+					
 					$kezs = $row['KEZDET'];
 					$ervenyesseg = $row['ERVENYESSEG'];
 					$class = $count % 2 == 1 ? 'table_even' : 'table_odd';
 					echo '<tr>
 					<td class="'.$class.'">' . $tipus . '</td>
-					<td class="'.$class.'">' . $kezs . '</td>
+					<td class="'.$class.'">' . $formatted_date . '</td>
 					<td class="'.$class.'">' . $ervenyesseg . '</td>
 					<td class="'.$class.'">
 					<form action="../controller/jegy_torol.php" method="POST">

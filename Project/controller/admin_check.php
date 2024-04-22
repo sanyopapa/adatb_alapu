@@ -41,6 +41,7 @@
                 oci_bind_by_name($stid, ':pwd', $pwd);
                 oci_bind_by_name($stid, ':masid', $_SESSION["masid"]);
                 oci_execute($stid);
+
             }
             
             
@@ -50,6 +51,7 @@
                 oci_bind_by_name($stid, ':user_name', $user_name);
                 oci_bind_by_name($stid, ':masid', $_SESSION["masid"]);
                 oci_execute($stid);
+                $_SESSION["user_name"] = $user_name;
             }
 
             if (!empty($name)) {
@@ -58,6 +60,7 @@
                 oci_bind_by_name($stid, ':name', $name);
                 oci_bind_by_name($stid, ':masid', $_SESSION["masid"]);
                 oci_execute($stid);
+                $_SESSION["name"] = $name;
             }
 
             if (!empty($age)) {
@@ -66,6 +69,7 @@
                 oci_bind_by_name($stid, ':age', $age);
                 oci_bind_by_name($stid, ':masid', $_SESSION["masid"]);
                 oci_execute($stid);
+                $_SESSION["eletkor"] = $age;
             }
 
             if (!empty($discount_type)) {
@@ -74,6 +78,7 @@
                 oci_bind_by_name($stid, ':discount_type', $discount_type);
                 oci_bind_by_name($stid, ':masid', $_SESSION["masid"]);
                 oci_execute($stid);
+                $_SESSION["kedvezmenytipus"] = $discount_type;
             }
 
             if (!empty($id_number)) {
@@ -82,9 +87,17 @@
                 oci_bind_by_name($stid, ':id_number', $id_number);
                 oci_bind_by_name($stid, ':masid', $_SESSION["masid"]);
                 oci_execute($stid);
+                $_SESSION["igazolvanyszam"] = $id_number;
             }
 
-            header("Location: ../view/myprofile.php");
+
+            if ($_SESSION["admin"]==1) {
+                header("Location: ../view/profilesearch.php");
+            }
+            else{
+                header("Location: ../view/myprofile.php");
+            }
+            
             oci_close($con);
             die;
         }

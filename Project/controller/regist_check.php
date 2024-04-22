@@ -48,10 +48,13 @@
 				$query_result=oci_parse($con, $query);
 				oci_execute($query_result);
 				$row = oci_fetch_row($query_result);
-				$_SESSION["id"]=$row[0];
-				$_SESSION["pwd"]=$pwd;
 				$_SESSION["name"]=$nev;
+				$_SESSION["pwd"]=$pwd;
+				$_SESSION["eletkor"]=$eletkor;
 				$_SESSION["admin"]=0;
+				$_SESSION["kedvezmenytipus"]=$kedvezmenytipus;
+				$_SESSION["igazolvanyszam"]=$igazolvanyszam;
+				
 				header("Location: ../view/myprofile.php");
 				oci_free_statement($stmt);
 				die;

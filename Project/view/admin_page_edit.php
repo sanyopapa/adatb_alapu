@@ -63,43 +63,16 @@ $name = $_POST['name'];
     
     
     echo '<main class="torzs table_div">';
-    $query = "SELECT email from felhasznalo where email = :name";
+    $query = "SELECT * from felhasznalo where email = :name";
     
     include("../controller/connection.php");
     $stmt = oci_parse($con, $query);
     oci_bind_by_name($stmt, ":name", $name);
     oci_execute($stmt);
-    $row = oci_fetch_row($stmt);
-    $id = $row[0];
-    //Adatok táblázatba írása. Menő, mi?
-    echo '<table>
-    <thead>
-        <tr>
-            <th class="table_header"></th>
-            <th class="table_header">Adatok</th>
-        </tr>
-    </thead>
-    <tbody>';
+    $row = oci_fetch_assoc($stmt);
+    $id = $row;
+
     
-        echo '<tr>
-        <th class="table_odd">Email:</th>
-        <th class="table_odd">'.$name.'</th>
-        </tr>';
-        echo '<tr>
-            <th class="table_odd">Jogosultsági szint:</th>';
-        $query = "SELECT admin from felhasznalo where email = :id";
-        $stmt = oci_parse($con, $query);
-        oci_bind_by_name($stmt, ":id", $name);
-        oci_execute($stmt);
-        $row = oci_fetch_row($stmt);
-        if ($row[0] == 1)
-            echo '<th class="table_odd">Adminisztrátor</th>
-            </tr>';
-        else {
-          echo '<th class="table_odd">Felhasználó</th>
-            </tr>';
-        }
-       
     if ($_SESSION["admin"] == 1 ) { //Az admin felület
         $_SESSION["masid"] = $name;
         echo '<br><form id="form-login" action="../controller/admin_check.php" method="POST">
@@ -112,7 +85,7 @@ $name = $_POST['name'];
                 echo "</div>";
             }
             echo '<label for="user-name">Felhasználónév: </label>';
-            echo '<input type="text" id="user-name" name="user-name" size="25" placeholder=" '.$name.'"><br><br>';
+            echo '<input type="text" id="user-name" name="user-name" size="25" placeholder=" '.$name.'"><br>';
              
             if(strlen($pwd_error)>0){
                 echo '<div class="warning">';
@@ -122,24 +95,24 @@ $name = $_POST['name'];
             
             
             echo '<label for="pwd">Új jelszó:</label>';
-            echo '<input type="password" id="new_pwd" name="new_pwd"><br><br>
+            echo '<input type="password" id="new_pwd" name="new_pwd"><br>
             <label for="new_pwd_2">Új jelszó újra:</label>
-                <input type="password" id="new_pwd_2" name="new_pwd_2" required>
+                <input type="password" id="new_pwd_2" name="new_pwd_2">
                 <br>
                 <label for="nev">Név:</label>
-						<input type="text" id="nev" name="nev">
+						<input type="text" id="nev" name="nev" placeholder="'.$id['NEV'].'">
 						<br>
 
 						<label for="eletkor">Életkor:</label>
-						<input type="number" id="eletkor" name="eletkor" >
+						<input type="number" id="eletkor" name="eletkor" placeholder="'.$id['ELETKOR'].'">
 						<br>
 
 						<label for="kedvezmenytipus">Kedvezménytípus:</label>
-						<input type="text" id="kedvezmenytipus" name="kedvezmenytipus" >
+						<input type="text" id="kedvezmenytipus" name="kedvezmenytipus" placeholder="'.$id['KEDVEZMENYTIPUS'].'">
 						<br>
 
 						<label for="igazolvanyszam">Igazolványszám:</label>
-						<input type="text" id="igazolvanyszam" name="igazolvanyszam" >
+						<input type="text" id="igazolvanyszam" name="igazolvanyszam" placeholder="'.$id['IGAZOLVANYSZAM'].'">
 						<br>';
             echo '<label for="mode">Moderátor-e</label>
             <input type="checkbox" id="mode-2" name="moderator" value="0"/><br>';

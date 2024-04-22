@@ -31,7 +31,10 @@
 					$_SESSION["user_name"] = $row['EMAIL'];
 					$_SESSION["name"] = $row['NEV'];
 					$_SESSION["pwd"] = $pwd;
+					$_SESSION["eletkor"]= $row['ELETKOR'];
 					$_SESSION["admin"] = $row['ADMIN'];
+					$_SESSION["kedvezmenytipus"] = $row['KEDVEZMENYTIPUS'];
+					$_SESSION["igazolvanyszam"]= $row['IGAZOLVANYSZAM'];
 					header("Location: ../view/myprofile.php");
 					oci_close($con);
 					die;

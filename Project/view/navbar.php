@@ -34,18 +34,26 @@
       <div class="dropdown">
         <a class="inactive_dropdown" href="ticket.php">Jegyvásárlás</a>
         <a class="inactive_dropdown" href="passes.php">Bérletvásárlás</a>
-        <a class="inactive_dropdown" href="refresh_pwd_page.php">Jelszó módosítása</a>
-        ';
-        if ($_SESSION["admin"] == 1) {
-          echo '<a class="inactive_dropdown" href="profilesearch.php">Admin funkciók</a>';
-        }
-        echo '
+        <a class="inactive_dropdown" href="refresh_pwd_page.php">Adataid módosítása</a>
+       
       </div>
-    </div>
-    <button class="navbar-gomb" onclick="location.href='."'../controller/logout.php'".'">Kijelentkezés</button>';
+    </div>';
+    if ($_SESSION["admin"] == 1) {
+      echo '<div class="dropgomb">
+      <button class="navbar-gomb">Admin funkciók</button>
+      <div class="dropdown">
+        <a class="inactive_dropdown" href="profilesearch.php">Profil módosítása</a>
+        <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
+        <a class="inactive_dropdown" href="">Járatok módosítása</a>
+        <a class="inactive_dropdown" href="">"Közlekedik" módosítása</a>
+        <a class="inactive_dropdown" href="">Jegyek módosítása</a>
+        </div></div>';
+    }
+    echo '<button class="navbar-gomb" onclick="location.href='."'../controller/logout.php'".'">Kijelentkezés</button>';
       }
       else {
         echo '<button class="navbar-gomb" onclick="location.href= '."'login_page.php'".'">Bejelentkezés</button>';
+        echo '<button class="navbar-gomb" onclick="location.href= '."'regist_page.php'".'">Regisztráció</button>';
       }
     ?>
     
