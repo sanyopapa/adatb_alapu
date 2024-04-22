@@ -39,7 +39,7 @@ CREATE TABLE Felhasznalo (
     Kedvezmenytipus VARCHAR(255),
     Igazolvanyszam VARCHAR(255),
     Profilkep BLOB,
-    Admin NUMBER(0,1)
+    Admin NUMBER(1)
     
     
 );
@@ -73,6 +73,47 @@ CREATE TABLE Szerelveny (
     Kerekparhelyek_szama INT,
     Osztaly INT 
 );
+-- Triggerek
+
+CREATE OR REPLACE TRIGGER update_allomasnev
+AFTER UPDATE OF Nev ON Allomas
+FOR EACH ROW
+BEGIN
+    UPDATE Kozlekedik
+    SET AllomasNev = :new.Nev
+    WHERE AllomasNev = :old.Nev;
+END;
+/
+
+CREATE OR REPLACE TRIGGER update_vonatszam
+AFTER UPDATE OF Vonatszam ON Jarat
+FOR EACH ROW
+BEGIN
+    UPDATE Kozlekedik
+    SET Vonatszam = :new.Vonatszam
+    WHERE Vonatszam = :old.Vonatszam;
+END;
+/
+
+CREATE OR REPLACE TRIGGER update_email
+AFTER UPDATE OF Email ON Felhasznalo
+FOR EACH ROW
+BEGIN
+    UPDATE Vasarol
+    SET Email = :new.Email
+    WHERE Email = :old.Email;
+END;
+/
+
+CREATE OR REPLACE TRIGGER update_tipus
+AFTER UPDATE OF Tipus ON Jegy
+FOR EACH ROW
+BEGIN
+    UPDATE Vasarol
+    SET Tipus = :new.Tipus
+    WHERE Tipus = :old.Tipus;
+END;
+/
 
 -- Táblák feltöltése adatokkal 
 
