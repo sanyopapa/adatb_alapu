@@ -40,7 +40,7 @@
 			<h1>Üdv újra, '.$_SESSION["name"].'</h1>
 			<h1><br></h1>
         	</div>
-			<main class="torzs">';
+			<main class="torzs table_div">';
 			}
 			
 			
@@ -51,30 +51,65 @@
 			
 
 			// Prepare the SQL query
-			$query = "SELECT id, Tipus, Kezdet FROM Vasarol WHERE email = '" . $_SESSION['user_name'] . "' ORDER BY Kezdet DESC";
+			$query = "SELECT v.id, v.Email, v.Tipus, v.Kezdet, j.Idotartam,
+						CASE 
+							WHEN (v.Kezdet + j.Idotartam) >= CURRENT_DATE THEN 'Érvényes'
+							ELSE 'Lejárt'
+						END AS Ervenyesseg
+						FROM Vasarol v
+						JOIN Jegy j ON v.Tipus = j.Tipus
+						WHERE v.Email = :email
+						order by v.Kezdet desc
+						";
 
 			// Execute the query
 			$statement = oci_parse($con, $query);
+			oci_bind_by_name($statement, ":email", $_SESSION["user_name"]);
 			oci_execute($statement);
 
+	
+
 			// Fetch the results and display the buttons
-			while ($row = oci_fetch_assoc($statement)) {
-				$id = $row['ID'];
-				$tipus = $row['TIPUS'];
-				$kezs = $row['KEZDET'];
-				echo '<form action="../controller/jegy_torol.php" method="POST">';
-				echo '<input type="hidden" name="tipus" value="' . $id . '">
-				<label>'.$tipus.'</label>
-				<label><br>'.$kezs.'</label><br>';
-				echo '<input type="submit" name="submit" value="Törlés">';
-				echo '</form>';
+			if (oci_fetch($statement)) {
+				echo '<table>
+				<thead>
+                <tr>
+                    <th colspan="4" class="table_header">Jegyeid:</th>
+                </tr>
+				<tr>
+					<th class="table_header">Jegy típusa</th>
+					<th class="table_header">Kezdete</th>
+					<th class="table_header">Érvényes-e?</th>
+					<th class="table_header">Törlés</th>
+				</tr>
+            	</thead>
+				<tbody>';
+				$stmt = oci_parse($con, $query);
+				oci_bind_by_name($stmt, ":email", $_SESSION["user_name"]);
+				oci_execute($stmt);
+				$count=0;
+				while ($row = oci_fetch_assoc($stmt)) {
+					$id = $row['ID'];
+					$tipus = $row['TIPUS'];
+					$kezs = $row['KEZDET'];
+					$ervenyesseg = $row['ERVENYESSEG'];
+					$class = $count % 2 == 1 ? 'table_even' : 'table_odd';
+					echo '<tr>
+					<td class="'.$class.'">' . $tipus . '</td>
+					<td class="'.$class.'">' . $kezs . '</td>
+					<td class="'.$class.'">' . $ervenyesseg . '</td>
+					<td class="'.$class.'">
+					<form action="../controller/jegy_torol.php" method="POST">
+					<input type="hidden" name="tipus" value="' . $id . '">
+					<input type="submit" name="submit" value="Törlés">
+					</form>
+					</td>
+					</tr>';
+					$count++;
+				}
+				echo '</tbody></table>';
 			}
-			/*
-			<form id="form-login" class="login-link" action="csaladtag_torlese.php" method="POST">
-									<input type="hidden" name="szemelynev_id" value="'.$row[0].'">
-									<input type="hidden" name="szemelynev" value="'.$row[1].'">
-									<input type="submit" value="Törlés">			
-			*/
+			
 			// Close the connection
 			oci_close($con);
 			
