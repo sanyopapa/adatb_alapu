@@ -58,7 +58,7 @@
                     header("Location: ../view/login_check.php");
                 }
                 else {
-                    if ($_SESSION["kedvezmenytipus"] == 'Diák') {
+                    if (strtolower($_SESSION["kedvezmenytipus"]) == 'diák') {
                         echo '
                         <p>
                         Diákkedvezményt állítottál be. Emiatt a kedvezményes árú bérletek jelennek meg. Ha teljesárú bérletet szeretnél, módosítsd az adataid <a href="refresh_pwd_page.php">itt</a>
@@ -92,7 +92,7 @@
                             <option value="">Válasszon bérlet</option>
                             <?php
                                 // Assuming you have a database connection to Oracle and a table named 'jegy' with a column named 'tipus'
-                                if ($_SESSION["kedvezmenytipus"] == 'Diák') {
+                                if (strtolower($_SESSION["kedvezmenytipus"]) == 'diák') {
                                     $query = "SELECT Tipus FROM Jegy WHERE Tipus LIKE '%Kedvezményes%' AND Tipus LIKE '%bérlet%'";
                                 }
                                 else {
