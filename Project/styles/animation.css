@@ -25,21 +25,23 @@
 
 #footer_link{
     background: linear-gradient(to right, #2020ff, #00e1ff , #00ff00, #bb005d, #3131ff);
-    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     animation: rainbow_animation 2s ease-in-out infinite;
     background-size: 400% 100%;
 }
 
 .torzs a:hover {
     background: linear-gradient(to right, #2020ff, #00e1ff , #00ff00, #bb005d, #3131ff);
-    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     animation: rainbow_animation 2s ease-in-out infinite;
     background-size: 400% 100%;
   }
-.torzs {
+/* .torzs {
   transform: scale(0.94);
   animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
-}
+} */
 @keyframes scale {
   100% {
     transform: scale(1);

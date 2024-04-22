@@ -57,7 +57,7 @@
 
       echo '<header id="form_1">
       <div class="text1">
-          <h1>'.$_SESSION["user_name"].' adatai:</h1>
+          <h1>Adataid:</h1>
       </div>
     </header>';
     
@@ -66,11 +66,11 @@
     
 
     
-     //Az admin felület
+    
         $_SESSION["masid"] = $_SESSION["user_name"];
         echo '<br><form id="form-login" action="../controller/admin_check.php" method="POST">
         <fieldset class="form_2">
-            <legend>'.$_SESSION["user_name"].' adatainak módosítása</legend>';
+            <legend>Adataid módosítása</legend>';
                 
             if(strlen($user_name_error)>0){
                 echo '<div class="warning">';
@@ -93,20 +93,20 @@
                 <input type="password" id="new_pwd_2" name="new_pwd_2">
                 <br>
                 <label for="nev">Név:</label>
-						<input type="text" id="nev" name="nev" placeholder="'.$_SESSION['name'].'">
-						<br>
+                <input type="text" id="nev" name="nev" placeholder="'.$_SESSION['name'].'">
+                <br>
 
-						<label for="eletkor">Életkor:</label>
-						<input type="number" id="eletkor" name="eletkor" placeholder="'.$_SESSION['eletkor'].'">
-						<br>
+                <label for="eletkor">Életkor:</label>
+                <input type="number" id="eletkor" name="eletkor" placeholder="'.$_SESSION['eletkor'].'">
+                <br>
 
-						<label for="kedvezmenytipus">Kedvezménytípus:</label>
-						<input type="text" id="kedvezmenytipus" name="kedvezmenytipus" placeholder="'.$_SESSION['kedvezmenytipus'].'">
-						<br>
+                <label for="kedvezmenytipus">Kedvezménytípus:</label>
+                <input type="text" id="kedvezmenytipus" name="kedvezmenytipus" placeholder="'.$_SESSION['kedvezmenytipus'].'">
+                <br>
 
-						<label for="igazolvanyszam">Igazolványszám:</label>
-						<input type="text" id="igazolvanyszam" name="igazolvanyszam" placeholder="'.$_SESSION['igazolvanyszam'].'">
-						<br>';
+                <label for="igazolvanyszam">Igazolványszám:</label>
+                <input type="text" id="igazolvanyszam" name="igazolvanyszam" placeholder="'.$_SESSION['igazolvanyszam'].'">
+                <br>';
             
             echo '<input type="reset" name="btn-reset" value="Törlés"><br>
             <input type="submit" name="btn-submit"  value="Küldés">

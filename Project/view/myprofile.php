@@ -51,7 +51,7 @@
 			
 
 			// Prepare the SQL query
-			$query = "SELECT v.id, v.Email, v.Tipus, v.Kezdet, j.Idotartam,
+			$query = "SELECT v.id, v.Email, v.Tipus, v.Kezdet, j.Idotartam, j.Ar,
 						CASE 
 							WHEN (v.Kezdet + j.Idotartam) >= CURRENT_DATE THEN 'Érvényes'
 							ELSE 'Lejárt'
@@ -74,12 +74,13 @@
 				echo '<table>
 				<thead>
                 <tr>
-                    <th colspan="4" class="table_header">Jegyeid:</th>
+                    <th colspan="5" class="table_header">Jegyeid:</th>
                 </tr>
 				<tr>
 					<th class="table_header">Jegy típusa</th>
 					<th class="table_header">Kezdete</th>
 					<th class="table_header">Érvényes-e?</th>
+					<th class="table_header">Ára</th>
 					<th class="table_header">Törlés</th>
 				</tr>
             	</thead>
@@ -93,7 +94,7 @@
 					$tipus = $row['TIPUS'];
 					$date = DateTime::createFromFormat('d-M-y', $row['KEZDET']);
 					$formatted_date = date_format($date, 'Y. F j.');
-					
+					$ar = $row['AR'];
 					$kezs = $row['KEZDET'];
 					$ervenyesseg = $row['ERVENYESSEG'];
 					$class = $count % 2 == 1 ? 'table_even' : 'table_odd';
@@ -101,6 +102,7 @@
 					<td class="'.$class.'">' . $tipus . '</td>
 					<td class="'.$class.'">' . $formatted_date . '</td>
 					<td class="'.$class.'">' . $ervenyesseg . '</td>
+					<td class="'.$class.'">' . $ar . ' Ft</td>
 					<td class="'.$class.'">
 					<form action="../controller/jegy_torol.php" method="POST">
 					<input type="hidden" name="tipus" value="' . $id . '">

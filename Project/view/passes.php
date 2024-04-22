@@ -50,11 +50,30 @@
     <?php include 'navbar.php' ?>
     </nav>
 		</header>
-		<main>
+		<main class="torzs">
 			
-			<div class="anti-collapse"></div>
 			
+			<?php 
+                if(!isset($_SESSION["user_name"])){
+                    header("Location: ../view/login_check.php");
+                }
+                else {
+                    if ($_SESSION["kedvezmenytipus"] == 'Diák') {
+                        echo '
+                        <p>
+                        Diákkedvezményt állítottál be. Emiatt a kedvezményes árú bérletek jelennek meg. Ha teljesárú bérletet szeretnél, módosítsd az adataid <a href="refresh_pwd_page.php">itt</a>
+                        </p>
+                        ';
+                    }
+                    else {
+                        echo '<p>
+                        Nem állítottál be kedvezményt. Emiatt a teljesárú bérletek jelennek meg. Ha diák vagy, módosítsd az adataid <a href="refresh_pwd_page.php">itt</a>
+                    </p>';
+                    }
+                }
+            ?>
 			<div class="torzs">
+
                 <form id="form-passes" action="../controller/passes_check.php" method="POST">
                     <fieldset class="form_2">
                         <legend>Bérletvétel</legend>
@@ -73,7 +92,13 @@
                             <option value="">Válasszon bérlet</option>
                             <?php
                                 // Assuming you have a database connection to Oracle and a table named 'jegy' with a column named 'tipus'
-                                $query = "SELECT Tipus FROM Jegy WHERE Tipus LIKE '%bérlet%'";
+                                if ($_SESSION["kedvezmenytipus"] == 'Diák') {
+                                    $query = "SELECT Tipus FROM Jegy WHERE Tipus LIKE '%Kedvezményes%' AND Tipus LIKE '%bérlet%'";
+                                }
+                                else {
+                                    $query = "SELECT Tipus FROM Jegy WHERE Tipus NOT LIKE '%Kedvezményes%' AND Tipus LIKE '%bérlet%'";
+                                }
+                                //$query = "SELECT Tipus FROM Jegy WHERE Tipus LIKE '%bérlet%'";
                                 $stmt = oci_parse($con, $query);
                                 oci_execute($stmt);
                                 
