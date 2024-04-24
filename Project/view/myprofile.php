@@ -133,6 +133,29 @@
 				}
 			?>
 			</div>
+			<div>
+			<?php
+				if (isset($_SESSION["user_name"])) {
+					include("../controller/connection.php");
+
+					$query = "SELECT SUM(j.Ar) AS Osszeg
+							FROM Vasarol v
+							JOIN Jegy j ON v.Tipus = j.Tipus
+							WHERE v.Email = :email";
+
+					$statement = oci_parse($con, $query);
+					oci_bind_by_name($statement, ":email", $_SESSION["user_name"]);
+					oci_execute($statement);
+
+					if (oci_fetch($statement)) {
+						$osszeg = oci_result($statement, "OSSZEG");
+						echo "Eddigi költéseim: " . $osszeg . " Ft";
+					}
+
+					oci_close($con);
+				}
+			?>
+			</div>
 		</main>
 		<footer id="footer" class="unselectable">
         <p class="footer-p">A projekt <a href="https://www.reddit.com/r/linuxquestions/comments/r2ka86/where_can_i_find_the_btw_version_of_arch_linux/" target="_blank" id="footer_link"> Github </a> oldala</p> 
