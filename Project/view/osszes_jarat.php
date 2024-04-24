@@ -6,7 +6,7 @@
         $station = $_GET['station'];
     }
     $sql = "SELECT * FROM jarat WHERE honnan LIKE '%$station%' OR hova LIKE '%$station%'";
-    $result = $conn->query($sql);
+    $result = $con->query($sql);
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
         echo "<tr>";
@@ -22,7 +22,7 @@
     else {
         echo "<tr><td colspan='6'>Nincs találat az adott állomásnévre.</td></tr>";
     }
-    $conn->close();
+    $con->close();
 ?>
 <!DOCTYPE html>
 <html lang="hu">
