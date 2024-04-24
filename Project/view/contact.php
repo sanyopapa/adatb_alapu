@@ -99,7 +99,6 @@
                     <td class="table_odd">Teljes bevétel</td>
                     <td class="table_odd">
                         <?php
-                        if (isset($_SESSION["user_name"])) {
                             include("../controller/connection.php");
 
                             $query = "SELECT SUM(Jegy.Ar) AS Osszeg
@@ -120,7 +119,7 @@
                             }
 
                             oci_close($con);
-                        }
+                        
                         ?>
                     </td>
                 </tr>
@@ -128,7 +127,6 @@
                     <td class="table_even">Országbérlet</td>
                     <td class="table_even">
                         <?php
-                            if (isset($_SESSION["user_name"])) {
                                 include("../controller/connection.php");
 
                                 $query = "SELECT SUM(Jegy.Ar) AS Osszeg
@@ -150,7 +148,7 @@
                                 }
 
                                 oci_close($con);
-                            }
+                            
                         ?>
                     </td>
                 </tr>
@@ -158,7 +156,6 @@
                     <td class="table_odd">Vármegyebérlet</td>
                     <td class="table_odd">
                         <?php
-                            if (isset($_SESSION["user_name"])) {
                                 include("../controller/connection.php");
 
                                 $query = "SELECT SUM(Jegy.Ar) AS Osszeg
@@ -180,7 +177,7 @@
                                 }
 
                                 oci_close($con);
-                            }
+                            
                         ?>
                     </td>
                 </tr>
@@ -188,7 +185,6 @@
                     <td class="table_even">Magyarország24 jegy</td>
                     <td class="table_even">
                         <?php
-                            if (isset($_SESSION["user_name"])) {
                                 include("../controller/connection.php");
 
                                 $query = "SELECT SUM(Jegy.Ar) AS Osszeg
@@ -210,7 +206,6 @@
                                 }
 
                                 oci_close($con);
-                            }
                         ?>
                     </td>
                 </tr>
@@ -218,7 +213,6 @@
                     <td class="table_odd">Vármegyejegy</td>
                     <td class="table_odd">
                         <?php
-                            if (isset($_SESSION["user_name"])) {
                                 include("../controller/connection.php");
 
                                 $query = "SELECT SUM(Jegy.Ar) AS Osszeg
@@ -240,7 +234,7 @@
                                 }
 
                                 oci_close($con);
-                            }
+                            
                         ?>
                     </td>
                 </tr>
