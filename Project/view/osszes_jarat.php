@@ -38,7 +38,19 @@
       if(isset($_POST['station'])){
         $station = $_POST['station'];
       }
-      $sql = "SELECT * FROM jarat WHERE LOWER(honnan) LIKE LOWER(:station) OR LOWER(hova) LIKE LOWER(:station)";
+      $sql = "SELECT 
+              Jarat.Vonatszam, 
+              Jarat.Vonattipus, 
+              Jarat.Honnan, 
+              Jarat.Hova, 
+              Kozlekedik.Erkezes
+              Kozlekedik.Indulas
+              FROM 
+              Jarat
+              JOIN 
+              Kozlekedik ON Jarat.Vonatszam = Kozlekedik.Vonatszam
+              WHERE 
+              Kozlekedik.AllomasNev = '$station'";
       $statement = oci_parse($con, $sql);
       oci_bind_by_name($statement, ':station', $station);
       oci_execute($statement);
