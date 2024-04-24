@@ -39,18 +39,19 @@
         $station = $_POST['station'];
       }
       $sql = "SELECT 
-              Jarat.Vonatszam, 
-              Jarat.Vonattipus, 
-              Jarat.Honnan, 
-              Jarat.Hova, 
-              Kozlekedik.Erkezes
-              Kozlekedik.Indulas
-              FROM 
-              Jarat
-              JOIN 
-              Kozlekedik ON Jarat.Vonatszam = Kozlekedik.Vonatszam
-              WHERE 
-              Kozlekedik.AllomasNev = '$station'";
+        Jarat.Vonatszam, 
+        Jarat.Vonattipus, 
+        Jarat.Menetido,
+        Jarat.Honnan, 
+        Jarat.Hova, 
+        Kozlekedik.Erkezes,
+        Kozlekedik.Indulas
+    FROM 
+        Jarat
+    JOIN 
+        Kozlekedik ON Jarat.Vonatszam = Kozlekedik.Vonatszam
+    WHERE 
+        LOWER(Jarat.Honnan) LIKE LOWER('%$station%') OR LOWER(Jarat.Hova) LIKE LOWER('%$station%')";
       $statement = oci_parse($con, $sql);
       oci_execute($statement);
       if(!oci_fetch($statement)){
@@ -61,39 +62,40 @@
         oci_execute($statement);
         echo '<table>
         <thead>
-        <tr>
-          <th class="table_header">Vonatszám</th>
-          <th class="table_header">Vonattípus</th>
-          <th class="table_header">Honnan</th>
-          <th class="table_header">Hova</th>
-          <th class="table_header">Menetidő</th>
-          <th class="table_header">Indulási idő</th>
-        </tr>
-      </thead>
-      <tbody>';
-      $count = 0;
+          <tr>
+            <th>Vonatszám</th>
+            <th>Vonattípus</th>
+            <th>Honnan</th>
+            <th>Hova</th>
+            <th>Menetidő</th>
+            <th>Indulási idő</th>
+          </tr>
+        </thead>
+        <tbody>';
+        $count = 0;
 
         while($row = oci_fetch_assoc($statement)){
           $class = $count % 2 == 1 ? 'table_even' : 'table_odd';
-          $dateTime = date_create_from_format('d-M-y h.i.s.u A', $row['MENETIDO']);
-          $formattedDate = date_format($dateTime, 'H:i');
-          $dateTime2 = date_create_from_format('d-M-y h.i.s.u A', $row['INDULASI_IDO']);
-          $formattedDate2 = date_format($dateTime2, 'H:i');
+      
+          $dateTime = isset($row['MENETIDO']) ? date_create_from_format('d-M-y h.i.s.u A', $row['MENETIDO']) : false;
+          $formattedDate = $dateTime !== false ? date_format($dateTime, 'H:i') : 'Ismeretlen';
+      
+          $dateTime2 = isset($row['INDULASI_IDO']) ? date_create_from_format('d-M-y h.i.s.u A', $row['INDULASI_IDO']) : false;
+          $formattedDate2 = $dateTime2 !== false ? date_format($dateTime2, 'H:i') : 'Ismeretlen';
+      
           echo "<tr>";
-            echo '<td class="' . $class . '">' . $row['VONATSZAM'] . '</td>';
-            echo '<td class="' . $class . '">' . $row['VONATTIPUS'] . '</td>';
-            echo '<td class="' . $class . '">' . $row['HONNAN'] . '</td>';
-            echo '<td class="' . $class . '">' . $row['HOVA'] . '</td>';
-            echo '<td class="' . $class . '">' . $formattedDate . '</td>';
-            echo '<td class="' . $class . '">' . $formattedDate2 . '</td>';
-            echo '</tr>';
-            $count++;
-          
-        }
+          echo '<td class="' . $class . '">' . $row['VONATSZAM'] . '</td>';
+          echo '<td class="' . $class . '">' . $row['VONATTIPUS'] . '</td>';
+          echo '<td class="' . $class . '">' . $row['HONNAN'] . '</td>';
+          echo '<td class="' . $class . '">' . $row['HOVA'] . '</td>';
+          echo '<td class="' . $class . '">' . $formattedDate . '</td>';
+          echo '<td class="' . $class . '">' . $formattedDate2 . '</td>';
+          echo '</tr>';
+      
+          $count++;
       }
-      
-      
     }
+  }
   ?>
 </tbody>
   </table>
