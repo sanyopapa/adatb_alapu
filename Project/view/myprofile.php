@@ -132,29 +132,27 @@
 					header('location: login_page.php');
 				}
 			?>
-			</div>
-			<div>
 			<?php
-				if (isset($_SESSION["user_name"])) {
-					include("../controller/connection.php");
+					if (isset($_SESSION["user_name"])) {
+						include("../controller/connection.php");
 
-					$query = "SELECT SUM(j.Ar) AS Osszeg
-							FROM Vasarol v
-							JOIN Jegy j ON v.Tipus = j.Tipus
-							WHERE v.Email = :email";
+						$query = "SELECT SUM(j.Ar) AS Osszeg
+								FROM Vasarol v
+								JOIN Jegy j ON v.Tipus = j.Tipus
+								WHERE v.Email = :email";
 
-					$statement = oci_parse($con, $query);
-					oci_bind_by_name($statement, ":email", $_SESSION["user_name"]);
-					oci_execute($statement);
+						$statement = oci_parse($con, $query);
+						oci_bind_by_name($statement, ":email", $_SESSION["user_name"]);
+						oci_execute($statement);
 
-					if (oci_fetch($statement)) {
-						$osszeg = oci_result($statement, "OSSZEG");
-						echo "Eddigi költéseim: " . $osszeg . " Ft";
+						if (oci_fetch($statement)) {
+							$osszeg = oci_result($statement, "OSSZEG");
+							echo "<p>Eddigi költéseim: " . $osszeg . " Ft</p>";
+						}
+
+						oci_close($con);
 					}
-
-					oci_close($con);
-				}
-			?>
+				?>
 			</div>
 		</main>
 		<footer id="footer" class="unselectable">
