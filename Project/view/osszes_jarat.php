@@ -1,33 +1,3 @@
-<?php
-<<<<<<< HEAD
-    if(!isset($_SESSION)){session_start();}
-    include("../controller/connection.php");
-    $station = '';
-    if(isset($_GET['station'])){
-        $station = $_GET['station'];
-    }
-    $sql = "SELECT * FROM jarat WHERE honnan LIKE '%$station%' OR hova LIKE '%$station%'";
-    $result = $con->query($sql);
-    if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-        echo "<tr>";
-        echo "<td>" . $row['vonatszam'] . "</td>";
-        echo "<td>" . $row['vonattipus'] . "</td>";
-        echo "<td>" . $row['honnan'] . "</td>";
-        echo "<td>" . $row['hova'] . "</td>";
-        echo "<td>" . $row['menetido'] . "</td>";
-        echo "<td>" . $row['indulas'] . "</td>";
-        echo "</tr>";
-        }
-    }
-    else {
-        echo "<tr><td colspan='6'>Nincs találat az adott állomásnévre.</td></tr>";
-    }
-    $con->close();
-=======
-  if(!isset($_SESSION)){session_start();}
->>>>>>> f28ee8b77849af8f73cc8776f560c6bdfb87456d
-?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>

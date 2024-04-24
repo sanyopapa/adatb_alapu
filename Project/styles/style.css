@@ -6,6 +6,9 @@
 body{
 margin: 0;
 background-color: #011f14;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
 }
 
 .blue-link {

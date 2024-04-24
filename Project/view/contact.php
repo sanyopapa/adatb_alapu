@@ -9,18 +9,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/page_images.css">
-    <link rel="stylesheet" href="../styles/page_content.css">
-    <link rel="stylesheet" href="../styles/navbar.css">
-    <link rel="stylesheet" href="../styles/dropdown.css">
-    <link rel="stylesheet" href="../styles/footer.css">
-    <link rel="stylesheet" href="../styles/media_size.css">
-    <link rel="stylesheet" href="../styles/animation.css">
-    <link rel="stylesheet" href="../styles/footer.css">
-    <link rel="icon" href="../img/150_tablogo.png">
-    <link rel="icon" href="../img/150_tablogo.png">
-    <title>R150 Családfa - Névjegy</title>
+    <link rel="stylesheet" href="../styles/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../styles/page_images.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../styles/page_content.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../styles/navbar.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../styles/dropdown.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../styles/footer.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../styles/media_size.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../styles/animation.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../styles/footer.css?v=<?php echo time(); ?>">
+    <link rel="icon" href="../img/150_tablogo.png?v=<?php echo time(); ?>">
+    
+    <title>R150 Vasútmenetrend - Névjegy</title>
 </head>
 <body>
 <nav>
@@ -36,9 +36,9 @@
         </div>
     </header>
     <main class="torzs table_div">
-    <main class="torzs">
+    
        <p>Ezt a projektet az <strong>R150 csoport</strong> készítette az SZTE <i>Adatbázis alapú rendszerek</i> tárgy gyakorlatának teljesítése céljából.</p>
-    </main>
+    
         <table>
             <thead>
                 <tr>
