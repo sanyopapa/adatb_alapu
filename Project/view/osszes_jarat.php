@@ -17,23 +17,20 @@
   <title>Összes járat az állomáson</title>
 </head>
 <body>
-  <h1>Összes járat az állomáson</h1>
-  <form action="osszes_jarat.php" method="post">
-  <input type="text" name="station" placeholder="Állomás neve">
-  <input type="submit" name="submit" value="Keresés">
-</form>
-  <table>
-  <thead>
-  <tr>
-    <th>Vonatszám</th>
-    <th>Vonattípus</th>
-    <th>Honnan</th>
-    <th>Hova</th>
-    <th>Menetidő</th>
-    <th>Indulási idő</th>
-  </tr>
-</thead>
-<tbody>
+<nav>
+		<?php include 'navbar.php' ?>
+	</nav>
+  <main class="torzs table_div">
+  <div class="text1"><h1>Összes járat az állomáson</h1></div>
+  <form id="form-login" class="login-link" action="osszes_jarat.php" method="post">
+    <fieldset class="form_2">
+      <legend>Állomás keresése</legend>
+        <input type="text" name="station" placeholder="Állomás neve">
+        <br><input type="submit" name="submit" value="Keresés">
+    </fieldset>
+  
+</form><br>
+  
   <?php
     if(isset($_POST['submit'])){ 
       include("../controller/connection.php");
@@ -44,24 +41,50 @@
       $sql = "SELECT * FROM jarat WHERE LOWER(honnan) LIKE LOWER('%$station%') OR LOWER(hova) LIKE LOWER('%$station%')";
       $statement = oci_parse($con, $sql);
       oci_execute($statement);
-      $szam = 0;
-      while($row = oci_fetch_assoc($statement)){
-        echo "<tr>";
-        echo "<td>" . $row['VONATSZAM'] . "</td>";
-        echo "<td>" . $row['VONATTIPUS'] . "</td>";
-        echo "<td>" . $row['HONNAN'] . "</td>";
-        echo "<td>" . $row['HOVA'] . "</td>";
-        echo "<td>" . $row['MENETIDO'] . "</td>";
-        echo "<td>" . $row['INDULASI_IDO'] . "</td>";
-        echo "</tr>";
-        $szam++;
+      if(!oci_fetch($statement)){
+        echo "<p>Nincs ilyen állomás a rendszerben!</p>";
       }
-      if($szam == 0){
-        echo "<tr><td colspan='6'>Nincs ilyen állomás a rendszerben!</td></tr>";
+      else {
+        $statement = oci_parse($con, $sql);
+        oci_execute($statement);
+        echo '<table>
+        <thead>
+        <tr>
+          <th class="table_header">Vonatszám</th>
+          <th class="table_header">Vonattípus</th>
+          <th class="table_header">Honnan</th>
+          <th class="table_header">Hova</th>
+          <th class="table_header">Menetidő</th>
+          <th class="table_header">Indulási idő</th>
+        </tr>
+      </thead>
+      <tbody>';
+      $count = 0;
+
+        while($row = oci_fetch_assoc($statement)){
+          $class = $count % 2 == 1 ? 'table_even' : 'table_odd';
+          $dateTime = date_create_from_format('d-M-y h.i.s.u A', $row['MENETIDO']);
+          $formattedDate = date_format($dateTime, 'H:i');
+          $dateTime2 = date_create_from_format('d-M-y h.i.s.u A', $row['INDULASI_IDO']);
+          $formattedDate2 = date_format($dateTime2, 'H:i');
+          echo "<tr>";
+            echo '<td class="' . $class . '">' . $row['VONATSZAM'] . '</td>';
+            echo '<td class="' . $class . '">' . $row['VONATTIPUS'] . '</td>';
+            echo '<td class="' . $class . '">' . $row['HONNAN'] . '</td>';
+            echo '<td class="' . $class . '">' . $row['HOVA'] . '</td>';
+            echo '<td class="' . $class . '">' . $formattedDate . '</td>';
+            echo '<td class="' . $class . '">' . $formattedDate2 . '</td>';
+            echo '</tr>';
+            $count++;
+          
+        }
       }
+      
+      
     }
   ?>
 </tbody>
   </table>
+</main>
 </body>
 </html>

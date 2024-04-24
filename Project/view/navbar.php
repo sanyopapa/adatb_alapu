@@ -34,6 +34,7 @@
       <div class="dropdown">
         <a class="inactive_dropdown" href="ticket.php">Jegyvásárlás</a>
         <a class="inactive_dropdown" href="passes.php">Bérletvásárlás</a>
+        <a class="inactive_dropdown" href="osszes_jarat.php">Összes járat egy adott állomásról</a>
         <a class="inactive_dropdown" href="refresh_pwd_page.php">Adataid módosítása</a>
        
       </div>
