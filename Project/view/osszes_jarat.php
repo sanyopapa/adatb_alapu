@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
     if(!isset($_SESSION)){session_start();}
     include("../controller/connection.php");
     $station = '';
@@ -23,6 +24,9 @@
         echo "<tr><td colspan='6'>Nincs találat az adott állomásnévre.</td></tr>";
     }
     $con->close();
+=======
+  if(!isset($_SESSION)){session_start();}
+>>>>>>> f28ee8b77849af8f73cc8776f560c6bdfb87456d
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -43,27 +47,51 @@
   <title>Összes járat az állomáson</title>
 </head>
 <body>
-  <nav>
-    <?php include 'navbar.php' ?>
-  </nav>
   <h1>Összes járat az állomáson</h1>
-  <form action="osszes_jarat.php" method="get">
-    <input type="text" name="station" placeholder="Állomás neve">
-    <input type="submit" value="Keresés">
-  </form>
+  <form action="osszes_jarat.php" method="post">
+  <input type="text" name="station" placeholder="Állomás neve">
+  <input type="submit" name="submit" value="Keresés">
+</form>
   <table>
-    <thead>
-      <tr>
-        <th>Vonatszám</th>
-        <th>Vonattípus</th>
-        <th>Honnan</th>
-        <th>Hova</th>
-        <th>Menetidő</th>
-        <th>Indulási idő</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
+  <thead>
+  <tr>
+    <th>Vonatszám</th>
+    <th>Vonattípus</th>
+    <th>Honnan</th>
+    <th>Hova</th>
+    <th>Menetidő</th>
+    <th>Indulási idő</th>
+  </tr>
+</thead>
+<tbody>
+  <?php
+    if(isset($_POST['submit'])){ 
+      include("../controller/connection.php");
+      $station = '';
+      if(isset($_POST['station'])){
+        $station = $_POST['station'];
+      }
+      $sql = "SELECT * FROM jarat WHERE LOWER(honnan) LIKE LOWER('%$station%') OR LOWER(hova) LIKE LOWER('%$station%')";
+      $statement = oci_parse($con, $sql);
+      oci_execute($statement);
+      $szam = 0;
+      while($row = oci_fetch_assoc($statement)){
+        echo "<tr>";
+        echo "<td>" . $row['VONATSZAM'] . "</td>";
+        echo "<td>" . $row['VONATTIPUS'] . "</td>";
+        echo "<td>" . $row['HONNAN'] . "</td>";
+        echo "<td>" . $row['HOVA'] . "</td>";
+        echo "<td>" . $row['MENETIDO'] . "</td>";
+        echo "<td>" . $row['INDULASI_IDO'] . "</td>";
+        echo "</tr>";
+        $szam++;
+      }
+      if($szam == 0){
+        echo "<tr><td colspan='6'>Nincs ilyen állomás a rendszerben!</td></tr>";
+      }
+    }
+  ?>
+</tbody>
   </table>
 </body>
 </html>
