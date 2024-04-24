@@ -38,8 +38,9 @@
       if(isset($_POST['station'])){
         $station = $_POST['station'];
       }
-      $sql = "SELECT * FROM jarat WHERE LOWER(honnan) LIKE LOWER('%$station%') OR LOWER(hova) LIKE LOWER('%$station%')";
+      $sql = "SELECT * FROM jarat WHERE LOWER(honnan) LIKE LOWER(:station) OR LOWER(hova) LIKE LOWER(:station)";
       $statement = oci_parse($con, $sql);
+      oci_bind_by_name($statement, ':station', $station);
       oci_execute($statement);
       if(!oci_fetch($statement)){
         echo "<p>Nincs ilyen állomás a rendszerben!</p>";
