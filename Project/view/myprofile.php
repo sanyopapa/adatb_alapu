@@ -137,31 +137,24 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 				<td class="table_even">
 					<?php
 					$currentYear = date("Y");
-					$userBirthYearQuery = "SELECT Eletkor FROM Felhasznalo WHERE Email = :userEmail";
+					$userEmail = $_SESSION["user_name"];
 
-					$userBirthYearStatement = oci_parse($con, $userBirthYearQuery);
-					oci_bind_by_name($userBirthYearStatement, ':userEmail', $_SESSION["user_name"]);
-					oci_execute($userBirthYearStatement);
-					$userBirthYearResult = oci_fetch_assoc($userBirthYearStatement);
-					if ($userBirthYearResult !== false) {
-						$userBirthYear = $userBirthYearResult["ELETKOR"];
-						$userBirthYear = $currentYear - $userBirthYear;
+					$query = "SELECT S.SzNev, S.Gyartasi_ev
+					FROM Szerelveny S, Felhasznalo F
+					WHERE S.Gyartasi_ev = (EXTRACT(YEAR FROM SYSDATE) - F.Eletkor)
+					AND F.Email = :userEmail";
 
-						$trainQuery = "SELECT SzNev FROM Szerelveny WHERE Gyartasi_ev = :trainYear";
-						$trainStatement = oci_parse($con, $trainQuery);
-						oci_bind_by_name($trainStatement, ':trainYear', $userBirthYear);
-						oci_execute($trainStatement);
+					$statement = oci_parse($con, $query);
+					oci_bind_by_name($statement, ':userEmail', $userEmail);
+					oci_execute($statement);
 
-						$rowCount = oci_fetch_all($trainStatement, $trainResult);
-						if ($rowCount > 0) {
-							foreach ($trainResult['SZNEV'] as $trainName) {
-								echo "" . ($trainName !== null ? htmlentities($trainName, ENT_QUOTES) : "&nbsp;") . "<br>";
-							}
-						} else {
-							echo "Nincs veled egyidős vonat.";
+					$rowCount = oci_fetch_all($statement, $result);
+					if ($rowCount > 0) {
+						foreach ($result['SZNEV'] as $trainName) {
+							echo "" . ($trainName !== null ? htmlentities($trainName, ENT_QUOTES) : "&nbsp;") . "<br>";
 						}
 					} else {
-						echo "Nincs megadva születési év.";
+						echo "Nincs veled egyidős vonat.";
 					}
 					?>
 				</td>
@@ -171,31 +164,24 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 				<td class = "table_odd">
 				<?php
 				$currentYear = date("Y");
-				$userBirthYearQuery = "SELECT Eletkor FROM Felhasznalo WHERE Email = :userEmail";
+				$userEmail = $_SESSION["user_name"];
 
-				$userBirthYearStatement = oci_parse($con, $userBirthYearQuery);
-				oci_bind_by_name($userBirthYearStatement, ':userEmail', $_SESSION["user_name"]);
-				oci_execute($userBirthYearStatement);
-				$userBirthYearResult = oci_fetch_assoc($userBirthYearStatement);
-				if ($userBirthYearResult !== false) {
-					$userBirthYear = $userBirthYearResult["ELETKOR"];
-					$userBirthYear = $currentYear - $userBirthYear;
+				$query = "SELECT S.SzNev, S.Gyartasi_ev
+				FROM Szerelveny S, Felhasznalo F
+				WHERE S.Gyartasi_ev < (EXTRACT(YEAR FROM SYSDATE) - F.Eletkor)
+				AND F.Email = :userEmail";
 
-					$trainQuery = "SELECT SzNev FROM Szerelveny WHERE Gyartasi_ev < :trainYear";
-					$trainStatement = oci_parse($con, $trainQuery);
-					oci_bind_by_name($trainStatement, ':trainYear', $userBirthYear);
-					oci_execute($trainStatement);
+				$statement = oci_parse($con, $query);
+				oci_bind_by_name($statement, ':userEmail', $userEmail);
+				oci_execute($statement);
 
-					$rowCount = oci_fetch_all($trainStatement, $trainResult);
-					if ($rowCount > 0) {
-						foreach ($trainResult['SZNEV'] as $trainName) {
-							echo "" . ($trainName !== null ? htmlentities($trainName, ENT_QUOTES) : "&nbsp;") . "<br>";
-						}
-					} else {
-						echo "Nincs nálad idősebb vonat.";
+				$rowCount = oci_fetch_all($statement, $result);
+				if ($rowCount > 0) {
+					foreach ($result['SZNEV'] as $trainName) {
+						echo "" . ($trainName !== null ? htmlentities($trainName, ENT_QUOTES) : "&nbsp;") . "<br>";
 					}
 				} else {
-					echo "Nincs megadva születési év.";
+					echo "Nincs nálad idősebb vonat.";
 				}
 				?>
 				</td>
@@ -205,31 +191,24 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 				<td class = "table_even">
 				<?php
 				$currentYear = date("Y");
-				$userBirthYearQuery = "SELECT Eletkor FROM Felhasznalo WHERE Email = :userEmail";
+				$userEmail = $_SESSION["user_name"];
 
-				$userBirthYearStatement = oci_parse($con, $userBirthYearQuery);
-				oci_bind_by_name($userBirthYearStatement, ':userEmail', $_SESSION["user_name"]);
-				oci_execute($userBirthYearStatement);
-				$userBirthYearResult = oci_fetch_assoc($userBirthYearStatement);
-				if ($userBirthYearResult !== false) {
-					$userBirthYear = $userBirthYearResult["ELETKOR"];
-					$userBirthYear = $currentYear - $userBirthYear;
+				$query = "SELECT S.SzNev, S.Gyartasi_ev
+				FROM Szerelveny S, Felhasznalo F
+				WHERE S.Gyartasi_ev > (EXTRACT(YEAR FROM SYSDATE) - F.Eletkor)
+				AND F.Email = :userEmail";
 
-					$trainQuery = "SELECT SzNev FROM Szerelveny WHERE Gyartasi_ev > :trainYear";
-					$trainStatement = oci_parse($con, $trainQuery);
-					oci_bind_by_name($trainStatement, ':trainYear', $userBirthYear);
-					oci_execute($trainStatement);
+				$statement = oci_parse($con, $query);
+				oci_bind_by_name($statement, ':userEmail', $userEmail);
+				oci_execute($statement);
 
-					$rowCount = oci_fetch_all($trainStatement, $trainResult);
-					if ($rowCount > 0) {
-						foreach ($trainResult['SZNEV'] as $trainName) {
-							echo "" . ($trainName !== null ? htmlentities($trainName, ENT_QUOTES) : "&nbsp;") . "<br>";
-						}
-					} else {
-						echo "Nincs nálad fiatalabb vonat.";
+				$rowCount = oci_fetch_all($statement, $result);
+				if ($rowCount > 0) {
+					foreach ($result['SZNEV'] as $trainName) {
+						echo "" . ($trainName !== null ? htmlentities($trainName, ENT_QUOTES) : "&nbsp;") . "<br>";
 					}
 				} else {
-					echo "Nincs megadva születési év.";
+					echo "Nincs nálad fiatalabb vonat.";
 				}
 				?>
 				</td>
