@@ -36,7 +36,7 @@
         <a class="inactive_dropdown" href="passes.php">Bérletvásárlás</a>
         <a class="inactive_dropdown" href="osszes_jarat.php">Összes járat egy adott állomásról</a>
         <a class="inactive_dropdown" href="refresh_pwd_page.php">Adataid módosítása</a>
-       
+        <a class="inactive_dropdown" href="alacsonypadlos.php">Alacsonypadlós szerelvények</a>
       </div>
     </div>';
     if ($_SESSION["admin"] == 1) {
