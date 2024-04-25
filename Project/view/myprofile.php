@@ -128,9 +128,116 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 		echo "<p>Eddigi költéseim: " . $osszeg . " Ft</p>";
 	}
 
-	// Close the connection
 	oci_close($con);
+	?>
+	<table>
+		<tbody>
+			<tr>
+				<td class = "table_even">Veled egyidős vonat(ok)</td>
+				<td class="table_even">
+					<?php
+					$currentYear = date("Y");
+					$userBirthYearQuery = "SELECT Eletkor FROM Felhasznalo WHERE Email = :userEmail";
 
+					$userBirthYearStatement = oci_parse($con, $userBirthYearQuery);
+					oci_bind_by_name($userBirthYearStatement, ':userEmail', $_SESSION["user_name"]);
+					oci_execute($userBirthYearStatement);
+					$userBirthYearResult = oci_fetch_assoc($userBirthYearStatement);
+					if ($userBirthYearResult !== false) {
+						$userBirthYear = $userBirthYearResult["ELETKOR"];
+						$userBirthYear = $currentYear - $userBirthYear;
+
+						$trainQuery = "SELECT SzNev FROM Szerelveny WHERE Gyartasi_ev = :trainYear";
+						$trainStatement = oci_parse($con, $trainQuery);
+						oci_bind_by_name($trainStatement, ':trainYear', $userBirthYear);
+						oci_execute($trainStatement);
+
+						$rowCount = oci_fetch_all($trainStatement, $trainResult);
+						if ($rowCount > 0) {
+							foreach ($trainResult['SZNEV'] as $trainName) {
+								echo "" . ($trainName !== null ? htmlentities($trainName, ENT_QUOTES) : "&nbsp;") . "<br>";
+							}
+						} else {
+							echo "Nincs veled egyidős vonat.";
+						}
+					} else {
+						echo "Nincs megadva születési év.";
+					}
+					?>
+				</td>
+			</tr>
+			<tr>
+				<td class = "table_odd">Nálad idősebb vonat(ok)</td>
+				<td class = "table_odd">
+				<?php
+				$currentYear = date("Y");
+				$userBirthYearQuery = "SELECT Eletkor FROM Felhasznalo WHERE Email = :userEmail";
+
+				$userBirthYearStatement = oci_parse($con, $userBirthYearQuery);
+				oci_bind_by_name($userBirthYearStatement, ':userEmail', $_SESSION["user_name"]);
+				oci_execute($userBirthYearStatement);
+				$userBirthYearResult = oci_fetch_assoc($userBirthYearStatement);
+				if ($userBirthYearResult !== false) {
+					$userBirthYear = $userBirthYearResult["ELETKOR"];
+					$userBirthYear = $currentYear - $userBirthYear;
+
+					$trainQuery = "SELECT SzNev FROM Szerelveny WHERE Gyartasi_ev < :trainYear";
+					$trainStatement = oci_parse($con, $trainQuery);
+					oci_bind_by_name($trainStatement, ':trainYear', $userBirthYear);
+					oci_execute($trainStatement);
+
+					$rowCount = oci_fetch_all($trainStatement, $trainResult);
+					if ($rowCount > 0) {
+						foreach ($trainResult['SZNEV'] as $trainName) {
+							echo "" . ($trainName !== null ? htmlentities($trainName, ENT_QUOTES) : "&nbsp;") . "<br>";
+						}
+					} else {
+						echo "Nincs nálad idősebb vonat.";
+					}
+				} else {
+					echo "Nincs megadva születési év.";
+				}
+				?>
+				</td>
+			</tr>
+			<tr>
+				<td class = "table_even">Nálad fiatalabb vonat(ok)</td>
+				<td class = "table_even">
+				<?php
+				$currentYear = date("Y");
+				$userBirthYearQuery = "SELECT Eletkor FROM Felhasznalo WHERE Email = :userEmail";
+
+				$userBirthYearStatement = oci_parse($con, $userBirthYearQuery);
+				oci_bind_by_name($userBirthYearStatement, ':userEmail', $_SESSION["user_name"]);
+				oci_execute($userBirthYearStatement);
+				$userBirthYearResult = oci_fetch_assoc($userBirthYearStatement);
+				if ($userBirthYearResult !== false) {
+					$userBirthYear = $userBirthYearResult["ELETKOR"];
+					$userBirthYear = $currentYear - $userBirthYear;
+
+					$trainQuery = "SELECT SzNev FROM Szerelveny WHERE Gyartasi_ev > :trainYear";
+					$trainStatement = oci_parse($con, $trainQuery);
+					oci_bind_by_name($trainStatement, ':trainYear', $userBirthYear);
+					oci_execute($trainStatement);
+
+					$rowCount = oci_fetch_all($trainStatement, $trainResult);
+					if ($rowCount > 0) {
+						foreach ($trainResult['SZNEV'] as $trainName) {
+							echo "" . ($trainName !== null ? htmlentities($trainName, ENT_QUOTES) : "&nbsp;") . "<br>";
+						}
+					} else {
+						echo "Nincs nálad fiatalabb vonat.";
+					}
+				} else {
+					echo "Nincs megadva születési év.";
+				}
+				?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<?php
 	if (isset($_SESSION["user_name"])) {
 		echo '<form id="form-login" class="login-link" action="../controller/delete_user.php" method="POST">
 		<label for="">Ezzel a gombbal törölheted a fiókod.</label><br><br>
