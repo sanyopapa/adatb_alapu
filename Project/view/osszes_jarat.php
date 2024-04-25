@@ -51,7 +51,7 @@
     JOIN 
         Kozlekedik ON Jarat.Vonatszam = Kozlekedik.Vonatszam
     WHERE 
-        LOWER(Jarat.Honnan) LIKE LOWER('%$station%') OR LOWER(Jarat.Hova) LIKE LOWER('%$station%')";
+        LOWER(Jarat.Honnan) LIKE LOWER('%$station%') OR LOWER(Jarat.Hova) LIKE LOWER('%$station%') OR LOWER(Kozlekedik.AllomasNev) LIKE LOWER('%$station%')";
       $statement = oci_parse($con, $sql);
       oci_bind_by_name($statement, ':station', $station);
       oci_execute($statement);
