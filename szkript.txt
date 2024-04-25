@@ -149,6 +149,16 @@ BEGIN
 END calculate_travel_time;
 /
 
+CREATE OR REPLACE FUNCTION get_alacsonypadlos RETURN SYS_REFCURSOR IS 
+  alacsonypadlos_cur SYS_REFCURSOR;
+BEGIN
+  OPEN alacsonypadlos_cur FOR
+    SELECT * FROM Szerelveny
+    WHERE Gyartasi_ev >= 2003 AND Kapacitas IS NOT NULL AND meghajtas IS NOT NULL;
+  RETURN alacsonypadlos_cur;
+END get_alacsonypadlos;
+/
+
 
 -- Táblák feltöltése adatokkal 
 
