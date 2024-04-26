@@ -25,6 +25,7 @@
     <button class="navbar-gomb inactive-navbar-button" onclick="location.href= 'fooldal.php'">Főoldal</button>
     
     <button class="navbar-gomb" onclick="location.href= 'contact.php'">Névjegy</button>
+    <button class="navbar-gomb" onclick="location.href= 'news.php'">Hírek</button>
     <?php
       if(isset($_SESSION["user_name"])){
         echo '
@@ -44,6 +45,7 @@
       <button class="navbar-gomb">Admin funkciók</button>
       <div class="dropdown">
         <a class="inactive_dropdown" href="profilesearch.php">Profilok módosítása</a>
+        <a class="inactive_dropdown" href="newssearch.php">Hírek módosítása</a>
         <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
         <a class="inactive_dropdown" href="">Járatok módosítása</a>
         <a class="inactive_dropdown" href="">"Közlekedik" módosítása</a>

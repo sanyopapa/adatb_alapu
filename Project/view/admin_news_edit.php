@@ -49,80 +49,78 @@ $name = $_POST['name'];
 <nav>
     <?php include 'navbar.php' ?>
     </nav>
+
+    
     <?php
+     # Szerencsétlen CLOB mező olvasására
+     function read_clob($field)
+     {
+         return $field->read($field->size());
+     }
        
     if(isset($_SESSION["user_name"])) {
         if ($_SESSION["admin"] == 1) {
            
-
-      echo '
-      <div class="text1">
-          <h1>'.$name.' adatai:</h1>
-      </div>';
+        echo '<main class="torzs table_div">';
+        $query = "SELECT * from hir where hirid = :name";
+        
+        include("../controller/connection.php");
+        $stmt = oci_parse($con, $query);
+        oci_bind_by_name($stmt, ":name", $name);
+        oci_execute($stmt);
+        $row = oci_fetch_assoc($stmt);
+        $id = $row;
+        
+        echo '
+        <div class="text1">
+            <h1>Hír módosítása:</h1>
+        </div>';
+        
     
     
-    echo '<main class="torzs table_div">';
-    $query = "SELECT * from felhasznalo where email = :name";
-    
-    include("../controller/connection.php");
-    $stmt = oci_parse($con, $query);
-    oci_bind_by_name($stmt, ":name", $name);
-    oci_execute($stmt);
-    $row = oci_fetch_assoc($stmt);
-    $id = $row;
 
     
     if ($_SESSION["admin"] == 1 ) { //Az admin felület
-        $_SESSION["masid"] = $name;
-        echo '<br><form id="form-login" action="../controller/admin_check.php" method="POST">
+        $_SESSION["newsid"] = $name;
+        echo '<br><form id="form-login" action="../controller/news_check.php" method="POST">
         <fieldset class="form_2">
-            <legend>'.$name.' adatainak módosítása</legend>';
+            <legend>'.$id['CIM'].'</legend>';
                 
             if(strlen($user_name_error)>0){
                 echo '<div class="warning">';
                 echo $user_name_error;
                 echo "</div>";
             }
-            echo '<label for="user-name">Felhasználónév: </label>';
-            echo '<input type="text" id="user-name" name="user-name" size="25" placeholder=" '.$name.'"><br>';
+        
+            echo '<input type="hidden" id="hir-id" name="hir-id" size="25" placeholder=" '.$name.'"><br>';
              
             if(strlen($pwd_error)>0){
                 echo '<div class="warning">';
                 echo $pwd_error;
                 echo "</div>";
             } 
-            
-            
-            echo '<label for="pwd">Új jelszó:</label>';
-            echo '<input type="password" id="new_pwd" name="new_pwd"><br>
-            <label for="new_pwd_2">Új jelszó újra:</label>
-                <input type="password" id="new_pwd_2" name="new_pwd_2">
-                <br>
-                <label for="nev">Név:</label>
-						<input type="text" id="nev" name="nev" placeholder="'.$id['NEV'].'">
+        
+            echo '<label for="cim">Cím:</label>
+						<input type="text" class="news_input" id="cim" name="cim" value="'.$id['CIM'].'">
 						<br>
 
-						<label for="eletkor">Életkor:</label>
-						<input type="number" id="eletkor" name="eletkor" placeholder="'.$id['ELETKOR'].'">
-						<br>
-
-						<label for="kedvezmenytipus">Kedvezménytípus:</label>
-						<input type="text" id="kedvezmenytipus" name="kedvezmenytipus" placeholder="'.$id['KEDVEZMENYTIPUS'].'">
-						<br>
-
-						<label for="igazolvanyszam">Igazolványszám:</label>
-						<input type="text" id="igazolvanyszam" name="igazolvanyszam" placeholder="'.$id['IGAZOLVANYSZAM'].'">
+						<label for="szoveg">Szöveg:</label>
+						<textarea class="news_submissionfield" id="szoveg" name="szoveg">'.read_clob($id['SZOVEG']).'</textarea>
 						<br>';
-            echo '<label for="mode">Moderátor-e</label>
-            <input type="checkbox" id="mode-2" name="moderator" value="0"/><br>';
-            echo '<input type="reset" name="btn-reset" value="Eddigiek törlése"><br>
+
+						#<label for="datum">Dátum:</label>
+					echo'<input type="hidden" class="news_input" id="datum" name="datum" placeholder="'.$id['DATUM'].'">
+						<br>';
+
+						
+            echo '<input type="reset" name="btn-reset" value="Visszaállítás"><br>
             <input type="submit" name="btn-submit"  value="Küldés"><br>
             </form>
 
-            <form id="form-login" action="../controller/delete_others.php" method="POST">
+            <form id="form-login" action="../controller/delete_news.php" method="POST">
            
             <input type="hidden" name="name" value=' . $name . '>
-            <input type="submit" name="btn-delete-user" value="Fiók törlése">
+            <input type="submit" name="btn-delete-user" value="Hír törlése">
             </form><br>
         </fieldset>';
     
