@@ -43,7 +43,7 @@
       echo '<div class="dropgomb">
       <button class="navbar-gomb">Admin funkciók</button>
       <div class="dropdown">
-        <a class="inactive_dropdown" href="profilesearch.php">Profil módosítása</a>
+        <a class="inactive_dropdown" href="profilesearch.php">Profilok módosítása</a>
         <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
         <a class="inactive_dropdown" href="">Járatok módosítása</a>
         <a class="inactive_dropdown" href="">"Közlekedik" módosítása</a>

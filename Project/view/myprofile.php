@@ -44,7 +44,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 		<div class="text1">
 		
 		<h1>Üdv újra, ' . $_SESSION["name"] . '</h1>
-		<h1><br></h1>
+		
 		</div>
 		';
 	}

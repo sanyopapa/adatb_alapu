@@ -55,11 +55,10 @@ $name = $_POST['name'];
         if ($_SESSION["admin"] == 1) {
            
 
-      echo '<header id="form_1">
+      echo '
       <div class="text1">
           <h1>'.$name.' adatai:</h1>
-      </div>
-    </header>';
+      </div>';
     
     
     echo '<main class="torzs table_div">';
@@ -116,13 +115,16 @@ $name = $_POST['name'];
 						<br>';
             echo '<label for="mode">Moderátor-e</label>
             <input type="checkbox" id="mode-2" name="moderator" value="0"/><br>';
-            echo '<input type="reset" name="btn-reset" value="Törlés"><br>
+            echo '<input type="reset" name="btn-reset" value="Eddigiek törlése"><br>
             <input type="submit" name="btn-submit"  value="Küldés">
-            
-            
-        </fieldset>
-        
-    </form>';
+            </form>
+
+            <form id="form-login" class="login-link" action="../controller/delete_others.php" method="POST">
+           
+            <input type="hidden" name="name" value=' . $name . '>
+            <input type="submit" name="btn-delete-user" value="Fiók törlése">
+            </form><br>
+        </fieldset>';
     
     }
     }

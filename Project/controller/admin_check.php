@@ -4,6 +4,8 @@
     
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
+        $masid=$_SESSION["masid"];
+
         $user_name = $_POST['user-name'];
         $new_pwd=$_POST['new_pwd'];
         $new_pwd_2=$_POST['new_pwd_2'];
@@ -51,7 +53,7 @@
                 oci_bind_by_name($stid, ':user_name', $user_name);
                 oci_bind_by_name($stid, ':masid', $_SESSION["masid"]);
                 oci_execute($stid);
-                $_SESSION["user_name"] = $user_name;
+                $_SESSION["masid"] = $user_name;
             }
 
             if (!empty($name)) {

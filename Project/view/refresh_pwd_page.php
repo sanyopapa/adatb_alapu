@@ -55,11 +55,10 @@
         
            
 
-      echo '<header id="form_1">
+      echo '
       <div class="text1">
           <h1>Adataid:</h1>
-      </div>
-    </header>';
+      </div>';
     
     
     echo '<main class="torzs table_div">';
@@ -108,15 +107,15 @@
                 <input type="text" id="igazolvanyszam" name="igazolvanyszam" placeholder="'.$_SESSION['igazolvanyszam'].'">
                 <br>';
             
-            echo '<input type="reset" name="btn-reset" value="Törlés"><br>
+            echo '<input type="reset" name="btn-reset" value="Eddigiek törlése"><br>
             <input type="submit" name="btn-submit"  value="Küldés">
             
-            
+            </form>
         </fieldset>
         
     </form>';
-    
-        }
+     
+    }
     
     else {
         header("Location: login_page.php");

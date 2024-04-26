@@ -56,3 +56,33 @@ input[type="reset"], input[type="submit"], input[type="delete"] {
 	height: 60px;
 	margin-left: 0;
 }
+
+
+.profile_div .profiles_div {
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;
+    
+  }
+  
+  .profile_div{
+    width: 950px;
+    height: auto;
+    padding: 0 0 0 80%; 
+    text-align: center;
+  }
+  
+  .profiles_div{
+    height:auto;
+    width: 24%;
+    display:inline-block;
+    float: center;
+    margin: 0 1% 1% 0; 
+    
+  }
+
+.profiles_div input[type="submit"] {
+    width: 190px;
+}
+
+
