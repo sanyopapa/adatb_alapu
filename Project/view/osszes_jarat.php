@@ -53,7 +53,7 @@
     WHERE 
         LOWER(Jarat.Honnan) LIKE LOWER('%$station%') OR LOWER(Jarat.Hova) LIKE LOWER('%$station%') OR LOWER(Kozlekedik.AllomasNev) LIKE LOWER('%$station%')";
       $statement = oci_parse($con, $sql);
-      oci_bind_by_name($statement, ':station', $station);
+      //oci_bind_by_name($statement, ':station', $station);
       oci_execute($statement);
       if(!oci_fetch($statement)){
         echo "<p>Nincs ilyen állomás a rendszerben!</p>";
