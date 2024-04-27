@@ -38,7 +38,7 @@ if (!isset($_SESSION)) {
 		<main class="torzs">
 		<div class="text1">
 		
-		<h1>Hírek</h1>
+		<h1>Hírek módosítása</h1>
 		
 		</div>
 		';
@@ -55,8 +55,21 @@ if (!isset($_SESSION)) {
             return $field->read($field->size());
         }
 
+        #új hír hozzáadása
 
-        $query = 'SELECT * FROM Hir';
+        echo'<div class="news">
+        <form method="POST" id="form-login" class="login-link" action="admin_news_edit.php">
+            <label for="">Ezzel a gombbal új hírt tudsz kiírni.</label><br><br>
+            <input type="hidden" name="name" value="">
+            <input type="hidden" name="new_news" value=true>
+            <input type="submit" value="Új hír">
+            </form>
+            </div>';
+
+
+
+        #meglevő hírek kiírása
+        $query = 'SELECT * FROM Hir ORDER BY DATUM DESC';
         $stmt = oci_parse($con, $query);
         oci_execute($stmt);
 
@@ -66,14 +79,14 @@ if (!isset($_SESSION)) {
             echo '<table class="table_news">';
             echo '<thead>';
             echo '<tr>';
-            echo '<th colspan="2" class="table_header">' . $row['CIM'] . '</th>';
-            echo '<th colspan="2" class="table_header table_date">
-            
+            echo '<th colspan="2" class="table_header" id="news">' . $row['CIM'] . '</th>';
+            echo '<th colspan="2" class="news_edit">
             <form method="POST" action="admin_news_edit.php">
             <input type="hidden" name="name" value=' . $row['HIRID'] . '>
+            <input type="hidden" name="new_news" value=false>
             <input type="submit" value="Módosítás">
                 </form> </th>';
-           
+          
 
             echo '</tr>';
             echo '</thead>';
@@ -82,7 +95,7 @@ if (!isset($_SESSION)) {
             echo '<br>';
             echo '<br>';
             echo '<tr>';
-            echo '<td class="table_odd">' . read_clob($row['SZOVEG']) . '</td>';
+            echo '<td id="news_odd" class="table_odd">' . read_clob($row['SZOVEG']) . '</td>';
             echo '</tr>';
             echo '<tr>';
             echo '<td class="table_date">' . date('Y-m-d', strtotime($row['DATUM'])) . '</td>';

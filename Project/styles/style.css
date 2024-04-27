@@ -70,6 +70,7 @@ margin-left: 25%;
 margin-right: 25%;
 margin-bottom: 32px;
 }
+
 .table_news{
 display: grid;
 text-align: center;
@@ -86,6 +87,25 @@ background-color: #023020;
 padding: 5px;
 font-size: 32px;
 }
+
+#news{
+width: 75%;
+min-width: 700px;
+max-width: 700px;
+
+}
+
+#news_odd{
+word-break:break-word;
+width: 99%;
+min-width: 900px;
+padding: 5px;
+display: grid;
+text-align: center;
+height: auto;
+
+}
+
 
 .table_odd{
 background-color: #065137;
@@ -108,6 +128,8 @@ padding: 5px;
 height: 20px;
 font-size: 16px;
 text-align: right;
+width: 100%;
+
 }
 
 #video {

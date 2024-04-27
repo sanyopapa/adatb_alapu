@@ -1,5 +1,7 @@
 <?php
 $name = $_POST['name'];
+$new_news = $_POST['new_news'];
+
 //echo $name
 ?>
 <?php
@@ -59,7 +61,7 @@ $name = $_POST['name'];
      }
        
     if(isset($_SESSION["user_name"])) {
-        if ($_SESSION["admin"] == 1) {
+        if ($_SESSION["admin"] == 1 && $new_news == "false")  {
            
         echo '<main class="torzs table_div">';
         $query = "SELECT * from hir where hirid = :name";
@@ -78,9 +80,6 @@ $name = $_POST['name'];
         
     
     
-
-    
-    if ($_SESSION["admin"] == 1 ) { //Az admin felület
         $_SESSION["newsid"] = $name;
         echo '<br><form id="form-login" action="../controller/news_check.php" method="POST">
         <fieldset class="form_2">
@@ -124,7 +123,13 @@ $name = $_POST['name'];
             </form><br>
         </fieldset>';
     
+   
     }
+    elseif ($_SESSION["admin"] == 1 && $new_news =="true") {
+        echo'ANYÁD';
+
+
+        unset($_SESSION["new_news"]);
     }
     else {
         header("Location: myprofile.php");

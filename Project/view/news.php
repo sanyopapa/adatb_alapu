@@ -54,7 +54,7 @@ if (!isset($_SESSION)) {
         }
 
 
-        $query = 'SELECT CIM, SZOVEG, DATUM FROM Hir';
+        $query = 'SELECT CIM, SZOVEG, DATUM FROM Hir ORDER BY DATUM DESC';
         $stmt = oci_parse($con, $query);
         oci_execute($stmt);
 
@@ -64,7 +64,7 @@ if (!isset($_SESSION)) {
             echo '<table class="table_news">';
             echo '<thead>';
             echo '<tr>';
-            echo '<th colspan="2" class="table_header">' . $row['CIM'] . '</th>';
+            echo '<th colspan="2" class="table_header" id="news">' . $row['CIM'] . '</th>';
             echo '</tr>';
             echo '</thead>';
             echo '<tbody>';
@@ -72,7 +72,7 @@ if (!isset($_SESSION)) {
             echo '<br>';
             echo '<br>';
             echo '<tr>';
-            echo '<td class="table_odd">' . read_clob($row['SZOVEG']) . '</td>';
+            echo '<td class="table_odd" id="news_odd">' . read_clob($row['SZOVEG']) . '</td>';
             echo '</tr>';
             echo '<tr>';
             echo '<td class="table_date">' . date('Y-m-d', strtotime($row['DATUM'])) . '</td>';
