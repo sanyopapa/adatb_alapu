@@ -39,7 +39,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
     <main class="torzs ">
     <div class="text1">
 		
-		<h1>Jegyek:</h1>
+		<h1>Jegyek</h1>
 		
 		</div>
 	<?php

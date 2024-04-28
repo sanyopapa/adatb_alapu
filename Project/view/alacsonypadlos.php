@@ -36,7 +36,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 	<nav>
 		<?php include 'navbar.php' ?>
 	</nav>
-    <main class="torzs table_div">
+    <main class="torzs table_div_left">
 	<?php
     if (isset($_SESSION["user_name"])) {
 		echo '
@@ -44,7 +44,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 		<div class="text1">
 		
 		<h1>Alacsonypadlós szerelvények</h1>
-		<h1><br></h1>
+		
 		</div>
 		';
 	}

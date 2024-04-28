@@ -39,7 +39,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
     <main class="torzs table_div">
     <div class="text1">
 		
-		<h1>Állomások:</h1>
+		<h1>Állomások</h1>
 		
 		</div>
 	<?php

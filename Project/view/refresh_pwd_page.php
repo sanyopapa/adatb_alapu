@@ -57,7 +57,7 @@
 
       echo '
       <div class="text1">
-          <h1>Adataid:</h1>
+          <h1>Adataid módosítása</h1>
       </div>';
     
     
