@@ -360,19 +360,20 @@
         <table>
             <thead>
             <tr>
-                <th class = "table_header">Kor</th>
-                <th class = "table_header">Összesen költött</th>
+            <th class = "table_header">Kor</th>
+            <th class = "table_header">Összesen költött</th>
             </tr>
             </thead>
             <tbody>
             <?php
             include("../controller/connection.php");
 
-            $query = "SELECT F.Eletkor, COALESCE(SUM(J.Ar), 0) AS Osszesen_koltott
+            $query = "SELECT F.Eletkor, COALESCE(SUM(J.Ar), 0) AS OSSZESEN_KOLTOTT
             FROM Felhasznalo F
             LEFT JOIN Vasarol V ON F.Email = V.Email
             LEFT JOIN Jegy J ON V.Tipus = J.Tipus
-            GROUP BY F.Eletkor";
+            WHERE F.Eletkor IS NOT NULL
+            GROUP BY F.Eletkor ORDER BY F.Eletkor";
 
             $statement = oci_parse($con, $query);
             oci_execute($statement);
@@ -380,8 +381,7 @@
             $valtozo = 0;
             while ($row = oci_fetch_assoc($statement)) {
                 $kor = $row['ELETKOR'];
-                $osszesenKoltott = isset($row['OSZESSEN_KOLTOTT']) ? $row['OSZESSEN_KOLTOTT'] : "0";
-                
+                $osszesenKoltott = isset($row['OSSZESEN_KOLTOTT']) ? $row['OSSZESEN_KOLTOTT'] : "0";
                 if($valtozo % 2 == 0){
                     echo "<tr>";
                     echo "<td class='table_odd'>$kor</td>";
@@ -395,11 +395,8 @@
                 }
                 $valtozo++;
             }
-            $valtozo = 0;
-
             oci_close($con);
             ?>
-
 
             </tbody>
         </table>
