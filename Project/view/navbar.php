@@ -38,12 +38,14 @@
         <a class="inactive_dropdown" href="osszes_jarat.php">Összes járat egy adott állomásról</a>
         <a class="inactive_dropdown" href="refresh_pwd_page.php">Adataid módosítása</a>
         <a class="inactive_dropdown" href="alacsonypadlos.php">Alacsonypadlós szerelvények</a>
+        <a class="inactive_dropdown" href="kozerdeku.php">Közérdekű adatok</a>
       </div>
     </div>';
     if ($_SESSION["admin"] == 1) {
       echo '<div class="dropgomb">
       <button class="navbar-gomb">Admin funkciók</button>
       <div class="dropdown">
+        <a class="inactive_dropdown" href="admin_view.php">Vásárlások megtekintése</a>
         <a class="inactive_dropdown" href="profilesearch.php">Profilok módosítása</a>
         <a class="inactive_dropdown" href="newssearch.php">Hírek módosítása</a>
         <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
