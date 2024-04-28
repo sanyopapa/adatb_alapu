@@ -44,7 +44,7 @@ $name = $_POST['name'];
   <link rel="stylesheet" href="../styles/footer.css?v=<?php echo time(); ?>">
   <link rel="icon" href="../img/150_tablogo.png?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../styles/form.css?v=<?php echo time(); ?>">
-    <title>R150 - Profilok</title>
+    <title>R150 - Profilmódosítás</title>
 </head>
 <nav>
     <?php include 'navbar.php' ?>

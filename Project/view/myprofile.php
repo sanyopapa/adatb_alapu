@@ -16,7 +16,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 <html lang="en">
 
 <head>
-	<title>R150 - Dolgaid</title>
+	<title>R150 - Profil</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

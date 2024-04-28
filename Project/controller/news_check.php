@@ -15,6 +15,15 @@
 
         $problems = array();
 
+        if(strlen($cim)==0){
+			$problems['cim'] = 'A címet kötelező megadni!';
+            var_dump($problems['cim']);
+		}
+        if(strlen($szoveg)==0){
+            $problems['szoveg'] = 'A szöveget kötelező megadni!';
+            var_dump($problems['szoveg']);
+        }
+
      
       
         $query = "select * from hir where hirid = :hir_id";
@@ -36,7 +45,7 @@
                 oci_bind_by_name($stid, ':cim', $cim);
                 oci_bind_by_name($stid, ':newsid', $_SESSION["newsid"]);
                 oci_execute($stid);
-                $_SESSION["name"] = $cim;
+               
             }
 
             if (!empty($szoveg)) {
@@ -45,7 +54,7 @@
                 oci_bind_by_name($stid, ':szoveg', $szoveg);
                 oci_bind_by_name($stid, ':newsid', $_SESSION["newsid"]);
                 oci_execute($stid);
-                $_SESSION["szoveg"] = $szoveg;
+                
             }
 
            #dátumot átállítjuk mára, hisz most frissítettük
@@ -64,7 +73,7 @@
                 header("Location: ../view/newssearch.php");
             }
             else{
-                #header("Location: ../view/myprofile.php");
+                header("Location: ../view/myprofile.php");
 
             }
             
@@ -79,12 +88,13 @@
                 next($problems);
                 echo $key . " " . $e . "<br>";
             }
-            //header('location: ../view/profilesearch.php');
+            header('location: ../view/newssearch.php');
             oci_close($con);
             die;
         }
     }
     else{
+        header("Location: ../view/newssearch.php");
         oci_close($con);
     }
 ?>
