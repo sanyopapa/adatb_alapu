@@ -1,3 +1,6 @@
+
+
+
 <?php
 if (!isset($_SESSION)) {
 	session_start();
@@ -36,10 +39,10 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 	<nav>
 		<?php include 'navbar.php' ?>
 	</nav>
-    <main class="torzs table_div">
+    <main class="torzs ">
     <div class="text1">
 		
-		<h1>Állomások:</h1>
+		<h1>Menetrend:</h1>
 		
 		</div>
 	<?php
@@ -48,45 +51,50 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 	// Connect to the Oracle database
 	include("../controller/connection.php");
 
-	// Prepare the SQL query
-    $query = "SELECT * from Allomas";
 
-    // Execute the query
-    $statement = oci_parse($con, $query);
-    oci_execute($statement);
+//Jegyek
 
-    // Fetch the results and display the buttons
-    if (oci_fetch($statement)) {
-        echo '<table>
-        <thead>
+// Prepare and execute the SQL query
+$sql = "SELECT * FROM Jarat";
+$stmt = oci_parse($con, $sql);
+oci_execute($stmt);
 
-        <tr>
-            <th class="table_header">Név</th>
-            <th class="table_header">Város</th>
-        </tr>
-        </thead>
-        <tbody>';
-        $stmt = oci_parse($con, $query);
-        oci_execute($stmt);
-        $count = 0;
-        while ($row = oci_fetch_assoc($stmt)) {
-            $nev = $row['NEV'];
-            $varos = $row['VAROS'];
+// Display the data in a table
+echo "<table>";
+echo '<tr>
 
-            $class = $count % 2 == 1 ? 'table_even' : 'table_odd';
-            echo '<tr>
-            <td class="' . $class . '">' . $nev . '</td>
-            <td class="' . $class . '">' . $varos . '</td>
-            </tr>';
-            $count++;
-        }
-        echo '</tbody></table><br>';
-    }
+</tr>
+<tr>
+    <th class="table_header">Vonatszám</th>
+    <th class="table_header">Honnan</th>
+    <th class="table_header">Hova</th>
+    <th class="table_header">Indulási idő</th>
+    <th class="table_header">Menetidő</th>
+    <th class="table_header">Típus</th>
+</tr>';
 
-	
-	oci_close($con);
-	?>
-	
+$count = 0;
+while ($row = oci_fetch_assoc($stmt)) {
+    
+    echo "<tr>";
+    $class = $count % 2 == 1 ? 'table_even' : 'table_odd';
+    echo '<td class="' . $class . '">' . $row['VONATSZAM'] . '</td>';
+    echo '<td class="' . $class . '">' . $row['HONNAN'] . '</td>';
+    echo '<td class="' . $class . '">' . $row['HOVA'] . '</td>';
+    echo '<td class="' . $class . '">' . $row['INDULASI_IDO'] . '</td>';
+    echo '<td class="' . $class . '">' . $row['MENETIDO'] . '</td>';
+    echo '<td class="' . $class . '">' . $row['VONATTIPUS'] . '</td>';
+    echo "</tr>";
+    $count++;
+
+}
+
+echo "</table>";
+
+// Clean up resources
+oci_free_statement($stmt);
+
+?>
 
 </main>
 

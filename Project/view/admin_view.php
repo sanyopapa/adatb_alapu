@@ -36,7 +36,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 	<nav>
 		<?php include 'navbar.php' ?>
 	</nav>
-    <main class="torzs table_div">
+    <main class="torzs table_div_left">
     <div class="text1">
 		
 		<h1>Jegyvásárlások</h1>
@@ -100,7 +100,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
     echo '<table>
 		<thead>
 		<tr>
-			<th colspan="4" class="table_header">Vásárlások:</th>
+			<th colspan="4" class="table_header">Vonatok közlekedése:</th>
 		</tr>
 		<tr>
 			<th class="table_header">Állomásnév</th>

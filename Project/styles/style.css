@@ -71,6 +71,15 @@ margin-right: 25%;
 margin-bottom: 32px;
 }
 
+.table_div_left{
+  display: grid;
+text-align: center;
+width: 50%;
+margin-left: 20%;
+margin-right: 25%;
+margin-bottom: 32px;
+}
+
 .table_news{
 display: grid;
 text-align: center;
