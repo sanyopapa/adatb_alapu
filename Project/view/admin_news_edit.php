@@ -7,21 +7,21 @@ $new_news = $_POST['new_news'];
 <?php
     if(!isset($_SESSION)){session_start();
     
-        $user_name_error = "";
-        $pwd_error = "";
-        $pwd_2_error = "";
+        $cim_error = "";
+        $szoveg_error = "";
+        $sikeres = "";
         if(isset($_SESSION["message"])){
             $keys = array_keys($_SESSION["message"]);
             for($i=0; $i < count($_SESSION["message"]); $i++) {
                 
-                if ($keys[$i] == 'user_name') {
-                    $user_name_error .= $_SESSION["message"][$keys[$i]] . ' ';
+                if ($keys[$i] == 'cim') {
+                    $cim_error .= $_SESSION["message"][$keys[$i]] . ' ';
                 }
-                if ($keys[$i] == 'pwd') {
-                    $pwd_error .= $_SESSION["message"][$keys[$i]] . ' ';
+                if ($keys[$i] == 'szoveg') {
+                    $szoveg_error .= $_SESSION["message"][$keys[$i]] . ' ';
                 }
-                if ($keys[$i] == 'pwd_2') {
-                    $pwd_2_error .= $_SESSION["message"][$keys[$i]] . ' ';
+                if ($keys[$i] == 'sikeres') {
+                    $sikeres .= $_SESSION["message"][$keys[$i]] . ' ';
                 }
             }
             
@@ -46,7 +46,7 @@ $new_news = $_POST['new_news'];
   <link rel="stylesheet" href="../styles/footer.css?v=<?php echo time(); ?>">
   <link rel="icon" href="../img/150_tablogo.png?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="../styles/form.css?v=<?php echo time(); ?>">
-    <title>R150 - Profilok</title>
+    <title>R150 - Hírmódosítás</title>
 </head>
 <nav>
     <?php include 'navbar.php' ?>
@@ -85,17 +85,17 @@ $new_news = $_POST['new_news'];
         <fieldset class="form_2">
             <legend>'.$id['CIM'].'</legend>';
                 
-            if(strlen($user_name_error)>0){
+            if(strlen($cim_error)>0){
                 echo '<div class="warning">';
-                echo $user_name_error;
+                echo $cim_error;
                 echo "</div>";
             }
         
             echo '<input type="hidden" id="hir-id" name="hir-id" size="25" placeholder=" '.$name.'"><br>';
              
-            if(strlen($pwd_error)>0){
+            if(strlen($szoveg_error)>0){
                 echo '<div class="warning">';
-                echo $pwd_error;
+                echo $szoveg_error;
                 echo "</div>";
             } 
         
@@ -126,13 +126,52 @@ $new_news = $_POST['new_news'];
    
     }
     elseif ($_SESSION["admin"] == 1 && $new_news =="true") {
-        echo'ANYÁD';
+      
+        ?>
 
+        <main class="torzs">
+			
+			<div class="anti-collapse"></div>
+			
+			<div class="form-box">
+				<form id="form-login" action="../controller/new_news_check.php" method="POST">
+					<fieldset class="form_2">
+						<legend>Hír létrehozása</legend>
 
-        unset($_SESSION["new_news"]);
+                        <?php 
+                            if(strlen($cim_error)>0){
+                                echo '<div class="warning">';
+                                echo $cim_error;
+                                echo "</div>";
+                            } 
+                        ?>
+                        <label for="cim">Cím:</label>
+                        <input type="text" class="news_input" id="cim" name="cim">
+                        <br>
+                        <?php 
+                            if(strlen($szoveg_error)>0){
+                                echo '<div class="warning">';
+                                echo $szoveg_error;
+                                echo "</div>";
+                            } 
+                        ?>
+
+                        <label for="szoveg">Szöveg:</label>
+                        <textarea class="news_submissionfield" id="szoveg" name="szoveg"></textarea>
+                        <br>
+
+						<input class="submit-button" type="submit" name="btn-submit"  value="Létrehozás">
+					</fieldset>
+				</form>
+			</div>
+			</main>
+
+    <?php
+       
     }
     else {
-        header("Location: myprofile.php");
+      
+        header("Location: newssearch.php");
     }
 }
     

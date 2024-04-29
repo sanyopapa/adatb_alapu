@@ -23,7 +23,7 @@ if (!isset($_SESSION)) {
     <link rel="stylesheet" href="../styles/footer.css?v=<?php echo time(); ?>">
     <link rel="icon" href="../img/150_tablogo.png?v=<?php echo time(); ?>">
 
-    <title>R150 Vasútmenetrend - Névjegy</title>
+    <title>R150 Vasútmenetrend - Hírek</title>
 </head>
 
 <body>

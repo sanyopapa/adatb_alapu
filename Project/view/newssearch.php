@@ -25,7 +25,7 @@ if (!isset($_SESSION)) {
     <link rel="stylesheet" href="../styles/form.css?v=<?php echo time(); ?>">
 
 
-    <title>R150 Vasútmenetrend - Névjegy</title>
+    <title>R150 Vasútmenetrend - Hírmódosítás</title>
 </head>
 
 <body>
@@ -45,6 +45,39 @@ if (!isset($_SESSION)) {
     ?>
 
     <br>
+    
+    <?php
+	if(!isset($_SESSION)){session_start();}
+	include("../controller/connection.php");	
+
+   
+    $cim_error = "";
+    $szoveg_error = "";
+    $success = '';
+    
+    // Check if there are any error messages stored in the session
+    if(isset($_SESSION["message"])){
+        
+		$keys = array_keys($_SESSION["message"]);
+		for($i=0; $i < count($_SESSION["message"]); $i++) {
+			
+            if ($keys[$i] == 'cim') {
+                $cim_error .= $_SESSION["message"][$keys[$i]] . ' ';
+            }
+            if ($keys[$i] == 'szoveg') {
+                $szoveg_error .= $_SESSION["message"][$keys[$i]] . ' ';
+            }
+
+            if($keys[$i] == 'success'){
+                $success .= $_SESSION["message"][$keys[$i]] . ' ';
+            }
+		}
+		
+		// After we got the message, set it to null, so it doesn't linger in the system indefinitely.
+		unset($_SESSION["message"]);
+	} 
+?>
+    
 
     <?php
         include ("../controller/connection.php");
@@ -55,9 +88,31 @@ if (!isset($_SESSION)) {
             return $field->read($field->size());
         }
 
+        #sikeresség/problémák kiírása
+        if(strlen($cim_error)>0){
+            echo '<div class="warning">';
+            echo $cim_error;
+            echo "</div>";
+        }
+
+        if(strlen($szoveg_error)>0){
+            echo '<div class="warning">';
+            echo $szoveg_error;
+            echo "</div>";
+        } 
+        
+        if(strlen($success)>0){
+            echo '<div class="warning">';
+            echo $success;
+            echo "</div>";
+            echo "<br>";
+        } 
+
+
+
         #új hír hozzáadása
 
-        echo'<div class="news">
+        echo'<div class="new_news">
         <form method="POST" id="form-login" class="login-link" action="admin_news_edit.php">
             <label for="">Ezzel a gombbal új hírt tudsz kiírni.</label><br><br>
             <input type="hidden" name="name" value="">

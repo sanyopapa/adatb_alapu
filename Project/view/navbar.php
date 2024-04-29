@@ -26,6 +26,18 @@
     
     <button class="navbar-gomb" onclick="location.href= 'contact.php'">Névjegy</button>
     <button class="navbar-gomb" onclick="location.href= 'news.php'">Hírek</button>
+
+    <div class="dropgomb">
+    <button class="navbar-gomb" >Infók</button>
+    <div class="dropdown">
+        <a class="inactive_dropdown" href="menetrend.php">Menetrend</a>
+        <a class="inactive_dropdown" href="ticket_view.php">Jegyek</a>
+        <a class="inactive_dropdown" href="kozerdeku.php">Állomások</a>
+        <a class="inactive_dropdown" href="szerelveny.php">Szerelvények</a>
+
+      </div>
+    </div>
+
     <?php
       if(isset($_SESSION["user_name"])){
         echo '
@@ -44,13 +56,14 @@
       echo '<div class="dropgomb">
       <button class="navbar-gomb">Admin funkciók</button>
       <div class="dropdown">
+        <a class="inactive_dropdown" href="admin_view.php">Vásárlások megtekintése</a>
         <a class="inactive_dropdown" href="profilesearch.php">Profilok módosítása</a>
-        <a class="inactive_dropdown" href="newssearch.php">Hírek módosítása</a>
-        <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
+        <a class="inactive_dropdown" href="newssearch.php">Hírek módosítása</a>';
+ /*        <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
         <a class="inactive_dropdown" href="">Járatok módosítása</a>
         <a class="inactive_dropdown" href="">"Közlekedik" módosítása</a>
-        <a class="inactive_dropdown" href="">Jegyek módosítása</a>
-        </div></div>';
+        <a class="inactive_dropdown" href="">Jegyek módosítása</a> */
+        echo'</div></div>';
     }
     echo '<button class="navbar-gomb" onclick="location.href='."'../controller/logout.php'".'">Kijelentkezés</button>';
       }
