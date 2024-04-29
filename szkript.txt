@@ -159,6 +159,16 @@ BEGIN
 END get_alacsonypadlos;
 /
 
+CREATE OR REPLACE FUNCTION get_retro_szerelvenyek RETURN SYS_REFCURSOR IS
+    retro_szerelvenyek SYS_REFCURSOR;
+BEGIN
+    OPEN retro_szerelvenyek FOR
+        SELECT * FROM Szerelveny
+        WHERE Gyartasi_ev < 1990 AND Kapacitas IS NULL;
+    RETURN retro_szerelvenyek;
+END;
+/
+
 
 -- Táblák feltöltése adatokkal 
 
