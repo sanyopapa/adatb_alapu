@@ -56,7 +56,7 @@ $stmt = oci_parse($con, $sql);
 oci_execute($stmt);
 
 // Display the data in a table
-echo "<table class='table_div_kozerdek'>";
+echo "<table class='table_div_kozerdek table_news'>";
 echo '
 <tr>
     <th class="table_header">Típus</th>

@@ -66,9 +66,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
         $count=0;
         echo '<table>
 		<thead>
-		<tr>
-			<th colspan="6" class="table_header">Retro (1990 előtti) mozdonyok:</th>
-		</tr>
+	
 		<tr>
 			<th class="table_header">Szerelvény neve</th>
 			<th class="table_header">Gyártási év</th>

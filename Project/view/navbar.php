@@ -59,7 +59,8 @@
       <div class="dropdown">
         <a class="inactive_dropdown" href="admin_view.php">Vásárlások megtekintése</a>
         <a class="inactive_dropdown" href="profilesearch.php">Profilok módosítása</a>
-        <a class="inactive_dropdown" href="newssearch.php">Hírek módosítása</a>';
+        <a class="inactive_dropdown" href="newssearch.php">Hírek módosítása</a>
+        <a class="inactive_dropdown" href="ticketsearch.php">Jegyek módosítása</a> ';
  /*        <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
         <a class="inactive_dropdown" href="">Járatok módosítása</a>
         <a class="inactive_dropdown" href="">"Közlekedik" módosítása</a>
