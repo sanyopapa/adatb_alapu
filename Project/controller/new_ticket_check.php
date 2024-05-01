@@ -21,6 +21,13 @@
         if($idotartam <= 0){
             $problems['idotartam'] = 'Az időtartam értéke nem lehet negatív vagy nulla!';
         }
+        if(!is_numeric($ar)){
+            $problems['ar'] = 'Az ár csak szám lehet!';
+        }
+        if(!is_numeric($idotartam)){
+            $problems['idotartam'] = 'Az időtartam csak szám lehet!';
+        }
+        
         $query = "SELECT COUNT(*) FROM Jegy WHERE Tipus = :tipus";
         $stmt = oci_parse($con, $query);
         oci_bind_by_name($stmt, ":tipus", $tipus);

@@ -25,7 +25,7 @@ if (!isset($_SESSION)) {
     <link rel="stylesheet" href="../styles/form.css?v=<?php echo time(); ?>">
 
 
-    <title>R150 Vasútmenetrend - Jegymódosítás</title>
+    <title>R150 Vasútmenetrend - Kozlekedik módosítása</title>
 </head>
 
 <body>
@@ -38,7 +38,7 @@ if (!isset($_SESSION)) {
 		<main class="torzs">
 		<div class="text1">
 		
-		<h1>Jegyek módosítása</h1>
+		<h1>Vonatok közlekedésének módosítása</h1>
 		
 		</div>
 		';
@@ -51,10 +51,10 @@ if (!isset($_SESSION)) {
 	include("../controller/connection.php");	
 
    
-    $tipus_error = "";
-    $ar_error = "";
-    $feltetel_error = "";
-    $idotartam_error = "";
+    $allomasnev_error = "";
+    $vonatszam_error = "";
+    $erkezes_error = "";
+    $indulas_error = "";
     $success = '';
     $deleted = '';
     
@@ -64,17 +64,17 @@ if (!isset($_SESSION)) {
 		$keys = array_keys($_SESSION["message"]);
 		for($i=0; $i < count($_SESSION["message"]); $i++) {
 			
-            if ($keys[$i] == 'tipus') {
-                $tipus_error .= $_SESSION["message"][$keys[$i]] . ' ';
+            if ($keys[$i] == 'allomasnev') {
+                $allomasnev_error .= $_SESSION["message"][$keys[$i]] . ' ';
             }
-            if ($keys[$i] == 'ar') {
-                $ar_error .= $_SESSION["message"][$keys[$i]] . ' ';
+            if ($keys[$i] == 'vonatszam') {
+                $vonatszam_error .= $_SESSION["message"][$keys[$i]] . ' ';
             }
-            if ($keys[$i] == 'feltetel') {
-                $feltetel_error .= $_SESSION["message"][$keys[$i]] . ' ';
+            if ($keys[$i] == 'erkezes') {
+                $erkezes_error .= $_SESSION["message"][$keys[$i]] . ' ';
             }
-            if ($keys[$i] == 'idotartam') {
-                $idotartam_error .= $_SESSION["message"][$keys[$i]] . ' ';
+            if ($keys[$i] == 'indulas') {
+                $indulas_error .= $_SESSION["message"][$keys[$i]] . ' ';
             }
 
             if($keys[$i] == 'success'){
@@ -95,28 +95,28 @@ if (!isset($_SESSION)) {
         include ("../controller/connection.php");
         include ("../controller/functions.php");
         # Szerencsétlen CLOB mező olvasására
-      
+
 
         #sikeresség/problémák kiírása
-        if(strlen($tipus_error)>0){
+        if(strlen($allomasnev_error)>0){
             echo '<div class="warning">';
-            echo $tipus_error;
+            echo $allomasnev_error;
             echo "</div>";
         }
 
-        if(strlen($ar_error)>0){
+        if(strlen($vonatszam_error)>0){
             echo '<div class="warning">';
-            echo $ar_error;
+            echo $vonatszam_error;
             echo "</div>";
         } 
-        if(strlen($feltetel_error)> 0){
+        if(strlen($erkezes_error)> 0){
             echo '<div class="warning">';
-            echo $feltetel_error;
+            echo $erkezes_error;
             echo "</div>";
         }
-        if(strlen($idotartam_error)>0){
+        if(strlen($indulas_error)>0){
             echo '<div class="warning">';
-            echo $idotartam_error;
+            echo $indulas_error;
             echo "</div>";
         }
 
@@ -140,31 +140,32 @@ if (!isset($_SESSION)) {
         #új hír hozzáadása
 
         echo'<div class="new_news">
-        <form method="POST" id="form-login" class="login-link" action="admin_ticket_edit.php">
-            <label for="">Ezzel a gombbal új jegyet tudsz kiírni.</label><br><br>
+        <form method="POST" id="form-login" class="login-link" action="admin_kozlekedik_edit.php">
+            <label for="">Ezzel a gombbal új vonatnak a közlekedését tudod megadni.</label><br><br>
             <input type="hidden" name="name" value="">
+            <input type="hidden" name="vonatszam" value="">
             <input type="hidden" name="new_ticket" value=true>
-            <input type="submit" value="Új jegy">
+            <input type="submit" value="Új vonat">
             </form>
             </div>';
 
 
 
         #meglevő hírek kiírása
-        $query = 'SELECT * FROM Jegy';
+        $query = 'SELECT * FROM Kozlekedik';
         $stmt = oci_parse($con, $query);
         oci_execute($stmt);
 
 
         
 
-            echo "<table class='table_div_kozerdek table_news'>";
+            echo "<table class='table_div_kozerdek '>";
             echo '
             <tr>
-                <th class="table_header">Típus</th>
-                <th class="table_header">Ár</th>
-                <th class="table_header">Hatáskör</th>
-                <th class="table_header">Időtartam <br>(nap)</th>
+                <th class="table_header">Állomásnév</th>
+                <th class="table_header">Vonatszám</th>
+                <th class="table_header">Érkezés</th>
+                <th class="table_header">Indulás</th>
                 <th class="table_header" colspan="2">Szerkesztés</th>
             </tr>';
             
@@ -175,13 +176,14 @@ if (!isset($_SESSION)) {
                 $class = $count % 2 == 1 ? 'table_even' : 'table_odd';
                 $form_class = $count % 2 == 1 ? 'ticket_edit_even' : 'ticket_edit_odd';
                 
-                echo '<td class="' . $class . '">' . $row['TIPUS'] . '</td>';
-                echo '<td class="' . $class . '">' . $row['AR'] . '</td>';
-                echo '<td class="' . $class . '">' . $row['FELTETEL']->read($row['FELTETEL']->size()) . '</td>';
-                echo '<td class="' . $class . '">' . $row['IDOTARTAM'] . '</td>';
+                echo '<td class="' . $class . '">' . $row['ALLOMASNEV'] . '</td>';
+                echo '<td class="' . $class . '">' . $row['VONATSZAM'] . '</td>';
+                echo '<td class="' . $class . '">' . $row['ERKEZES'] . '</td>';
+                echo '<td class="' . $class . '">' . $row['INDULAS'] . '</td>';
                 echo '<td colspan="2" class="news_edit ' . $class . ' ' . $form_class . '">
-                <form method="POST" action="admin_ticket_edit.php">
-                <input type="hidden" name="name" value="' . $row['TIPUS'] . '">
+                <form method="POST" action="admin_kozlekedik_edit.php">
+                <input type="hidden" name="name" value="' . $row['ALLOMASNEV'] . '">
+                <input type="hidden" name="vonatszam" value="' . $row['VONATSZAM'] . '">
                 <input type="hidden" name="new_ticket" value="false">
                 <input type="submit" value="Módosítás">
                     </form> </td>';
