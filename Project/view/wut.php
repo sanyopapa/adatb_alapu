@@ -16,7 +16,16 @@
   </ul>
 </nav>
 
-<div class="overlay"></div>
+<div class="overlay">
+    <?php
+    $kerekparhelyek_szama="0";
+    if ( !is_numeric($kerekparhelyek_szama)) {
+        $problems['kerekparhelyek_szama'] = 'A kerékpárhelyek számát meg kell adni számként!';
+    }
+    echo $problems['kerekparhelyek_szama'];
+    ?>
+
+</div>
 
 <div class="content">
   <h1>Main Content</h1>

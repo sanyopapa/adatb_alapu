@@ -47,6 +47,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 
 	// Connect to the Oracle database
 	include("../controller/connection.php");
+	include("../controller/functions.php");
 
 	// Prepare the SQL query
 	$query = "SELECT * from vasarol";
@@ -59,9 +60,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 	if (oci_fetch($statement)) {
 		echo '<table>
 		<thead>
-		<tr>
-			<th colspan="3" class="table_header">Vásárlások:</th>
-		</tr>
+		
 		<tr>
 			<th class="table_header">Email</th>
 			<th class="table_header">Tipus</th>
@@ -90,7 +89,13 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 		}
 		echo '</tbody></table><br>';
 	}
-
+?>
+	<div class="text1" style="margin-top:50px">
+		
+	<h1>Vonatközlekedés</h1>
+	
+	</div>
+<?php
 	$query = "SELECT * from Kozlekedik";
 
 	$statement = oci_parse($con, $query);
@@ -99,14 +104,12 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
     if (oci_fetch($statement)) {
     echo '<table>
 		<thead>
-		<tr>
-			<th colspan="4" class="table_header">Vonatok közlekedése:</th>
-		</tr>
+	
 		<tr>
 			<th class="table_header">Állomásnév</th>
 			<th class="table_header">Vonatszám</th>
-			<th class="table_header">Érkezés</th>
-            <th class="table_header">Indulás</th>
+			<th class="table_header" id="th_big">Érkezés</th>
+            <th class="table_header" id="th_big">Indulás</th>
 		</tr>
 		</thead>
 		<tbody>';
@@ -121,8 +124,8 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
         echo '<tr>
         <td class="' . $class . '">' . $allomasNev . '</td>
         <td class="' . $class . '">' . $vonatszam . '</td>
-        <td class="' . $class . '">' . $erkezes . '</td>
-        <td class="' . $class . '">' . $indulas . '</td>
+        <td class="' . $class . '">' . DateToStr($erkezes) . '</td>
+        <td class="' . $class . '">' . DateToStr($indulas) . '</td>
         </tr>';
         $count++;
     }

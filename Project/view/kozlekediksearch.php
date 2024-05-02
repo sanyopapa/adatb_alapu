@@ -159,7 +159,7 @@ if (!isset($_SESSION)) {
 
         
 
-            echo "<table class='table_div_kozerdek '>";
+            echo "<table class='table_div_kozerdek table_centered'>";
             echo '
             <tr>
                 <th class="table_header">Állomásnév</th>

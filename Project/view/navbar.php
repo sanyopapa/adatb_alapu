@@ -57,15 +57,15 @@
       echo '<div class="dropgomb">
       <button class="navbar-gomb">Admin funkciók</button>
       <div class="dropdown">
-        <a class="inactive_dropdown" href="admin_view.php">Vásárlások megtekintése</a>
+        <a class="inactive_dropdown" href="admin_view.php">Vásárlások és közlekedés megtekintése</a>
         <a class="inactive_dropdown" href="profilesearch.php">Profilok módosítása</a>
         <a class="inactive_dropdown" href="newssearch.php">Hírek módosítása</a>
+        <a class="inactive_dropdown" href="menetrendsearch.php">Menetrend módosítása</a>
         <a class="inactive_dropdown" href="ticketsearch.php">Jegyek módosítása</a> 
-        <a class="inactive_dropdown" href="kozlekediksearch.php">Közlekedés módosítása</a>
         <a class="inactive_dropdown" href="allomassearch.php">Állomások módosítása</a>
-        <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
-         <a class="inactive_dropdown" href="">Járatok módosítása</a>
-        <a class="inactive_dropdown" href="menetrendsearch.php">Menetrend módosítása</a>';
+        <a class="inactive_dropdown" href="szerelvenysearch.php">Szerelvények módosítása</a>
+        <a class="inactive_dropdown" href="kozlekediksearch.php">Közlekedés módosítása</a>
+        ';
  /*       
        
         <a class="inactive_dropdown" href="">"Közlekedik" módosítása</a>
