@@ -13,8 +13,12 @@ if (!isset($_SESSION)) {
     $siker = oci_execute($stmt);
 
     // Check if the delete was successful
-    
-    $problems['deleted']="Sikeres törlés!";
+    if ($siker) {
+        $problems['success'] = "Sikeres törlés!";
+    } else {
+        $problems['deleted'] = "Sikertelen törlés!";
+    }
+
     $_SESSION["message"] = $problems;
     header("Location: ../view/ticketsearch.php");
 

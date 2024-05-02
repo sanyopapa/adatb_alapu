@@ -21,7 +21,9 @@ CREATE TABLE Jarat (
     Hova VARCHAR(255),
     Indulasi_ido TIMESTAMP,
     Menetido TIMESTAMP,
-    Vonattipus VARCHAR(255)
+    Vonattipus VARCHAR(255),
+    FOREIGN KEY (Honnan) REFERENCES Allomas(Nev) ON DELETE CASCADE,
+    FOREIGN KEY (Hova) REFERENCES Allomas(Nev) ON DELETE CASCADE
 );
 CREATE TABLE Kozlekedik (
     AllomasNev VARCHAR(255),

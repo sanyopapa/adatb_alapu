@@ -62,11 +62,8 @@ $new_ticket = $_POST['new_ticket'];
 
     
     <?php
-# Szerencsétlen CLOB mező olvasására
-function read_clob($field)
-{
-    return $field->read($field->size());
-}
+include ("../controller/functions.php");
+
 
 if(isset($_SESSION["user_name"])) {
     if ($_SESSION["admin"] == 1 && $new_ticket == "false")  {

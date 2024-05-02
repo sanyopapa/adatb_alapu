@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         // Ellenőrizzük, hogy sikeres volt-e a beszúrás
         if ($success) {
             // Sikeres beszúrás esetén átirányítás
+            $problems['success']="Sikeres beszúrás!";
             header("Location: ../view/kozlekediksearch.php");
             die;
         } else {

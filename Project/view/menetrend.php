@@ -50,6 +50,7 @@ setcookie("visits", $latogatasok, time() + (60 * 60 * 24 * 30), "/");
 
 	// Connect to the Oracle database
 	include("../controller/connection.php");
+	include("../controller/functions.php");
 
 
 //Jegyek
@@ -60,7 +61,7 @@ $stmt = oci_parse($con, $sql);
 oci_execute($stmt);
 
 // Display the data in a table
-echo "<table>";
+echo "<table class='table_centered'>";
 echo '<tr>
 
 </tr>
@@ -68,7 +69,7 @@ echo '<tr>
     <th class="table_header">Vonatszám</th>
     <th class="table_header">Honnan</th>
     <th class="table_header">Hova</th>
-    <th class="table_header">Indulási idő</th>
+    <th class="table_header" id="th_big">Indulási idő</th>
     <th class="table_header">Menetidő</th>
     <th class="table_header">Típus</th>
 </tr>';
@@ -81,8 +82,8 @@ while ($row = oci_fetch_assoc($stmt)) {
     echo '<td class="' . $class . '">' . $row['VONATSZAM'] . '</td>';
     echo '<td class="' . $class . '">' . $row['HONNAN'] . '</td>';
     echo '<td class="' . $class . '">' . $row['HOVA'] . '</td>';
-    echo '<td class="' . $class . '">' . $row['INDULASI_IDO'] . '</td>';
-    echo '<td class="' . $class . '">' . $row['MENETIDO'] . '</td>';
+    echo '<td class="' . $class . '">' . DateToStr($row['INDULASI_IDO']) . '</td>';
+    echo '<td class="' . $class . '">' . DateToHour($row['MENETIDO']) . '</td>';
     echo '<td class="' . $class . '">' . $row['VONATTIPUS'] . '</td>';
     echo "</tr>";
     $count++;

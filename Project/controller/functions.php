@@ -28,3 +28,37 @@ function read_clob($field)
 {
     return $field->read($field->size());
 }
+
+
+function DateToStr($input_date) {
+    // Az eredeti formátum megadása
+    $original_format = "d-M-y H.i.s.u";
+
+    // A célformátum megadása
+    $desired_format = "Y-M-d H:i";
+
+    // Dátum- és időformátumok átalakítása
+    $timestamp = DateTime::createFromFormat($original_format, $input_date);
+    if ($timestamp === false) {
+        return "-";
+    }
+    $output_date = $timestamp->format($desired_format);
+
+    return $output_date;
+}
+function DateToHour($input_date) {
+    // Az eredeti formátum megadása
+    $original_format = "d-M-y H.i.s.u";
+
+    // A célformátum megadása
+    $desired_format = "H:i";
+
+    // Dátum- és időformátumok átalakítása
+    $timestamp = DateTime::createFromFormat($original_format, $input_date);
+    if ($timestamp === false) {
+        return "-";
+    }
+    $output_date = $timestamp->format($desired_format);
+
+    return $output_date;
+}

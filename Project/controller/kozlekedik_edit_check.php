@@ -3,20 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include("connection.php");
-
-function DTLToStr($converted_string) {
-    // Átalakítjuk az adott formátumra
-    $datetime = str_replace("T", " ", $converted_string) . ":00";
-
-    // Ellenőrizzük, hogy sikerült-e a konverzió
-    if ($datetime === false) {
-        return ""; // Sikertelen konverzió esetén üres stringet adjunk vissza
-    }
-
-    // Eredeti string formátumra alakítása
-    return $datetime;
- 
-}
+include("functions.php");
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {

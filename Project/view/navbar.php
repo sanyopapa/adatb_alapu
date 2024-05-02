@@ -61,9 +61,13 @@
         <a class="inactive_dropdown" href="profilesearch.php">Profilok módosítása</a>
         <a class="inactive_dropdown" href="newssearch.php">Hírek módosítása</a>
         <a class="inactive_dropdown" href="ticketsearch.php">Jegyek módosítása</a> 
-        <a class="inactive_dropdown" href="kozlekediksearch.php">"Közlekedik" módosítása</a>';
- /*        <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
-        <a class="inactive_dropdown" href="">Járatok módosítása</a>
+        <a class="inactive_dropdown" href="kozlekediksearch.php">Közlekedés módosítása</a>
+        <a class="inactive_dropdown" href="allomassearch.php">Állomások módosítása</a>
+        <a class="inactive_dropdown" href="">Szerelvények módosítása</a>
+         <a class="inactive_dropdown" href="">Járatok módosítása</a>
+        <a class="inactive_dropdown" href="menetrendsearch.php">Menetrend módosítása</a>';
+ /*       
+       
         <a class="inactive_dropdown" href="">"Közlekedik" módosítása</a>
         <a class="inactive_dropdown" href="">Jegyek módosítása</a> */
         echo'</div></div>';
