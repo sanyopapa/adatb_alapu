@@ -24,6 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // Ha nincsenek hibák, akkor hajtsuk végre a beszúrást
     if (count($problems) == 0) {
+        // Ellenőrzés, hogy az állomás név már létezik-e
+        $query = "SELECT * FROM Allomas WHERE Nev = :nev";
+        $stid = oci_parse($con, $query);
+        oci_bind_by_name($stid, ':nev', $nev);
+        oci_execute($stid);
+        if (oci_fetch($stid)) {
+            $problems['nev'] = 'Ilyen állomás már létezik a rendszerben!';
+            $success = false;
+        } else{
         // Prepare the insert statement
         $query = "INSERT INTO Allomas (Nev, Varos)
                   VALUES (:nev, :varos)";
@@ -32,11 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         oci_bind_by_name($stmt, ":nev", $nev);
         oci_bind_by_name($stmt, ":varos", $varos);
         $success = oci_execute($stmt);
-
+        }
         // Ellenőrizzük, hogy sikeres volt-e a beszúrás
         if ($success) {
             // Sikeres beszúrás esetén átirányítás
-            header("Location: ../view/allomas_view.php");
+            header("Location: ../view/allomassearch.php");
             die;
         } else {
             // Hibás végrehajtás esetén hibaüzenet beállítása
@@ -48,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $_SESSION["message"] = $problems;
 
     // Átirányítás a ticketsearch.php oldalra
-    header('Location: ../view/allomas_search.php');
+    header('Location: ../view/allomassearch.php');
     die;
 } else {
     // Ha nem POST kérés érkezett, az adatbázis kapcsolat bezárása
