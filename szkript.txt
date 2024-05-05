@@ -117,39 +117,6 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE FUNCTION calculate_travel_time(p_vonatszam INT)
-RETURN INTERVAL DAY TO SECOND AS
-  v_start_time TIMESTAMP;
-  v_end_time TIMESTAMP;
-  v_travel_time INTERVAL DAY TO SECOND;
-  v_stored_travel_time TIMESTAMP;
-BEGIN
-  -- Kiszámolja a menetidőt a "Közlekedik" tábla alapján
-  SELECT MIN(CAST(Erkezes AS TIMESTAMP)), MAX(CAST(Indulas AS TIMESTAMP))
-  INTO v_start_time, v_end_time
-  FROM Kozlekedik
-  WHERE Vonatszam = p_vonatszam;
-
-  v_travel_time := v_end_time - v_start_time;
-
-  -- Megnézi, hogy a kiszámolt idő eltér-e a "Járat" táblában tárolttól
-  SELECT Menetido
-  INTO v_stored_travel_time
-  FROM Jarat
-  WHERE Vonatszam = p_vonatszam;
-
-  IF v_travel_time != (v_stored_travel_time - TO_TIMESTAMP('1970-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS')) THEN
-    DBMS_OUTPUT.PUT_LINE('A kiszámolt menetidő eltér a tároltól, frissítés szükséges.');
-
-    -- Frissíti a "Járat" táblát az új menetidővel
-    UPDATE Jarat
-    SET Menetido = TO_TIMESTAMP('1970-01-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS') + v_travel_time
-    WHERE Vonatszam = p_vonatszam;
-  END IF;
-
-  RETURN v_travel_time;
-END calculate_travel_time;
-/
 
 CREATE OR REPLACE FUNCTION get_alacsonypadlos RETURN SYS_REFCURSOR IS 
   alacsonypadlos_cur SYS_REFCURSOR;
